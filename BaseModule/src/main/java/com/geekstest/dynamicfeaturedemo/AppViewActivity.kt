@@ -8,6 +8,5 @@ class AppViewActivity : BaseConfigurations() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_view)
 
-
     }
 }
