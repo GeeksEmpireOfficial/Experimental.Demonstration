@@ -1,0 +1,2 @@
+include ':BaseModule', ':DynamicFeatureOnDemand'
+rootProject.name='DynamicFeatureDemo'
