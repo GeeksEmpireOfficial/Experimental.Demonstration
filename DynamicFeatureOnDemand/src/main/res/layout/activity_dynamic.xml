@@ -7,6 +7,7 @@
         tools:context=".DynamicActivity">
 
     <TextClock
+            android:id="@+id/aClock"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorAccent"/>

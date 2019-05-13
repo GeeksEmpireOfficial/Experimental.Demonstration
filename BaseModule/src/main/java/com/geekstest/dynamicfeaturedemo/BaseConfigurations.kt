@@ -6,6 +6,12 @@ import com.google.android.play.core.splitcompat.SplitCompat
 
 open class BaseConfigurations : Activity() {
 
+    companion object {
+        val dynamicModule = "DynamicFeatureOnDemand"
+        val dynamicPackageName = "com.geekstest.dynamicfeatureondemand"
+        val dynamicClassName = "$dynamicPackageName.DynamicActivity"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         SplitCompat.install(this)
