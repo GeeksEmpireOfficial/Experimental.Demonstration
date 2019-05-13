@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.geekstest.dynamicfeaturedemo"
+        applicationId "net.geeksempire.experimental.demonstration"
 
         minSdkVersion 23
         targetSdkVersion 28

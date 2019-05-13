@@ -86,6 +86,10 @@ class AppViewActivity : BaseConfigurations() {
             )
             splitInstallManager.deferredUninstall(moduleToUninstall).addOnSuccessListener {
                 println("Module Uninstalled Successfully: ")
+
+                splitInstallManager.installedModules.forEach {
+                    println("*** Installed Modules " + it + " ***")
+                }
             }.addOnFailureListener {
                 println("Exception Error:" + it)
             }
