@@ -6,6 +6,10 @@ import com.geekstest.dynamicfeaturedemo.BaseConfigurations
 
 class DynamicActivity : BaseConfigurations() {
 
+    companion object {
+        const val xNumber: Int = 333
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dynamic)
