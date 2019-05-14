@@ -37,7 +37,7 @@ class AppViewActivity : BaseConfigurations() {
                     Handler().run {
                         SplitInstallHelper.updateAppInfo(applicationContext)
 
-//                        val dynamicFunctionsClass: DynamicFunctionsClass = DynamicFunctionsClass(applicationContext)
+//                        val dynamicFunctionsClass = DynamicFunctionsClass(applicationContext)
                     }
                     when (splitInstallSessionState.moduleNames()[0]) {
                         BaseConfigurations.dynamicModule -> {

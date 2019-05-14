@@ -5,7 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import com.google.android.play.core.splitcompat.SplitCompat
 
-open class BaseConfigurations : Activity() {
+abstract class BaseConfigurations : Activity() {
 
     companion object {
         const val dynamicModule = "DynamicFeatureOnDemand"
