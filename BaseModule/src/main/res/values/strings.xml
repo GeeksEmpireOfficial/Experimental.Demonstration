@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">DynamicFeatureDemo</string>
-    <string name="title_dynamicfeatureondemand">Dynamic Feature On Demand</string>
+    <string name="app_name">☣ XYZ Demo ☣</string>
+    <string name="title_dynamicfeatureondemand">☣ XYZ Demo ☣</string>
+
     <string name="installDynamicFeature">Install Dynamic Feature</string>
 </resources>
