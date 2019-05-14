@@ -74,7 +74,7 @@ class AppViewActivity : BaseConfigurations() {
                     startActivity(it)
                 }
             } else {
-                /*val splitInstallRequest: SplitInstallRequest =
+                val splitInstallRequest: SplitInstallRequest =
                     SplitInstallRequest
                         .newBuilder()
                         .addModule(BaseConfigurations.dynamicModule)
@@ -87,23 +87,8 @@ class AppViewActivity : BaseConfigurations() {
                     }
                     .addOnFailureListener {
                         println("Exception Error:" + it)
-                    }*/
+                    }
             }
-
-            val splitInstallRequest: SplitInstallRequest =
-                SplitInstallRequest
-                    .newBuilder()
-                    .addModule(BaseConfigurations.dynamicModule)
-                    .build()
-
-            splitInstallManager
-                .startInstall(splitInstallRequest)
-                .addOnSuccessListener {
-                    println("Module Installed Successfully")
-                }
-                .addOnFailureListener {
-                    println("Exception Error:" + it)
-                }
         }
         dynamicFeature.setOnLongClickListener {
 
