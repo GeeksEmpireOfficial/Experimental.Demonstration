@@ -12,8 +12,8 @@ android {
         minSdkVersion 23
         targetSdkVersion 28
 
-        versionCode 3
-        versionName "XYZ_THREE"
+        versionCode 4
+        versionName "XYZ_FOUR"
     }
 
     buildTypes {
