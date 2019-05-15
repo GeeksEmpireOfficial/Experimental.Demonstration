@@ -4,7 +4,9 @@
 <font color="#ff0000"><b>Experimenting</b></font> <b>New SDK & API</b>... <br />
  <br />
 [<font color="#0700ff"><b>Current Experiment</b></font>] <br />
-🧪 <b>App Bundle & Dynamic Features</b>  <br />
+🧪 <b>App Bundle</b> <br /> 
+🧪 <b>Dynamic Features</b> <br />
+🧪 <b>In-App Update</b>  <br />
 https://github.com/GeeksEmpireNet/AndroidDynamicFeaturesDeliveryDemo <br />
  <br />
 <b>Geeks Empire Open Source Projects</b> | <b>Github</b> <br />
