@@ -1,11 +1,11 @@
 package com.geekstest.dynamicfeaturedemo
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.play.core.splitcompat.SplitCompat
 
-abstract class BaseConfigurations : Activity() {
+abstract class BaseConfigurations : AppCompatActivity() {
 
     companion object {
         const val dynamicModule = "DynamicFeatureOnDemand"
