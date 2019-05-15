@@ -1,6 +1,10 @@
 package com.geekstest.dynamicfeaturedemo
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.Path
 import android.os.Bundle
 import android.os.Handler
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -59,7 +63,27 @@ class AppViewActivity : BaseConfigurations() {
                     Handler().run {
                         SplitInstallHelper.updateAppInfo(applicationContext)
 
-//                        val dynamicFunctionsClass = DynamicFunctionsClass(applicationContext)
+                        val assetManager = assets
+                        val inputStream = assetManager.open("dynamic_image.png")
+                        val bitmap = BitmapFactory.decodeStream(inputStream)
+
+                        val width = bitmap.getWidth()
+                        val height = bitmap.getHeight()
+                        val outputBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+
+                        val path = Path()
+                        path.addCircle(
+                            (width / 2).toFloat(),
+                            (height / 2).toFloat(),
+                            (dynamicImage.width / 2).toFloat(),
+                            Path.Direction.CCW
+                        )
+
+                        val canvas = Canvas(outputBitmap)
+                        canvas.clipPath(path)
+                        canvas.drawBitmap(bitmap, 0f, 0f, null)
+
+                        dynamicImage.setImageBitmap(outputBitmap)
                     }
                     when (splitInstallSessionState.moduleNames()[0]) {
                         BaseConfigurations.dynamicModule -> {
@@ -138,6 +162,30 @@ class AppViewActivity : BaseConfigurations() {
             .addOnFailureListener {
                 println("*** Exception Error ${it} ***")
             }
+
+        if (installedModule.contains(BaseConfigurations.dynamicModule)) {
+            val assetManager = assets
+            val inputStream = assetManager.open("dynamic_image.png")
+            val bitmap = BitmapFactory.decodeStream(inputStream)
+
+            val width = bitmap.getWidth()
+            val height = bitmap.getHeight()
+            val outputBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+
+            val path = Path()
+            path.addCircle(
+                (width / 2).toFloat(),
+                (height / 2).toFloat(),
+                Math.min(width, height / 2).toFloat(),
+                Path.Direction.CCW
+            )
+
+            val canvas = Canvas(outputBitmap)
+            canvas.clipPath(path)
+            canvas.drawBitmap(bitmap, 0f, 0f, null)
+
+            dynamicImage.setImageBitmap(outputBitmap)
+        }
 
         dynamicFeature.setOnClickListener {
             if (installedModule.contains(BaseConfigurations.dynamicModule)) {

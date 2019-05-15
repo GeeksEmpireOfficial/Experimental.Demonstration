@@ -11,7 +11,9 @@
             android:largeHeap="true"
             android:theme="@style/AppTheme">
 
-        <activity android:name=".AppViewActivity">
+        <activity
+                android:name=".AppViewActivity"
+                android:theme="@style/Theme.MaterialComponents">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>
