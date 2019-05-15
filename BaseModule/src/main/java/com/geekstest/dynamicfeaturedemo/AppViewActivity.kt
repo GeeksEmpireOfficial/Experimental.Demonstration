@@ -3,16 +3,19 @@ package com.geekstest.dynamicfeaturedemo
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.InstallStateUpdatedListener
 import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
 import com.google.android.play.core.splitinstall.*
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 import com.google.android.play.core.tasks.Task
-import kotlinx.android.synthetic.main.app_view.*
+import kotlinx.android.synthetic.main.app_main_view.*
 
 
 class AppViewActivity : BaseConfigurations() {
@@ -28,14 +31,10 @@ class AppViewActivity : BaseConfigurations() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.app_view)
+        setContentView(R.layout.app_main_view)
 
         splitInstallStateUpdatedListener = SplitInstallStateUpdatedListener { splitInstallSessionState ->
             when (splitInstallSessionState.status()) {
-                SplitInstallSessionStatus.DOWNLOADING -> {
-                    //Play Store.
-                    println("*** Split Downloading ***")
-                }
                 SplitInstallSessionStatus.REQUIRES_USER_CONFIRMATION -> {
                     //Play Store.
                     println("*** Split Confirmation ***")
@@ -44,6 +43,16 @@ class AppViewActivity : BaseConfigurations() {
                         this@AppViewActivity,
                         SPLIT_REQUEST_CODE
                     )
+                }
+                SplitInstallSessionStatus.DOWNLOADING -> {
+                    //Play Store.
+                    println("*** Split Downloading ***")
+                }
+                SplitInstallSessionStatus.DOWNLOADED -> {
+
+                }
+                SplitInstallSessionStatus.INSTALLING -> {
+                    println("*** Split Installing ***")
                 }
                 SplitInstallSessionStatus.INSTALLED -> {
                     println("*** Module Installed: ${splitInstallSessionState.moduleNames()[0]}")
@@ -61,17 +70,13 @@ class AppViewActivity : BaseConfigurations() {
                                 }
                         }
                     }
-                }
-
-                SplitInstallSessionStatus.INSTALLING -> {
-                    println("*** Split Installing ***")
+                    splitInstallManager.unregisterListener(splitInstallStateUpdatedListener)
                 }
                 SplitInstallSessionStatus.FAILED -> {
 
                 }
             }
         }
-
         splitInstallManager = SplitInstallManagerFactory.create(applicationContext)
         splitInstallManager.registerListener(splitInstallStateUpdatedListener)
         val installedModule = splitInstallManager.installedModules
@@ -81,13 +86,35 @@ class AppViewActivity : BaseConfigurations() {
 
         installStateUpdatedListener = InstallStateUpdatedListener {
             when (it.installStatus()) {
+                InstallStatus.REQUIRES_UI_INTENT -> {
+                    println("*** UPDATE UI Intent ***")
+                }
+                InstallStatus.DOWNLOADING -> {
+                    println("*** UPDATE Downloading ***")
+                }
+                InstallStatus.DOWNLOADED -> {
+                    println("*** UPDATE Downloaded ***")
 
+                    showCompleteConfirmation()
+                }
+                InstallStatus.INSTALLING -> {
+                    println("*** UPDATE Installing ***")
+                }
+                InstallStatus.INSTALLED -> {
+                    println("*** UPDATE Installed ***")
+
+                    appUpdateManager.unregisterListener(installStateUpdatedListener)
+                }
+                InstallStatus.CANCELED -> {
+                    println("*** UPDATE Canceled ***")
+                }
+                InstallStatus.FAILED -> {
+                    println("*** UPDATE Failed ***")
+                }
             }
         }
-        // Creates instance of the manager.
         appUpdateManager = AppUpdateManagerFactory.create(applicationContext)
         appUpdateManager.registerListener(installStateUpdatedListener)
-        // Returns an intent object that you use to check for an update.
         val appUpdateInfo: Task<AppUpdateInfo> = appUpdateManager.appUpdateInfo
         appUpdateInfo
             .addOnCompleteListener {
@@ -157,8 +184,7 @@ class AppViewActivity : BaseConfigurations() {
     override fun onResume() {
         super.onResume()
 
-        appUpdateManager
-            .appUpdateInfo
+        appUpdateManager.appUpdateInfo
             .addOnSuccessListener { appUpdateInfo ->
                 if (appUpdateInfo.updateAvailability()
                     == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS
@@ -166,9 +192,13 @@ class AppViewActivity : BaseConfigurations() {
                     appUpdateManager.startUpdateFlowForResult(
                         appUpdateInfo,
                         AppUpdateType.IMMEDIATE,
-                        this,
+                        this@AppViewActivity,
                         IN_APP_UPDATE_REQUEST
                     )
+                }
+
+                if (appUpdateInfo.installStatus() == InstallStatus.DOWNLOADED) {
+                    showCompleteConfirmation()
                 }
             }
     }
@@ -190,5 +220,16 @@ class AppViewActivity : BaseConfigurations() {
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
+    }
+
+    fun showCompleteConfirmation() {
+        val snackbar = Snackbar.make(
+            findViewById<ConstraintLayout>(R.id.mainView),
+            "An Update has Just Been Installed.",
+            Snackbar.LENGTH_INDEFINITE
+        )
+        snackbar.setAction("Complete It!") { view -> appUpdateManager.completeUpdate() }
+        snackbar.setActionTextColor(getColor(android.R.color.holo_blue_bright))
+        snackbar.show()
     }
 }
