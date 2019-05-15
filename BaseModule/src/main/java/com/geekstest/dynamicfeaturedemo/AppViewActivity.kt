@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Path
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -61,29 +62,37 @@ class AppViewActivity : BaseConfigurations() {
                 SplitInstallSessionStatus.INSTALLED -> {
                     println("*** Module Installed: ${splitInstallSessionState.moduleNames()[0]}")
                     Handler().run {
-                        SplitInstallHelper.updateAppInfo(applicationContext)
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            // Updates app info with new split information making split artifacts available to the
+                            // app on subsequent requests.
+                            SplitInstallHelper.updateAppInfo(applicationContext);
+                        }
 
-                        val assetManager = assets
-                        val inputStream = assetManager.open("dynamic_image.png")
-                        val bitmap = BitmapFactory.decodeStream(inputStream)
+                        Handler().postDelayed({
+                            runOnUiThread {
+                                val assetManager = assets
+                                val inputStream = assetManager.open("dynamic_image.png")
+                                val bitmap = BitmapFactory.decodeStream(inputStream)
 
-                        val width = bitmap.getWidth()
-                        val height = bitmap.getHeight()
-                        val outputBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+                                val width = bitmap.getWidth()
+                                val height = bitmap.getHeight()
+                                val outputBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
 
-                        val path = Path()
-                        path.addCircle(
-                            (width / 2).toFloat(),
-                            (height / 2).toFloat(),
-                            (dynamicImage.width / 2).toFloat(),
-                            Path.Direction.CCW
-                        )
+                                val path = Path()
+                                path.addCircle(
+                                    (width / 2).toFloat(),
+                                    (height / 2).toFloat(),
+                                    (dynamicImage.width).toFloat(),
+                                    Path.Direction.CCW
+                                )
 
-                        val canvas = Canvas(outputBitmap)
-                        canvas.clipPath(path)
-                        canvas.drawBitmap(bitmap, 0f, 0f, null)
+                                val canvas = Canvas(outputBitmap)
+                                canvas.clipPath(path)
+                                canvas.drawBitmap(bitmap, 0f, 0f, null)
 
-                        dynamicImage.setImageBitmap(outputBitmap)
+                                dynamicImage.setImageBitmap(outputBitmap)
+                            }
+                        }, 1000)
                     }
                     when (splitInstallSessionState.moduleNames()[0]) {
                         BaseConfigurations.dynamicModule -> {
@@ -164,27 +173,31 @@ class AppViewActivity : BaseConfigurations() {
             }
 
         if (installedModule.contains(BaseConfigurations.dynamicModule)) {
-            val assetManager = assets
-            val inputStream = assetManager.open("dynamic_image.png")
-            val bitmap = BitmapFactory.decodeStream(inputStream)
+            Handler().postDelayed({
+                runOnUiThread {
+                    val assetManager = assets
+                    val inputStream = assetManager.open("dynamic_image.png")
+                    val bitmap = BitmapFactory.decodeStream(inputStream)
 
-            val width = bitmap.getWidth()
-            val height = bitmap.getHeight()
-            val outputBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+                    val width = bitmap.getWidth()
+                    val height = bitmap.getHeight()
+                    val outputBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
 
-            val path = Path()
-            path.addCircle(
-                (width / 2).toFloat(),
-                (height / 2).toFloat(),
-                Math.min(width, height / 2).toFloat(),
-                Path.Direction.CCW
-            )
+                    val path = Path()
+                    path.addCircle(
+                        (width / 2).toFloat(),
+                        (height / 2).toFloat(),
+                        (dynamicImage.width).toFloat(),
+                        Path.Direction.CCW
+                    )
 
-            val canvas = Canvas(outputBitmap)
-            canvas.clipPath(path)
-            canvas.drawBitmap(bitmap, 0f, 0f, null)
+                    val canvas = Canvas(outputBitmap)
+                    canvas.clipPath(path)
+                    canvas.drawBitmap(bitmap, 0f, 0f, null)
 
-            dynamicImage.setImageBitmap(outputBitmap)
+                    dynamicImage.setImageBitmap(outputBitmap)
+                }
+            }, 1000)
         }
 
         dynamicFeature.setOnClickListener {
