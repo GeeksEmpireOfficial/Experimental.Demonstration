@@ -4,6 +4,7 @@
 <font color="#ff0000"><b>Experimenting</b></font> <b>New SDK & API</b>... <br />
  <br />
 [<font color="#0700ff"><b>Current Experiment</b></font>] <br />
+🧪 <b>Instant App</b> <br /> 
 🧪 <b>App Bundle</b> <br /> 
 🧪 <b>Dynamic Features</b> <br />
 🧪 <b>In-App Update</b>  <br />
