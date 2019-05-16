@@ -150,11 +150,7 @@ class AppViewActivity : BaseConfigurations() {
         appUpdateManager.registerListener(installStateUpdatedListener)
         val appUpdateInfo: Task<AppUpdateInfo> = appUpdateManager.appUpdateInfo
         appUpdateInfo
-            .addOnCompleteListener {
-                val updateInfo = it.result
-            }
             .addOnSuccessListener { updateInfo ->
-
                 println("*** ${updateInfo.updateAvailability()} --- ${updateInfo.availableVersionCode()} ***")
                 if (updateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
                     && updateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)
