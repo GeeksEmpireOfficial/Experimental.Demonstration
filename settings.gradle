@@ -1,2 +1,2 @@
-include ':BaseModule', ':DynamicFeatureOnDemand'
+include ':BaseModule', ':DynamicFeatureOnDemand', ':InstantAppModule'
 rootProject.name='DynamicFeatureDemo'
