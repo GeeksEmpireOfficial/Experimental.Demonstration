@@ -39,6 +39,10 @@
                         android:host="www.geeksempire.net"
                         android:path="/ExperimentalDemonstration/InstantApp"
                         android:scheme="https"/>
+                <data
+                        android:scheme="http"
+                        android:host="www.geeksempire.net"
+                        android:path="//ExperimentalDemonstration/InstantApp"/>
             </intent-filter>
         </activity>
     </application>
