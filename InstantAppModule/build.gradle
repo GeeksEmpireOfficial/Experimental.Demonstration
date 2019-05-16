@@ -10,8 +10,13 @@ android {
         minSdkVersion 23
         targetSdkVersion 28
 
-        versionCode 6
-        versionName "XYZ_SIX"
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 

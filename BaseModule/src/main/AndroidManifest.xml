@@ -3,9 +3,10 @@
           xmlns:dist="http://schemas.android.com/apk/distribution"
           package="com.geekstest.dynamicfeaturedemo">
 
-    <dist:module dist:instant="true"/>
-
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <dist:module dist:instant="true"/>
 
     <application
             android:allowBackup="true"
@@ -23,26 +24,6 @@
                 <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity android:name=".InstantAppActivity">
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW"/>
-            </intent-filter>
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW"/>
-
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-
-                <data
-                        android:host="www.geeksempire.net"
-                        android:path="/ExperimentalDemonstration/InstantApp"
-                        android:scheme="https"/>
-                <data
-                        android:scheme="http"
-                        android:host="www.geeksempire.net"
-                        android:path="//ExperimentalDemonstration/InstantApp"/>
             </intent-filter>
         </activity>
     </application>
