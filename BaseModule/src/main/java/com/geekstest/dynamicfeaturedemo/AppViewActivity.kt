@@ -20,6 +20,7 @@ import com.google.android.play.core.install.model.UpdateAvailability
 import com.google.android.play.core.splitinstall.*
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 import com.google.android.play.core.tasks.Task
+import com.google.firebase.FirebaseApp
 import kotlinx.android.synthetic.main.app_main_view.*
 
 
@@ -36,6 +37,7 @@ class AppViewActivity : BaseConfigurations() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(getApplicationContext());
         setContentView(R.layout.app_main_view)
 
         splitInstallStateUpdatedListener = SplitInstallStateUpdatedListener { splitInstallSessionState ->
