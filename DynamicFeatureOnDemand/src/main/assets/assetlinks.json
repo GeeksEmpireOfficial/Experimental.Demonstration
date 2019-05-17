@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "net.geeksempire.experimental.demonstration",
+      "sha256_cert_fingerprints": [
+        "42:A9:DE:86:E7:15:2C:04:B4:5D:4B:69:65:BC:80:A4:1F:6D:56:CE:55:20:58:61:47:A9:B4:03:63:AD:34:F4"
+      ]
+    }
+  }
+]

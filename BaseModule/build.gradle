@@ -45,10 +45,10 @@ android {
 
     flavorDimensions "XYZdemo"
     productFlavors {
-        betaConfig {
+        demoConfig {
             dimension "XYZdemo"
 
-            versionNameSuffix '[BETA]'
+            versionNameSuffix '[DEMO]'
         }
     }
 

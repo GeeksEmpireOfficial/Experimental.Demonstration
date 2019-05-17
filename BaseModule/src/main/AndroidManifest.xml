@@ -26,6 +26,31 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".InstantAppLink">
+            <intent-filter android:autoVerify="true" android:order="0">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="https"/>
+                <data android:scheme="http"/>
+                <data android:host="geeksempire.net"/>
+                <data android:pathPattern="/ExperimentalDemonstration/InstantApp"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true" android:order="1">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="geeksempire.net"/>
+                <data android:pathPattern="/ExperimentalDemonstration/InstantApp"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

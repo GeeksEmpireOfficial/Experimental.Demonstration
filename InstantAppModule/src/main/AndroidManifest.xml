@@ -9,20 +9,36 @@
         <dist:fusing dist:include="true"/>
     </dist:module>
 
-    <application>
+    <application
+            android:largeHeap="true"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
         <activity android:name=".InstantAppActivity">
-            <intent-filter
-                    android:autoVerify="true">
+            <intent-filter android:autoVerify="true" android:order="0">
                 <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:host="geeksempire.net"/>
-                <data android:pathPrefix="/ExperimentalDemonstration/InstantApp"/>
                 <data android:scheme="https"/>
                 <data android:scheme="http"/>
+                <data android:host="geeksempire.net"/>
+                <data android:pathPattern="/ExperimentalDemonstration/InstantApp"/>
             </intent-filter>
+            <intent-filter android:autoVerify="true" android:order="1">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="geeksempire.net"/>
+                <data android:pathPattern="/ExperimentalDemonstration/InstantApp"/>
+            </intent-filter>
+            <meta-data
+                    android:name="default-url"
+                    android:value="https://geeksempire.net/ExperimentalDemonstration/InstantApp"/>
         </activity>
     </application>
 </manifest>
