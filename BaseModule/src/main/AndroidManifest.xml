@@ -38,7 +38,7 @@
                 android:name=".AssistantAction"
                 android:exported="true"
                 android:theme="@style/Theme.MaterialComponents">
-            <intent-filter>
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>

@@ -2,11 +2,11 @@
 <actions>
     <action intentName="actions.intent.OPEN_APP_FEATURE">
         <fulfillment
-                urlTemplate="https://geeksempire.net/DemoAssistantActions/DEMO{?actionType}">
+                urlTemplate="https://geeksempire.net/DemoAssistantActions/AppToLaunch={?AppName}">
             <parameter-mapping
                     required="true"
                     intentParameter="feature"
-                    urlParameter="actionType"/>
+                    urlParameter="AppName"/>
         </fulfillment>
 
         <fulfillment
