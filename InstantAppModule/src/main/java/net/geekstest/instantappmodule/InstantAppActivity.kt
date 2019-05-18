@@ -2,8 +2,8 @@ package net.geekstest.instantappmodule
 
 import android.os.Bundle
 import android.widget.Toast
-import com.geekstest.dynamicfeaturedemo.BaseConfigurations
 import kotlinx.android.synthetic.main.instant_view.*
+import net.geeksempire.experimental.demonstration.BaseConfigurations
 
 
 class InstantAppActivity : BaseConfigurations() {

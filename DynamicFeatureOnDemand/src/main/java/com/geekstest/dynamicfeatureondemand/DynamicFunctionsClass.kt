@@ -1,7 +1,7 @@
 package com.geekstest.dynamicfeatureondemand
 
 import android.content.Context
-import com.geekstest.dynamicfeaturedemo.BaseConfigurations
+import net.geeksempire.experimental.demonstration.BaseConfigurations
 
 class DynamicFunctionsClass : BaseConfigurations {
 

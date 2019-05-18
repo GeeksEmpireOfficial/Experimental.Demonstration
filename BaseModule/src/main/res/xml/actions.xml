@@ -1,16 +1,16 @@
-<?xml version ="1.0" encoding ="utf-8"?><!--  Learn More about how to use App Actions: https://developer.android.com/guide/actions/index.html -->
+<?xml version ="1.0" encoding ="utf-8"?>
 <actions>
     <action intentName="actions.intent.OPEN_APP_FEATURE">
-        <action-display
-                icon="@mipmap/ic_launcher"
-                labelTemplate="@array/assistantActionLabel"/>
-        <fulfillment urlTemplate="https://geeksempire.net/DemoAssistantActions/Action{?actionType}">
+        <fulfillment
+                urlTemplate="https://geeksempire.net/DemoAssistantActions/DEMO{?actionType}">
             <parameter-mapping
+                    required="true"
                     intentParameter="feature"
                     urlParameter="actionType"/>
         </fulfillment>
+
         <fulfillment
                 fulfillmentMode="actions.fulfillment.DEEPLINK"
-                urlTemplate="https://geeksempire.net/ExperimentalDemonstration"/>
+                urlTemplate="https://geeksempire.net/DemoAssistantActions"/>
     </action>
 </actions>

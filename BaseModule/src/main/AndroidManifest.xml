@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:dist="http://schemas.android.com/apk/distribution"
-          package="com.geekstest.dynamicfeaturedemo">
+          package="net.geeksempire.experimental.demonstration">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -18,6 +18,7 @@
             android:theme="@style/AppTheme">
         <activity
                 android:name=".AppViewActivity"
+                android:exported="true"
                 android:theme="@style/Theme.MaterialComponents">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -26,26 +27,27 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
 
+                <!-- https://geeksempire.net/ExperimentalDemonstration -->
                 <data android:scheme="http"/>
                 <data android:scheme="https"/>
                 <data android:host="geeksempire.net"/>
-                <data android:pathPattern="/ExperimentalDemonstration"/>
+                <data android:pathPrefix="/ExperimentalDemonstration"/>
             </intent-filter>
         </activity>
         <activity
                 android:name=".AssistantAction"
+                android:exported="true"
                 android:theme="@style/Theme.MaterialComponents">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>
 
+                <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
 
-                <data android:scheme="http"/>
+                <!-- https://geeksempire.net/DemoAssistantActions -->
                 <data android:scheme="https"/>
                 <data android:host="geeksempire.net"/>
-                <data android:pathPattern="/DemoAssistantActions"/>
+                <data android:pathPrefix="/DemoAssistantActions"/>
             </intent-filter>
         </activity>
 

@@ -1,8 +1,9 @@
-package com.geekstest.dynamicfeaturedemo
+package net.geeksempire.experimental.demonstration
 
 import android.app.Activity
 import android.app.assist.AssistContent
 import android.os.Bundle
+import android.widget.Toast
 import com.google.firebase.appindexing.FirebaseUserActions
 import com.google.firebase.appindexing.builders.AssistActionBuilder
 import org.json.JSONObject
@@ -15,8 +16,16 @@ class AssistantAction : Activity() {
         super.onCreate(savedInstanceState)
 
         //APP_ACTION
-        val intent = intent
-        println(intent)
+        val actionIntent = intent
+        val appLinkAction = actionIntent.action
+        val appLinkData = actionIntent.data
+
+        Toast.makeText(
+            applicationContext,
+            appLinkAction + "\n"
+                    + intent.getStringExtra("feature") + "\n"
+                    + appLinkData, Toast.LENGTH_LONG
+        ).show()
     }
 
     override fun onProvideAssistContent(outContent: AssistContent) {

@@ -1,4 +1,4 @@
-package com.geekstest.dynamicfeaturedemo
+package net.geeksempire.experimental.demonstration
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -97,8 +97,11 @@ class AppViewActivity : BaseConfigurations() {
                         }, 1000)
                     }
                     when (splitInstallSessionState.moduleNames()[0]) {
-                        BaseConfigurations.dynamicModule -> {
-                            Intent().setClassName(BuildConfig.APPLICATION_ID, BaseConfigurations.dynamicClassName)
+                        dynamicModule -> {
+                            Intent().setClassName(
+                                BuildConfig.APPLICATION_ID,
+                                dynamicClassName
+                            )
                                 .also {
                                     it.putExtra("DATA_TO_DYNAMIC", "AFTER INSTALLED")
                                     startActivity(it)
@@ -170,7 +173,7 @@ class AppViewActivity : BaseConfigurations() {
                 println("*** Exception Error ${it} ***")
             }
 
-        if (installedModule.contains(BaseConfigurations.dynamicModule)) {
+        if (installedModule.contains(dynamicModule)) {
             Handler().postDelayed({
                 runOnUiThread {
                     val assetManager = assets
@@ -199,8 +202,11 @@ class AppViewActivity : BaseConfigurations() {
         }
 
         dynamicFeature.setOnClickListener {
-            if (installedModule.contains(BaseConfigurations.dynamicModule)) {
-                Intent().setClassName(BuildConfig.APPLICATION_ID, BaseConfigurations.dynamicClassName).also {
+            if (installedModule.contains(dynamicModule)) {
+                Intent().setClassName(
+                    BuildConfig.APPLICATION_ID,
+                    dynamicClassName
+                ).also {
                     it.putExtra("DATA_TO_DYNAMIC", "ALREADY INSTALLED")
                     startActivity(it)
                 }
@@ -208,7 +214,7 @@ class AppViewActivity : BaseConfigurations() {
                 val splitInstallRequest: SplitInstallRequest =
                     SplitInstallRequest
                         .newBuilder()
-                        .addModule(BaseConfigurations.dynamicModule)
+                        .addModule(dynamicModule)
                         .build()
 
                 splitInstallManager
@@ -224,7 +230,7 @@ class AppViewActivity : BaseConfigurations() {
         dynamicFeature.setOnLongClickListener {
 
             val moduleToUninstall = listOf<String>(
-                BaseConfigurations.dynamicModule
+                dynamicModule
             )
             splitInstallManager.deferredUninstall(moduleToUninstall).addOnSuccessListener {
                 println("Module Uninstalled Successfully")
