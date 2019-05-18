@@ -23,9 +23,35 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>
 
+                <category android:name="android.intent.category.BROWSABLE"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
+
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="geeksempire.net"/>
+                <data android:pathPattern="/ExperimentalDemonstration"/>
             </intent-filter>
         </activity>
+        <activity
+                android:name=".AssistantAction"
+                android:theme="@style/Theme.MaterialComponents">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="geeksempire.net"/>
+                <data android:pathPattern="/DemoAssistantActions"/>
+            </intent-filter>
+        </activity>
+
+        <meta-data
+                android:name="com.google.android.actions"
+                android:resource="@xml/actions"/>
     </application>
 
 </manifest>

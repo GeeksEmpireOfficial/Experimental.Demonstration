@@ -2,4 +2,9 @@
     <string name="app_name">☣ XYZ Demo ☣</string>
     <string name="title_dynamicfeatureondemand">☣ XYZ Demo ☣</string>
     <string name="installDynamicFeature">Install Dynamic Feature</string>
+
+    <string-array name="assistantActionLabel">
+        <item name="labelOne">Do Something Geeky!</item>
+        <item name="labelTwo">Geeks Up!</item>
+    </string-array>
 </resources>
