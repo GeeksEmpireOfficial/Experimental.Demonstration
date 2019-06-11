@@ -54,6 +54,7 @@
 
                 <!-- https://geeksempire.net/DemoAssistantActions -->
                 <data android:scheme="https"/>
+                <data android:scheme="http"/>
                 <data android:host="geeksempire.net"/>
                 <data android:pathPrefix="/DemoAssistantActions"/>
             </intent-filter>
