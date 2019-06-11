@@ -8,6 +8,7 @@
 🧪 <b>App Bundle</b> <br /> 
 🧪 <b>Dynamic Features</b> <br />
 🧪 <b>In-App Update</b>  <br />
+🧪 <b>Google Assistant | App Actions</b>  <br />
 https://github.com/GeeksEmpireNet/AndroidDynamicFeaturesDeliveryDemo <br />
  <br />
 <b>Geeks Empire Open Source Projects</b> | <b>Github</b> <br />
