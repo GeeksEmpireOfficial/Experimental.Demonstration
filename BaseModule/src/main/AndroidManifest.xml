@@ -16,7 +16,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <meta-data android:name="google_analytics_adid_collection_enabled" android:value="false"/>
+        <meta-data
+            android:name="google_analytics_adid_collection_enabled"
+            android:value="false"/>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/ADMOB_APP_ID"/>
+
 
         <activity
                 android:name=".AppViewActivity"
@@ -52,6 +58,7 @@
                 <data android:pathPrefix="/DemoAssistantActions"/>
             </intent-filter>
         </activity>
+        <activity android:name=".Ads.LoadAds"/>
 
         <meta-data
                 android:name="com.google.android.actions"

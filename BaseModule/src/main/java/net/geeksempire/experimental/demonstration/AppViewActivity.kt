@@ -22,6 +22,7 @@ import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 import com.google.android.play.core.tasks.Task
 import com.google.firebase.FirebaseApp
 import kotlinx.android.synthetic.main.app_main_view.*
+import net.geeksempire.experimental.demonstration.Ads.LoadAds
 
 
 class AppViewActivity : BaseConfigurations() {
@@ -243,6 +244,13 @@ class AppViewActivity : BaseConfigurations() {
             }
 
             return@setOnLongClickListener true
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        dynamicImage.setOnClickListener {
+            startActivity(Intent(applicationContext, LoadAds::class.java))
         }
     }
 

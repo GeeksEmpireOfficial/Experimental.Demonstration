@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/default_color_transparent">
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adViewBannerOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="7dp"
+            android:background="@color/dark"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/AD_UNIT_BANNER_ONE">
+        </com.google.android.gms.ads.AdView>
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adViewBannerTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:layout_below="@id/adViewBannerOne"
+            android:background="@color/dark"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/AD_UNIT_BANNER_TWO">
+        </com.google.android.gms.ads.AdView>
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adViewBannerThree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:layout_below="@id/adViewBannerTwo"
+            android:background="@color/dark"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/AD_UNIT_BANNER_THREE">
+        </com.google.android.gms.ads.AdView>
+    </RelativeLayout>
+</ScrollView>
