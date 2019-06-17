@@ -8,7 +8,14 @@ import android.graphics.Path
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.view.GestureDetector
+import android.view.MotionEvent
+import android.view.ViewTreeObserver
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.dynamicanimation.animation.DynamicAnimation
+import androidx.dynamicanimation.animation.FlingAnimation
+import androidx.dynamicanimation.animation.SpringAnimation
+import androidx.dynamicanimation.animation.SpringForce
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManager
@@ -22,7 +29,6 @@ import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 import com.google.android.play.core.tasks.Task
 import com.google.firebase.FirebaseApp
 import kotlinx.android.synthetic.main.app_main_view.*
-import net.geeksempire.experimental.demonstration.Ads.LoadAds
 
 
 class AppViewActivity : BaseConfigurations() {
@@ -249,8 +255,125 @@ class AppViewActivity : BaseConfigurations() {
 
     override fun onStart() {
         super.onStart()
+
         dynamicImage.setOnClickListener {
-            startActivity(Intent(applicationContext, LoadAds::class.java))
+            //            startActivity(Intent(applicationContext, LoadAds::class.java))
+        }
+
+        /************************************Fling*********************************************/
+        val flingAnimationX: FlingAnimation by lazy(LazyThreadSafetyMode.NONE) {
+            FlingAnimation(dynamicImage, DynamicAnimation.X).setFriction(1.1f)
+        }
+
+        val flingAnimationY: FlingAnimation by lazy(LazyThreadSafetyMode.NONE) {
+            FlingAnimation(dynamicImage, DynamicAnimation.Y).setFriction(1.1f)
+        }
+
+        val gestureListener = object : GestureDetector.SimpleOnGestureListener() {
+
+            override fun onDown(e: MotionEvent?): Boolean {
+                return true
+            }
+
+            override fun onFling(e1: MotionEvent?, e2: MotionEvent?, velocityX: Float, velocityY: Float): Boolean {
+
+                flingAnimationX.setStartVelocity(velocityX)
+                flingAnimationY.setStartVelocity(velocityY)
+
+                flingAnimationX.start()
+                flingAnimationY.start()
+
+                return false
+            }
+        }
+
+        val gestureDetector = GestureDetector(applicationContext, gestureListener)
+
+        var dX: Float = 0f
+        var dY: Float = 0f
+
+        dynamicImage.setOnTouchListener { view, event ->
+            gestureDetector.onTouchEvent(event)
+
+            when (event.getAction()) {
+
+                MotionEvent.ACTION_DOWN -> {
+                    dX = view.x - event.rawX
+                    dY = view.y - event.rawY
+                }
+
+                MotionEvent.ACTION_MOVE -> {
+                    if ((event.rawX + dX) > 0 && (event.rawY + dY) > 0) {
+                        view.animate()
+                            .x(event.rawX + dX)
+                            .y(event.rawY + dY)
+                            .setDuration(0)
+                            .start()
+                    }
+
+                }
+            }
+
+
+            return@setOnTouchListener false
+        }
+
+        dynamicImage.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                flingAnimationX
+                    .setMinValue(0f)
+                    .setMaxValue((resources.displayMetrics.widthPixels - dynamicImage.width).toFloat())
+                flingAnimationY
+                    .setMinValue(0f)
+                    .setMaxValue((resources.displayMetrics.heightPixels - dynamicImage.height).toFloat())
+                dynamicImage.viewTreeObserver.removeOnGlobalLayoutListener(this)
+            }
+        })
+
+
+        /************************************Spring*********************************************/
+        val springForce: SpringForce by lazy(LazyThreadSafetyMode.NONE) {
+            SpringForce(0f).apply {
+                stiffness = SpringForce.STIFFNESS_MEDIUM
+                dampingRatio = SpringForce.DAMPING_RATIO_HIGH_BOUNCY
+            }
+        }
+
+        val springAnimationTranslationX: SpringAnimation by lazy(LazyThreadSafetyMode.NONE) {
+            SpringAnimation(dynamicFeature, DynamicAnimation.TRANSLATION_X).setSpring(springForce)
+        }
+
+        val springAnimationTranslationY: SpringAnimation by lazy(LazyThreadSafetyMode.NONE) {
+            SpringAnimation(dynamicFeature, DynamicAnimation.TRANSLATION_Y).setSpring(springForce)
+        }
+
+        var xDiffInTouchPointAndViewTopLeftCorner: Float = 0f
+        var yDiffInTouchPointAndViewTopLeftCorner: Float = 0f
+
+        dynamicFeature.setOnTouchListener { view, motionEvent ->
+
+            when (motionEvent?.action) {
+
+                MotionEvent.ACTION_DOWN -> {
+                    xDiffInTouchPointAndViewTopLeftCorner = motionEvent.rawX - view.x
+                    yDiffInTouchPointAndViewTopLeftCorner = motionEvent.rawY - view.y
+
+                    springAnimationTranslationX.cancel()
+                    springAnimationTranslationY.cancel()
+                }
+
+                MotionEvent.ACTION_MOVE -> {
+                    dynamicFeature.x = motionEvent.rawX - xDiffInTouchPointAndViewTopLeftCorner
+                    dynamicFeature.y = motionEvent.rawY - yDiffInTouchPointAndViewTopLeftCorner
+                }
+
+                MotionEvent.ACTION_UP -> {
+                    springAnimationTranslationX.start()
+                    springAnimationTranslationY.start()
+                }
+            }
+
+            true
         }
     }
 
