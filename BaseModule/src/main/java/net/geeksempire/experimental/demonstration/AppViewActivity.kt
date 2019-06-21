@@ -1,16 +1,13 @@
 package net.geeksempire.experimental.demonstration
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Canvas
-import android.graphics.Path
+import android.graphics.*
+import android.graphics.drawable.BitmapDrawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.view.GestureDetector
 import android.view.MotionEvent
-import android.view.ViewTreeObserver
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.FlingAnimation
@@ -29,9 +26,12 @@ import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 import com.google.android.play.core.tasks.Task
 import com.google.firebase.FirebaseApp
 import kotlinx.android.synthetic.main.app_main_view.*
+import net.geeksempire.experimental.demonstration.Functions.FunctionsClass
 
 
 class AppViewActivity : BaseConfigurations() {
+
+    lateinit var functionsClass: FunctionsClass
 
     lateinit var splitInstallManager: SplitInstallManager
     lateinit var splitInstallStateUpdatedListener: SplitInstallStateUpdatedListener
@@ -46,6 +46,8 @@ class AppViewActivity : BaseConfigurations() {
         super.onCreate(savedInstanceState)
         FirebaseApp.initializeApp(getApplicationContext());
         setContentView(R.layout.app_main_view)
+
+        functionsClass = FunctionsClass(applicationContext)
 
         splitInstallStateUpdatedListener = SplitInstallStateUpdatedListener { splitInstallSessionState ->
             when (splitInstallSessionState.status()) {
@@ -99,7 +101,7 @@ class AppViewActivity : BaseConfigurations() {
                                 canvas.clipPath(path)
                                 canvas.drawBitmap(bitmap, 0f, 0f, null)
 
-                                dynamicImage.setImageBitmap(outputBitmap)
+                                dynamicImage.background = BitmapDrawable(getResources(), outputBitmap)
                             }
                         }, 1000)
                     }
@@ -203,7 +205,7 @@ class AppViewActivity : BaseConfigurations() {
                     canvas.clipPath(path)
                     canvas.drawBitmap(bitmap, 0f, 0f, null)
 
-                    dynamicImage.setImageBitmap(outputBitmap)
+                    dynamicImage.background = BitmapDrawable(getResources(), outputBitmap)
                 }
             }, 1000)
         }
@@ -261,13 +263,74 @@ class AppViewActivity : BaseConfigurations() {
         }
 
         /************************************Fling*********************************************/
+        /*FlingAnimation flingAnimationX = new FlingAnimation(new FloatValueHolder()).setFriction(1.1f);
+        FlingAnimation flingAnimationY = new FlingAnimation(new FloatValueHolder()).setFriction(1.1f);
+
+        flingAnimationX
+                .setMinValue(0f)
+                .setMaxValue((functionsClass.displayX()));
+        flingAnimationY
+                .setMinValue(0f)
+                .setMaxValue((functionsClass.displayY()));
+
+        GestureDetector.SimpleOnGestureListener simpleOnGestureListener = new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onFling (MotionEvent motionEvent1, MotionEvent motionEvent2, float velocityX, float velocityY) {
+
+              flingAnimationX.setStartVelocity(velocityX);
+                flingAnimationY.setStartVelocity(velocityY);
+
+                flingAnimationX.addUpdateListener(new DynamicAnimation.OnAnimationUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(DynamicAnimation animation, float value, float velocity) {
+                        layoutParams[startId].x = (int) value;     // X movePoint
+                        windowManager.updateViewLayout(floatingView[startId], layoutParams[startId]);
+                    }
+                });
+                flingAnimationY.addUpdateListener(new DynamicAnimation.OnAnimationUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(DynamicAnimation animation, float value, float velocity) {
+                        layoutParams[startId].y = (int) value;     // Y movePoint
+                        windowManager.updateViewLayout(floatingView[startId], layoutParams[startId]);
+                    }
+                });
+
+                flingAnimationX.start();
+                flingAnimationY.start();
+
+                return false;
+            }
+        };
+
+        flingAnimationX.addEndListener(new DynamicAnimation.OnAnimationEndListener() {
+            @Override
+            public void onAnimationEnd(DynamicAnimation animation, boolean canceled, float value, float velocity) {
+                openIt[startId] = true;
+            }
+        });
+
+        flingAnimationY.addEndListener(new DynamicAnimation.OnAnimationEndListener() {
+            @Override
+            public void onAnimationEnd(DynamicAnimation animation, boolean canceled, float value, float velocity) {
+                openIt[startId] = true;
+            }
+        });
+
+        GestureDetector gestureDetector = new GestureDetector(getApplicationContext(), simpleOnGestureListener);*/
+
         val flingAnimationX: FlingAnimation by lazy(LazyThreadSafetyMode.NONE) {
             FlingAnimation(dynamicImage, DynamicAnimation.X).setFriction(1.1f)
         }
-
         val flingAnimationY: FlingAnimation by lazy(LazyThreadSafetyMode.NONE) {
             FlingAnimation(dynamicImage, DynamicAnimation.Y).setFriction(1.1f)
         }
+
+        flingAnimationX
+            .setMinValue(0f)
+            .setMaxValue((functionsClass.DpToPixel(resources.displayMetrics.widthPixels.toFloat())))
+        flingAnimationY
+            .setMinValue(0f)
+            .setMaxValue((functionsClass.DpToPixel(resources.displayMetrics.heightPixels.toFloat())))
 
         val gestureListener = object : GestureDetector.SimpleOnGestureListener() {
 
@@ -318,20 +381,16 @@ class AppViewActivity : BaseConfigurations() {
             return@setOnTouchListener false
         }
 
-        dynamicImage.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                flingAnimationX
-                    .setMinValue(0f)
-                    .setMaxValue((resources.displayMetrics.widthPixels - dynamicImage.width).toFloat())
-                flingAnimationY
-                    .setMinValue(0f)
-                    .setMaxValue((resources.displayMetrics.heightPixels - dynamicImage.height).toFloat())
-                dynamicImage.viewTreeObserver.removeOnGlobalLayoutListener(this)
-            }
-        })
-
-
         /************************************Spring*********************************************/
+        /* SpringForce springForce = new SpringForce(50f)
+                .setStiffness(SpringForce.STIFFNESS_HIGH)
+                .setDampingRatio(SpringForce.DAMPING_RATIO_HIGH_BOUNCY);
+
+        SpringAnimation springAnimationX = new SpringAnimation(new FloatValueHolder())
+                .setSpring(springForce);
+        SpringAnimation springAnimationY = new SpringAnimation(new FloatValueHolder())
+                .setSpring(springForce);*/
+                
         val springForce: SpringForce by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             SpringForce(0f).apply {
                 stiffness = SpringForce.STIFFNESS_LOW
@@ -342,9 +401,40 @@ class AppViewActivity : BaseConfigurations() {
         val springAnimationTranslationX: SpringAnimation by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             SpringAnimation(dynamicFeature, DynamicAnimation.TRANSLATION_X).setSpring(springForce)
         }
-
         val springAnimationTranslationY: SpringAnimation by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             SpringAnimation(dynamicFeature, DynamicAnimation.TRANSLATION_Y).setSpring(springForce)
+        }
+
+        springAnimationTranslationX.addUpdateListener { animation, value, velocity ->
+            val R1 = Rect()
+            dynamicImage.getHitRect(R1)
+            val R2 = Rect()
+            dynamicFeature.getHitRect(R2)
+
+            if (R1.intersect(R2)) {
+                println("Hit Hit Hit")
+
+                flingAnimationX.setStartVelocity(velocity)
+                flingAnimationY.setStartVelocity(velocity)
+
+                flingAnimationX.start()
+                flingAnimationY.start()
+
+                /*springAnimationTranslationX.cancel()
+                springAnimationTranslationY.cancel()*/
+            } else {
+
+            }
+        }
+        springAnimationTranslationY.addUpdateListener { animation, value, velocity ->
+
+        }
+
+        springAnimationTranslationX.addEndListener { animation, canceled, value, velocity ->
+
+        }
+        springAnimationTranslationY.addEndListener { animation, canceled, value, velocity ->
+
         }
 
         var xDiffInTouchPointAndViewTopLeftCorner: Float = 0f
