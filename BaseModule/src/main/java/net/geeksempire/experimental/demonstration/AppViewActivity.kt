@@ -262,7 +262,7 @@ class AppViewActivity : BaseConfigurations() {
         super.onStart()
 
         dynamicImage.setOnClickListener {
-            //            startActivity(Intent(applicationContext, LoadAds::class.java))
+            //                        startActivity(Intent(applicationContext, LoadAds::class.java))
         }
 
         /************************************Fling*********************************************/
@@ -532,7 +532,8 @@ class AppViewActivity : BaseConfigurations() {
         }
 
         animationImage.setOnClickListener {
-            spring.endValue = 10.0
+            //            spring.endValue = 10.0
+            startActivity(Intent(applicationContext, MoveBySensor::class.java))
         }
     }
 
@@ -556,6 +557,10 @@ class AppViewActivity : BaseConfigurations() {
                     showCompleteConfirmation()
                 }
             }
+    }
+
+    override fun onPause() {
+        super.onPause()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -4,6 +4,7 @@
 <font color="#ff0000"><b>Experimenting</b></font> <b>New SDK & API</b>... <br />
  <br />
 [<font color="#0700ff"><b>Current Experiment</b></font>] <br />
+🧪 <b>Move Around View Objects by SensorEventListener</b> <br/>
 🧪 <b>Collision Detection Process Added to Views for Dynamic Physics Based Animations</b> <br/>
 🧪 <b>Physics Based Animation</b> <br/>
 🧪 <b>Instant App</b> <br /> 

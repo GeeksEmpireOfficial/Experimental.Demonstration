@@ -59,7 +59,10 @@
                 <data android:pathPrefix="/DemoAssistantActions"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Ads.LoadAds"/>
+        <activity
+                android:name=".MoveBySensor"/>
+        <activity
+                android:name=".Ads.LoadAds"/>
 
         <meta-data
                 android:name="com.google.android.actions"
