@@ -2,7 +2,6 @@ package net.geeksempire.experimental.demonstration
 
 import android.content.Intent
 import android.graphics.*
-import android.graphics.drawable.BitmapDrawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -13,6 +12,10 @@ import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.FlingAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
+import com.facebook.rebound.SimpleSpringListener
+import com.facebook.rebound.Spring
+import com.facebook.rebound.SpringConfig
+import com.facebook.rebound.SpringSystem
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManager
@@ -101,7 +104,7 @@ class AppViewActivity : BaseConfigurations() {
                                 canvas.clipPath(path)
                                 canvas.drawBitmap(bitmap, 0f, 0f, null)
 
-                                dynamicImage.background = BitmapDrawable(getResources(), outputBitmap)
+                                dynamicImage.setImageBitmap((outputBitmap))
                             }
                         }, 1000)
                     }
@@ -205,7 +208,7 @@ class AppViewActivity : BaseConfigurations() {
                     canvas.clipPath(path)
                     canvas.drawBitmap(bitmap, 0f, 0f, null)
 
-                    dynamicImage.background = BitmapDrawable(getResources(), outputBitmap)
+                    dynamicImage.setImageBitmap(outputBitmap)
                 }
             }, 1000)
         }
@@ -420,8 +423,8 @@ class AppViewActivity : BaseConfigurations() {
                 flingAnimationX.start()
                 flingAnimationY.start()
 
-                /*springAnimationTranslationX.cancel()
-                springAnimationTranslationY.cancel()*/
+                springAnimationTranslationX.cancel()
+                springAnimationTranslationY.cancel()
             } else {
 
             }
@@ -463,7 +466,73 @@ class AppViewActivity : BaseConfigurations() {
                 }
             }
 
-            true
+            false
+        }
+
+        /************************************Rebound*********************************************/
+        val TENSION = 800.0
+        val DAMPER = 20.0 //friction
+
+        val springSystem = SpringSystem.create()
+        val spring = springSystem.createSpring()
+
+        spring.addListener(object : SimpleSpringListener(/*spring*/) {
+            override fun onSpringUpdate(spring: Spring?) {
+                val value = spring!!.currentValue.toFloat()
+                val scale = 1f - (value * 0.5f)
+                animationImage.scaleX = scale
+                animationImage.scaleY = scale
+
+//                animationImage.y = value
+            }
+
+            override fun onSpringEndStateChange(spring: Spring?) {
+
+            }
+
+            override fun onSpringAtRest(spring: Spring?) {
+
+            }
+
+            override fun onSpringActivate(spring: Spring?) {
+                val R1 = Rect()
+                dynamicImage.getHitRect(R1)
+                val R2 = Rect()
+                animationImage.getHitRect(R2)
+
+                if (R1.intersect(R2)) {
+                    println("Hit Hit Hit Speed ::: ${spring!!.velocity}")
+
+                    flingAnimationX.setStartVelocity(/*spring!!.velocity*/100.toFloat())
+                    flingAnimationY.setStartVelocity(/*spring!!.velocity*/100.toFloat())
+
+                    flingAnimationX.start()
+                    flingAnimationY.start()
+                } else {
+
+                }
+            }
+
+        })
+        val springConfig = SpringConfig(TENSION, DAMPER)
+        spring.springConfig = springConfig
+
+        animationImage.setOnTouchListener { view, motionEvent ->
+            when (motionEvent?.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    spring.endValue = (0.5)
+
+                }
+                MotionEvent.ACTION_UP -> {
+                    spring.endValue = (0.0)
+
+                }
+            }
+            false
+        }
+
+        animationImage.setOnClickListener {
+            spring.endValue = 10.0
         }
     }
 

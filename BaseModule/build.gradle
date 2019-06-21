@@ -79,5 +79,8 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.31"
 
     implementation 'com.google.android.play:core:1.6.1'
+
+    /*3rd-Party Library*/
+    implementation 'com.facebook.rebound:rebound:0.3.8'
 }
 apply plugin: 'com.google.gms.google-services'
