@@ -1,5 +1,6 @@
 package net.geeksempire.experimental.demonstration
 
+import android.Manifest
 import android.content.Intent
 import android.graphics.*
 import android.os.Build
@@ -29,6 +30,7 @@ import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 import com.google.android.play.core.tasks.Task
 import com.google.firebase.FirebaseApp
 import kotlinx.android.synthetic.main.app_main_view.*
+import net.geeksempire.experimental.demonstration.Ads.LoadAds
 import net.geeksempire.experimental.demonstration.Functions.FunctionsClass
 
 
@@ -49,6 +51,14 @@ class AppViewActivity : BaseConfigurations() {
         super.onCreate(savedInstanceState)
         FirebaseApp.initializeApp(getApplicationContext());
         setContentView(R.layout.app_main_view)
+        requestPermissions(
+            arrayOf(
+                Manifest.permission.INTERNET,
+                Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ), 123
+        )
 
         functionsClass = FunctionsClass(applicationContext)
 
@@ -262,7 +272,7 @@ class AppViewActivity : BaseConfigurations() {
         super.onStart()
 
         dynamicImage.setOnClickListener {
-            //                        startActivity(Intent(applicationContext, LoadAds::class.java))
+            startActivity(Intent(applicationContext, LoadAds::class.java))
         }
 
         /************************************Fling*********************************************/

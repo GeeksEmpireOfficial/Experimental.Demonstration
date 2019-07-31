@@ -1,7 +1,10 @@
 package net.geeksempire.experimental.demonstration.Ads
 
 import android.app.Activity
+import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
+import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
@@ -57,7 +60,6 @@ class LoadAds : Activity() {
     override fun onResume() {
         super.onResume()
 
-
         val adRequestBuilderOne = AdRequest.Builder()
             .addTestDevice("65B5827710CBE90F4A99CE63099E524C")
             .addTestDevice("DD428143B4772EC7AA87D1E2F9DA787C")
@@ -68,6 +70,12 @@ class LoadAds : Activity() {
         adRequestBuilderOne.addKeyword("celebrities")
         adRequestBuilderOne.addKeyword("models")
         adRequestBuilderOne.addKeyword("models")
+        adRequestBuilderOne.setLocation(/*Location("gps")*/Location(LocationManager.GPS_PROVIDER))
+
+        val bundle = Bundle()
+        bundle.putInt("cordova", 1)
+        adRequestBuilderOne.addNetworkExtrasBundle(AdMobAdapter::class.java, bundle)
+
         adViewBannerOne.loadAd(adRequestBuilderOne.build())
         adViewBannerOne.adListener = object : AdListener() {
             override fun onAdLoaded() {
