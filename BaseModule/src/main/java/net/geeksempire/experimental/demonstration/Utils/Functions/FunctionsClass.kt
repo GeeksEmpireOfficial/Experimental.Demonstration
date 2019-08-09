@@ -1,4 +1,4 @@
-package net.geeksempire.experimental.demonstration.Functions
+package net.geeksempire.experimental.demonstration.Utils.Functions
 
 import android.content.Context
 import android.util.DisplayMetrics

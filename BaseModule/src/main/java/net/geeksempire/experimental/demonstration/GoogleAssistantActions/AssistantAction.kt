@@ -1,4 +1,4 @@
-package net.geeksempire.experimental.demonstration
+package net.geeksempire.experimental.demonstration.GoogleAssistantActions
 
 import android.app.Activity
 import android.app.assist.AssistContent

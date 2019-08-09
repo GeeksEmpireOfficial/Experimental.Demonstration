@@ -3,7 +3,7 @@ package com.geekstest.dynamicfeatureondemand
 import android.os.Bundle
 import android.widget.Toast
 import net.geeksempire.experimental.demonstration.BaseConfigurations
-import net.geeksempire.experimental.demonstration.BaseFunctionsClass
+import net.geeksempire.experimental.demonstration.Utils.Functions.BaseFunctionsClass
 
 class DynamicActivity : BaseConfigurations() {
 
@@ -18,7 +18,9 @@ class DynamicActivity : BaseConfigurations() {
         Toast.makeText(applicationContext, intent.getStringExtra("DATA_TO_DYNAMIC"), Toast.LENGTH_LONG).show()
 
         val baseFunctionsClass: BaseFunctionsClass =
-            BaseFunctionsClass(applicationContext)
+            BaseFunctionsClass(
+                applicationContext
+            )
         baseFunctionsClass.baseFunctions()
     }
 }

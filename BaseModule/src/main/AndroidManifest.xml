@@ -1,74 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:dist="http://schemas.android.com/apk/distribution"
-          package="net.geeksempire.experimental.demonstration">
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="net.geeksempire.experimental.demonstration">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <dist:module dist:instant="true"/>
+    <dist:module dist:instant="true" />
 
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:largeHeap="true"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".PhysicsAnimation.PhysicsAnimationActivity"></activity>
+
         <meta-data
             android:name="google_analytics_adid_collection_enabled"
-            android:value="false"/>
+            android:value="false" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/ADMOB_APP_ID"/>
-
+            android:value="@string/ADMOB_APP_ID" />
 
         <activity
-                android:name=".AppViewActivity"
-                android:exported="true"
-                android:theme="@style/Theme.MaterialComponents">
+            android:name=".TestSelectionActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".GoogleAssistantActions.BrowseInsideApp"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
                 <!-- https://geeksempire.net/ExperimentalDemonstration -->
-                <data android:scheme="http"/>
-                <data android:scheme="https"/>
-                <data android:host="geeksempire.net"/>
-                <data android:pathPrefix="/ExperimentalDemonstration"/>
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="geeksempire.net" />
+                <data android:pathPrefix="/ExperimentalDemonstration" />
             </intent-filter>
         </activity>
         <activity
-                android:name=".AssistantAction"
-                android:exported="true"
-                android:theme="@style/Theme.MaterialComponents">
+            android:name=".GoogleAssistantActions.AssistantAction"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents">
             <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
                 <!-- https://geeksempire.net/DemoAssistantActions -->
-                <data android:scheme="https"/>
-                <data android:scheme="http"/>
-                <data android:host="geeksempire.net"/>
-                <data android:pathPrefix="/DemoAssistantActions"/>
+                <data android:scheme="https" />
+                <data android:scheme="http" />
+                <data android:host="geeksempire.net" />
+                <data android:pathPrefix="/DemoAssistantActions" />
             </intent-filter>
         </activity>
-        <activity
-                android:name=".MoveBySensor"/>
-        <activity
-                android:name=".Ads.LoadAds"/>
-
-        <meta-data
-                android:name="com.google.android.actions"
-                android:resource="@xml/actions"/>
+        <activity android:name=".DynamicFeatures.DynamicFeaturesUpdateActivity" />
+        <activity android:name=".PhysicsAnimation.PhysicsAnimationActivity" />
+        <activity android:name=".PhysicsAnimation.MoveBySensor" />
+        <activity android:name=".Ads.LoadAds" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package net.geeksempire.experimental.demonstration;
+package net.geeksempire.experimental.demonstration.PhysicsAnimation;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,6 +17,8 @@ import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+
+import net.geeksempire.experimental.demonstration.R;
 
 public class MoveBySensor extends Activity implements SensorEventListener {
 

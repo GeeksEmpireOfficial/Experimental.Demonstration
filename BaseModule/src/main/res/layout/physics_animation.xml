@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainView"
+    android:layout_gravity="start|top">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dynamicFeature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/installDynamicFeature"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/dynamicImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:padding="20dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:background="@color/light" />
+
+    <ImageView
+        android:id="@+id/animationImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:background="@color/light" />
+
+</RelativeLayout>
