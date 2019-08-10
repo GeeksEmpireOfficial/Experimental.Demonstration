@@ -13,6 +13,7 @@
         android:padding="8dp"
         android:textAllCaps="false"
         android:text="@string/buy_with_googlepay_button_content_description"
-        android:src="@drawable/ic_google_pay_mark_800_gray" />
+        android:src="@drawable/ic_google_pay_mark_800_gray"
+        android:visibility="invisible" />
 
 </RelativeLayout>

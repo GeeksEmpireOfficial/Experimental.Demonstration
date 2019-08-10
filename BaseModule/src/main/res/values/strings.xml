@@ -1,13 +1,15 @@
 <resources>
-    <string name="app_name">☣ XYZ Demo ☣</string>
-    <string name="title_dynamicfeatureondemand">☣ XYZ Demo ☣</string>
-    <string name="installDynamicFeature">Install Dynamic Feature</string>
+    <string name="app_name" translatable="false">☣ XYZ Demo ☣</string>
+    <string name="title_dynamicfeatureondemand" translatable="false">☣ XYZ Demo ☣</string>
+    <string name="installDynamicFeature" translatable="false">Install Dynamic Feature</string>
 
-    <string name="ADMOB_APP_ID">ca-app-pub-2920235108594210~3184491065</string>
-    <string name="AD_UNIT_BANNER_ONE">ca-app-pub-2920235108594210/5946331878</string>
-    <string name="AD_UNIT_BANNER_TWO">ca-app-pub-2920235108594210/9063449805</string>
-    <string name="AD_UNIT_BANNER_THREE">ca-app-pub-2920235108594210/5124204796</string>
-    <string name="AdUnitInterstitialOne">ca-app-pub-2920235108594210/2134422833</string>
+    <string name="ADMOB_APP_ID" translatable="false">ca-app-pub-2920235108594210~3184491065</string>
+    <string name="AD_UNIT_BANNER_ONE" translatable="false">ca-app-pub-2920235108594210/5946331878</string>
+    <string name="AD_UNIT_BANNER_TWO" translatable="false">ca-app-pub-2920235108594210/9063449805</string>
+    <string name="AD_UNIT_BANNER_THREE" translatable="false">ca-app-pub-2920235108594210/5124204796</string>
+    <string name="AdUnitInterstitialOne" translatable="false">ca-app-pub-2920235108594210/2134422833</string>
+
+    <string name="webClientId" translatable="false">38462126146-t1kia1498ml5c4tenl9vu9pvlts81vr2.apps.googleusercontent.com</string>
 
     <string-array name="assistantActionLabel">
         <item name="labelOne">Do Something Geeky!</item>

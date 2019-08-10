@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "38462126146-rs0bcjgkliraogiaf9kcteqg7afckk14.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.geeksempire.experimental.demonstration",
+            "certificate_hash": "c4f7ba6ff825ee77e200fa6c3edc4a749be7baac"
+          }
+        },
+        {
           "client_id": "38462126146-m5f4sm9m1gne0fiakftnpfnaobgv18r5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -49,7 +57,8 @@
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-2920235108594210~3184491065"
     }
   ],
   "configuration_version": "1"

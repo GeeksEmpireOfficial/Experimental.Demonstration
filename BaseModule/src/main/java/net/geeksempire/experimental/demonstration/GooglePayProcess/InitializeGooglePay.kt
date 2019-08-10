@@ -4,20 +4,21 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.wallet.*
 import kotlinx.android.synthetic.main.google_pay_view.*
 import net.geeksempire.experimental.demonstration.R
+import net.geekstools.floatshort.PRO.Util.Functions.FunctionsClassDebug
 import net.geekstools.floatshort.PRO.Util.Functions.FunctionsClassSecurity
 import org.json.JSONArray
 import org.json.JSONObject
-
 
 class InitializeGooglePay : Activity() {
 
     lateinit var paymentsClient: PaymentsClient
 
-    val LOAD_PAYMENT_DATA_REQUEST_CODE = 123
+    private val LOAD_PAYMENT_DATA_REQUEST_CODE = 123
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +33,10 @@ class InitializeGooglePay : Activity() {
         val taskIsReadyToPayRequest = paymentsClient.isReadyToPay(paymentDataRequest)
         taskIsReadyToPayRequest.addOnCompleteListener {
             try {
+                FunctionsClassDebug.PrintDebug("*** ${it.result} ***")
+                taskIsReadyToPayRequest.getResult(ApiException::class.java)
+                    ?.let(::setGooglePayAvailable)
+
                 val result: Boolean = taskIsReadyToPayRequest.getResult(ApiException::class.java)!!
                 if (result) {
                     // show Google Pay as a payment option
@@ -49,8 +54,13 @@ class InitializeGooglePay : Activity() {
                     }
                 }
             } catch (e: ApiException) {
+                e.printStackTrace()
             }
+        }.addOnSuccessListener {
+            FunctionsClassDebug.PrintDebug("*** Success | ${it} ***")
 
+        }.addOnFailureListener {
+            FunctionsClassDebug.PrintDebug("*** Fail | ${it} ***")
 
         }
     }
@@ -99,6 +109,7 @@ class InitializeGooglePay : Activity() {
                 .put(
                     "publicKey",
                     FunctionsClassSecurity(applicationContext).encodeStringBase64(packageName)
+                    /*"BOdoXP1aiNp.....kh3JUhiSZKHYF2Y="*/
                 )
         )
 
@@ -190,5 +201,17 @@ class InitializeGooglePay : Activity() {
         paymentDataRequest.put("merchantInfo", getMerchantInfo())
 
         return paymentDataRequest
+    }
+
+    private fun setGooglePayAvailable(available: Boolean) {
+        if (available) {
+            googlePay.visibility = View.VISIBLE
+        } else {
+            Toast.makeText(
+                this,
+                "Unfortunately, Google Pay is not available on this device",
+                Toast.LENGTH_LONG
+            ).show();
+        }
     }
 }
