@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "net.geeksempire.experimental.demonstration"
 
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 28
 
         versionCode rootProject.versionCode
