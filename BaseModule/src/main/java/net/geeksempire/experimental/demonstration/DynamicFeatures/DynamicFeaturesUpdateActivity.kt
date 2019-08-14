@@ -48,6 +48,7 @@ class DynamicFeaturesUpdateActivity : AppCompatActivity() {
 
         functionsClass = FunctionsClass(applicationContext)
 
+        //Installing Module
         splitInstallStateUpdatedListener =
             SplitInstallStateUpdatedListener { splitInstallSessionState ->
                 when (splitInstallSessionState.status()) {
@@ -132,6 +133,7 @@ class DynamicFeaturesUpdateActivity : AppCompatActivity() {
             println("*** Installed Modules: " + it + " ***")
         }
 
+        //Updating Module
         installStateUpdatedListener = InstallStateUpdatedListener {
             when (it.installStatus()) {
                 InstallStatus.REQUIRES_UI_INTENT -> {

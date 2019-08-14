@@ -77,6 +77,18 @@
         <activity android:name=".PhysicsAnimation.MoveBySensor" />
         <activity android:name=".Ads.LoadAds" />
         <activity android:name=".GooglePayProcess.InitializeGooglePay" />
+        <activity
+            android:name=".PayPalProcess.InitializePayPal"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="net.geeksempire.experimental.demonstration.braintree" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

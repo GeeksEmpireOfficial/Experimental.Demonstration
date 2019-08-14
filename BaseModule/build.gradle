@@ -93,5 +93,6 @@ dependencies {
 
     /*3rd-Party Library*/
     implementation 'com.facebook.rebound:rebound:0.3.8'
+    implementation 'com.braintreepayments.api:braintree:3.4.1'
 }
 apply plugin: 'com.google.gms.google-services'
