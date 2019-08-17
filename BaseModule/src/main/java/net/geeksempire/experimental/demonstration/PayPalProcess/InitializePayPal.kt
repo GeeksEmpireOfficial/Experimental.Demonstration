@@ -1,6 +1,5 @@
 package net.geeksempire.experimental.demonstration.PayPalProcess
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -41,19 +40,39 @@ class InitializePayPal : AppCompatActivity() {
             }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        /*if (requestCode == 123) {
+        if (requestCode == 123) {
             if (resultCode == Activity.RESULT_OK) {
-                val result =
-                    data!!.getParcelableExtra<DropInResult>(DropInResult.EXTRA_DROP_IN_RESULT)
+                val result = data!!.getParcelableExtra<DropInResult>(DropInResult.EXTRA_DROP_IN_RESULT)
+                val paymentMethodNonce = result.getPaymentMethodNonce().getNonce()
                 // use the result to update your UI and send the payment method nonce to your server
+
+                val transactionDate: HashMap<String, Any?> = HashMap<String, Any?>()
+                transactionDate["paymentMethodNonceFromClient"] = paymentMethodNonce
+
+                FirebaseFunctions.getInstance()
+                    .getHttpsCallable("createTransaction")
+                    .call()
+                    .continueWith { task ->
+                        val resultToContinueWith = task.result?.data as HashMap<String, String?>
+                        FunctionsClassDebug.PrintDebug("*** Create Transaction ${resultToContinueWith}")
+
+                        resultToContinueWith["CreateTransactionResponse"]!!
+                    }.addOnSuccessListener {
+                        clientToken = it
+                        FunctionsClassDebug.PrintDebug("*** Create Transaction ${clientToken}")
+
+                    }.addOnFailureListener {
+                        FunctionsClassDebug.PrintDebug("*** Create Transaction Exception ${it}")
+                    }
+
             } else if (resultCode == Activity.RESULT_CANCELED) {
                 // the user canceled
             } else {
                 // handle errors here, an exception may be available in
                 val error = data!!.getSerializableExtra(DropInActivity.EXTRA_ERROR) as Exception
             }
-        }*/
-    }
+        }
+    }*/
 }

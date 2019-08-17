@@ -37,3 +37,37 @@ exports.braintreeClientToken = functions.runWith(runtimeOptions).https.onRequest
         }
     );
 });
+
+exports.createTransaction = functions.runWith(runtimeOptions).https.onCall((data, context) => {
+    const paymentMethodNonceFromClient = data.paymentMethodNonceFromClient;
+    console.log('Execute BrainTree Transaction Process');
+
+    var gateway = braintree.connect({
+        environment:  braintree.Environment.Sandbox,
+        merchantId:   '4t4xz6vnm6dbk5jt',
+        publicKey:    'jp5pcq5jw2qymjxw',
+        privateKey:   '719393e5254462bdc7b894a2d3e5ef7a'
+    });
+
+    return gateway.transaction.sale({
+        amount: "13.39",
+        paymentMethodNonce: paymentMethodNonceFromClient,
+        options: {
+          submitForSettlement: true
+        }
+      }, function (err, result) {
+        if (err) {
+            throw new functions.https.HttpsError('Client Token Error', response);
+        } else {
+           var createTransactionResponse = response;
+           console.log('BrainTree CreateTransaction ::: ' + createTransactionResponse);
+
+           var callBackResult = {
+               data: {
+                 "CreateTransactionResponse": createTransactionResponse,
+               },
+           };
+           res.send(callBackResult);
+       }
+    });
+});
