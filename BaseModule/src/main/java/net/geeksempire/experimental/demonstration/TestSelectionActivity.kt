@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.tests_selection_view.*
 import net.geeksempire.experimental.demonstration.GooglePayProcess.InitializeGooglePay
+import net.geeksempire.experimental.demonstration.PayPalProcess.InitializePayPal
 import net.geeksempire.experimental.demonstration.Utils.Functions.FunctionsClass
 
 
@@ -44,6 +45,10 @@ class TestSelectionActivity : BaseConfigurations() {
 
         googlePay.setOnClickListener {
             startActivity(Intent(applicationContext, InitializeGooglePay::class.java))
+        }
+
+        brainTreePayPal.setOnClickListener {
+            startActivity(Intent(applicationContext, InitializePayPal::class.java))
         }
 
         firebaseAuth = FirebaseAuth.getInstance()

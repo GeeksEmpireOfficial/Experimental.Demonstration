@@ -3,6 +3,8 @@
     <string name="title_dynamicfeatureondemand" translatable="false">☣ XYZ Demo ☣</string>
     <string name="installDynamicFeature" translatable="false">Install Dynamic Feature</string>
 
+    <string name="brainTree" translatable="false">PayPal | BrainTree</string>
+
     <string name="ADMOB_APP_ID" translatable="false">ca-app-pub-2920235108594210~3184491065</string>
     <string name="AD_UNIT_BANNER_ONE" translatable="false">ca-app-pub-2920235108594210/5946331878</string>
     <string name="AD_UNIT_BANNER_TWO" translatable="false">ca-app-pub-2920235108594210/9063449805</string>
