@@ -92,6 +92,7 @@
         <!--                <data android:scheme="net.geeksempire.experimental.demonstration.braintree" />-->
         <!--            </intent-filter>-->
         <!--        </activity>-->
+        <activity android:name=".Facebook.FacebookProcess" />
     </application>
 
 </manifest>

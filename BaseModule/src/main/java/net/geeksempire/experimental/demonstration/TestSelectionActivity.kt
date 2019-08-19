@@ -13,6 +13,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.tests_selection_view.*
+import net.geeksempire.experimental.demonstration.DynamicFeatures.DynamicFeaturesUpdateActivity
+import net.geeksempire.experimental.demonstration.Facebook.FacebookProcess
 import net.geeksempire.experimental.demonstration.GooglePayProcess.InitializeGooglePay
 import net.geeksempire.experimental.demonstration.PayPalProcess.InitializePayPal
 import net.geeksempire.experimental.demonstration.Utils.Functions.FunctionsClass
@@ -49,6 +51,14 @@ class TestSelectionActivity : BaseConfigurations() {
 
         brainTreePayPal.setOnClickListener {
             startActivity(Intent(applicationContext, InitializePayPal::class.java))
+        }
+
+        inAppUpdate.setOnClickListener {
+            startActivity(Intent(applicationContext, DynamicFeaturesUpdateActivity::class.java))
+        }
+
+        facebookAPI.setOnClickListener {
+            startActivity(Intent(applicationContext, FacebookProcess::class.java))
         }
 
         firebaseAuth = FirebaseAuth.getInstance()

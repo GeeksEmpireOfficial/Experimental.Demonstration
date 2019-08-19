@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="3dp">
 
     <ImageView
         android:id="@+id/googlePay"
@@ -14,7 +15,6 @@
         android:textAllCaps="false"
         android:text="@string/buy_with_googlepay_button_content_description"
         android:src="@drawable/ic_google_pay_mark_800_gray"
-        android:background="@color/colorAccent"
         android:visibility="invisible" />
 
     <com.google.android.material.button.MaterialButton
@@ -22,7 +22,26 @@
         android:layout_width="match_parent"
         android:layout_height="77dp"
         android:layout_below="@id/googlePay"
+        android:layout_margin="7dp"
         android:textAllCaps="false"
-        android:text="@string/brainTree" />
+        android:text="@string/testBrainTree" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/inAppUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_below="@id/brainTreePayPal"
+        android:layout_margin="7dp"
+        android:textAllCaps="false"
+        android:text="@string/testInAppUpdate" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/facebookAPI"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_below="@id/inAppUpdate"
+        android:layout_margin="7dp"
+        android:textAllCaps="false"
+        android:text="@string/testFacebook" />
 
 </RelativeLayout>

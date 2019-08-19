@@ -15,6 +15,7 @@ import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.InstallStateUpdatedListener
+import com.google.android.play.core.install.model.ActivityResult
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.InstallStatus
 import com.google.android.play.core.install.model.UpdateAvailability
@@ -86,8 +87,8 @@ class DynamicFeaturesUpdateActivity : AppCompatActivity() {
                                     val inputStream = assetManager.open("dynamic_image.png")
                                     val bitmap = BitmapFactory.decodeStream(inputStream)
 
-                                    val width = bitmap.getWidth()
-                                    val height = bitmap.getHeight()
+                                    val width = bitmap.width
+                                    val height = bitmap.height
                                     val outputBitmap =
                                         Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
 
@@ -165,16 +166,18 @@ class DynamicFeaturesUpdateActivity : AppCompatActivity() {
         }
         appUpdateManager = AppUpdateManagerFactory.create(applicationContext)
         appUpdateManager.registerListener(installStateUpdatedListener)
+
         val appUpdateInfo: Task<AppUpdateInfo> = appUpdateManager.appUpdateInfo
         appUpdateInfo
             .addOnSuccessListener { updateInfo ->
                 println("*** ${updateInfo.updateAvailability()} --- ${updateInfo.availableVersionCode()} ***")
+
                 if (updateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                    && updateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)
+                    && updateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)
                 ) {
                     appUpdateManager.startUpdateFlowForResult(
                         updateInfo,
-                        AppUpdateType.IMMEDIATE,
+                        AppUpdateType.FLEXIBLE,
                         this@DynamicFeaturesUpdateActivity,
                         IN_APP_UPDATE_REQUEST
                     )
@@ -272,7 +275,7 @@ class DynamicFeaturesUpdateActivity : AppCompatActivity() {
                 ) {
                     appUpdateManager.startUpdateFlowForResult(
                         appUpdateInfo,
-                        AppUpdateType.IMMEDIATE,
+                        AppUpdateType.FLEXIBLE,
                         this@DynamicFeaturesUpdateActivity,
                         IN_APP_UPDATE_REQUEST
                     )
@@ -301,6 +304,8 @@ class DynamicFeaturesUpdateActivity : AppCompatActivity() {
 
             } else if (resultCode == RESULT_OK) {
 
+            } else if (resultCode == ActivityResult.RESULT_IN_APP_UPDATE_FAILED) {
+                println("*** RESULT_IN_APP_UPDATE_FAILED ***")
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
