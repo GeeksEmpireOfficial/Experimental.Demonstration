@@ -91,11 +91,14 @@ dependencies {
     /*3rd-Party Library*/
     implementation 'com.facebook.rebound:rebound:0.3.8'
 
-    implementation 'com.facebook.android:facebook-core:[5,6)'
-    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+    implementation 'com.facebook.android:facebook-core:5.4.0'
+    implementation 'com.facebook.android:facebook-android-sdk:5.4.0'
 
 //    implementation 'com.braintreepayments.api:braintree:3.4.2'
-//    implementation 'com.braintreepayments.api:drop-in:4.3.0'
-//    implementation 'com.braintreepayments.api:three-d-secure:3.4.1'
+    implementation 'com.braintreepayments.api:drop-in:4.3.0'
 }
+
 apply plugin: 'com.google.gms.google-services'
+googleServices {
+    disableVersionCheck = true
+}

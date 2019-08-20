@@ -14,7 +14,12 @@
     <string name="AdUnitInterstitialOne" translatable="false">ca-app-pub-2920235108594210/2134422833</string>
 
     <string name="webClientId" translatable="false">38462126146-t1kia1498ml5c4tenl9vu9pvlts81vr2.apps.googleusercontent.com</string>
-
+    <string name="inAppUpdateDescription" translatable="false">An Update Has Just Been Installed</string>
+    <string name="inAppUpdateAction" translatable="false">
+        <![CDATA[
+            Complete It!
+        ]]>
+    </string>
     <string-array name="assistantActionLabel">
         <item name="labelOne">Do Something Geeky!</item>
         <item name="labelTwo">Geeks Up!</item>

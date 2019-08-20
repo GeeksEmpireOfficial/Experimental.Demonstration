@@ -92,6 +92,9 @@
         <!--                <data android:scheme="net.geeksempire.experimental.demonstration.braintree" />-->
         <!--            </intent-filter>-->
         <!--        </activity>-->
+        <activity
+            android:name=".DynamicFeatures.InAppUpdate"
+            android:theme="@style/TransparentAppCompat" />
         <activity android:name=".Facebook.FacebookProcess" />
     </application>
 

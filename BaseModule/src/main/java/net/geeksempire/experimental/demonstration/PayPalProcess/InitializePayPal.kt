@@ -1,8 +1,13 @@
 package net.geeksempire.experimental.demonstration.PayPalProcess
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.braintreepayments.api.dropin.DropInActivity
+import com.braintreepayments.api.dropin.DropInRequest
+import com.braintreepayments.api.dropin.DropInResult
 import com.google.firebase.functions.FirebaseFunctions
 import kotlinx.android.synthetic.main.braintree_views.*
 import net.geeksempire.experimental.demonstration.R
@@ -18,8 +23,8 @@ class InitializePayPal : AppCompatActivity() {
 
         //sandbox_7b32fxq5_4t4xz6vnm6dbk5jt
         brainTreeDropIn.setOnClickListener {
-            /*val dropInRequest = DropInRequest().clientToken(clientToken)
-            startActivityForResult(dropInRequest.getIntent(this), 123)*/
+            val dropInRequest = DropInRequest().clientToken(clientToken)
+            startActivityForResult(dropInRequest.getIntent(this), 123)
         }
 
         FirebaseFunctions.getInstance()
@@ -40,12 +45,13 @@ class InitializePayPal : AppCompatActivity() {
             }
     }
 
-    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 123) {
             if (resultCode == Activity.RESULT_OK) {
                 val result = data!!.getParcelableExtra<DropInResult>(DropInResult.EXTRA_DROP_IN_RESULT)
-                val paymentMethodNonce = result.getPaymentMethodNonce().getNonce()
+                val paymentMethodNonce = result.paymentMethodNonce!!.nonce
+                FunctionsClassDebug.PrintDebug("*** ${paymentMethodNonce} ***")
                 // use the result to update your UI and send the payment method nonce to your server
 
                 val transactionDate: HashMap<String, Any?> = HashMap<String, Any?>()
@@ -53,7 +59,7 @@ class InitializePayPal : AppCompatActivity() {
 
                 FirebaseFunctions.getInstance()
                     .getHttpsCallable("createTransaction")
-                    .call()
+                    .call(transactionDate)
                     .continueWith { task ->
                         val resultToContinueWith = task.result?.data as HashMap<String, String?>
                         FunctionsClassDebug.PrintDebug("*** Create Transaction ${resultToContinueWith}")
@@ -74,5 +80,5 @@ class InitializePayPal : AppCompatActivity() {
                 val error = data!!.getSerializableExtra(DropInActivity.EXTRA_ERROR) as Exception
             }
         }
-    }*/
+    }
 }
