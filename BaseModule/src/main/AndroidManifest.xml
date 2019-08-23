@@ -27,6 +27,9 @@
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebookAppId" />
 
         <activity
             android:name=".TestSelectionActivity"
@@ -80,22 +83,15 @@
         <activity
             android:name=".PayPalProcess.InitializePayPal"
             android:theme="@style/Theme.MaterialComponents" />
-        <!--        <activity android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"-->
-        <!--            android:launchMode="singleTask"-->
-        <!--            android:theme="@android:style/Theme.Black.NoTitleBar">-->
-        <!--            <intent-filter>-->
-        <!--                <action android:name="android.intent.action.VIEW" />-->
-
-        <!--                <category android:name="android.intent.category.DEFAULT" />-->
-        <!--                <category android:name="android.intent.category.BROWSABLE" />-->
-
-        <!--                <data android:scheme="net.geeksempire.experimental.demonstration.braintree" />-->
-        <!--            </intent-filter>-->
-        <!--        </activity>-->
         <activity
             android:name=".DynamicFeatures.InAppUpdate"
             android:theme="@style/TransparentAppCompat" />
         <activity android:name=".Facebook.FacebookProcess" />
+
+        <provider
+            android:authorities="com.facebook.app.FacebookContentProvider2261294380634519"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true" />
     </application>
 
 </manifest>
