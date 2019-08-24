@@ -8,10 +8,14 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import com.facebook.login.widget.ProfilePictureView
+import com.google.firebase.auth.FacebookAuthProvider
+import com.google.firebase.auth.FirebaseAuth
 import net.geeksempire.experimental.demonstration.R
 import net.geekstools.floatshort.PRO.Util.Functions.FunctionsClassDebug
 
 class FacebookProcess : Activity() {
+
+    private lateinit var firebaseAuth: FirebaseAuth
 
     lateinit var callbackManager: CallbackManager
 
@@ -80,6 +84,8 @@ class FacebookProcess : Activity() {
                 }
 
             })
+
+        firebaseAuth = FirebaseAuth.getInstance()
     }
 
     override fun onResume() {
@@ -90,6 +96,15 @@ class FacebookProcess : Activity() {
         if (isLoggedIn) {
             profileFacebook = Profile.getCurrentProfile()
             profilePicture.profileId = profileFacebook.id
+
+            val credential = FacebookAuthProvider.getCredential(accessToken.token)
+            firebaseAuth.currentUser!!.linkWithCredential(credential).addOnSuccessListener {
+                FunctionsClassDebug.PrintDebug("*** ${it.additionalUserInfo} ***")
+
+            }.addOnFailureListener {
+                FunctionsClassDebug.PrintDebug("*** ${it} ***")
+
+            }
         }
     }
 
