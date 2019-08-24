@@ -16,7 +16,8 @@
             Complete It!
         ]]>
     </string>
-    <string name="facebookAppId">2261294380634519</string>
+    <string name="facebook_app_id">2261294380634519</string>
+    <string name="fb_login_protocol_scheme">fb2261294380634519</string>
 
     <string name="ADMOB_APP_ID" translatable="false">ca-app-pub-2920235108594210~3184491065</string>
     <string name="AD_UNIT_BANNER_ONE" translatable="false">ca-app-pub-2920235108594210/5946331878</string>
