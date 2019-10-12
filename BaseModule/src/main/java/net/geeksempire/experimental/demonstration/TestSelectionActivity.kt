@@ -19,6 +19,7 @@ import net.geeksempire.experimental.demonstration.DynamicFeatures.InAppUpdate
 import net.geeksempire.experimental.demonstration.Facebook.FacebookProcess
 import net.geeksempire.experimental.demonstration.GooglePayProcess.InitializeGooglePay
 import net.geeksempire.experimental.demonstration.PayPalProcess.InitializePayPal
+import net.geeksempire.experimental.demonstration.UI.MaterialUI
 import net.geeksempire.experimental.demonstration.Utils.Functions.FunctionsClass
 import net.geekstools.floatshort.PRO.Util.Functions.FunctionsClassDebug
 import java.security.MessageDigest
@@ -71,6 +72,9 @@ class TestSelectionActivity : BaseConfigurations() {
             startActivity(Intent(applicationContext, FacebookProcess::class.java))
         }
 
+        materialUITest.setOnClickListener {
+            startActivity(Intent(applicationContext, MaterialUI::class.java))
+        }
         if (BuildConfig.DEBUG) {
             try {
                 val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)

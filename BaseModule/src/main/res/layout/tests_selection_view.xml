@@ -45,4 +45,13 @@
         android:textAllCaps="false"
         android:text="@string/testFacebook" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialUITest"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_below="@id/facebookAPI"
+        android:layout_margin="7dp"
+        android:textAllCaps="false"
+        android:text="@string/testMaterialUI" />
+
 </RelativeLayout>

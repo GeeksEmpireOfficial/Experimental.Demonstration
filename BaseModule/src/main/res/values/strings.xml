@@ -6,7 +6,7 @@
     <string name="testInAppUpdate" translatable="false">Test | In-App Update</string>
     <string name="testFacebook" translatable="false">Test | Facebook</string>
     <string name="testBrainTree" translatable="false">PayPal | BrainTree</string>
-
+    <string name="testMaterialUI" translatable="false">Test | MaterialUI</string>
 
 
     <string name="webClientId" translatable="false">38462126146-t1kia1498ml5c4tenl9vu9pvlts81vr2.apps.googleusercontent.com</string>

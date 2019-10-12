@@ -88,8 +88,8 @@
             android:theme="@style/TransparentAppCompat" />
         <activity android:name=".Facebook.FacebookProcess" />
         <activity
-            android:name=".UIUX.ProgressBars"
-            android:theme="@android:style/Theme.Material.NoActionBar" />
+            android:name=".UI.MaterialUI"
+            android:theme="@style/GeeksEmpire.Material" />
 
         <provider
             android:authorities="com.facebook.app.FacebookContentProvider2261294380634519"
