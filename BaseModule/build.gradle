@@ -80,7 +80,7 @@ dependencies {
     api 'androidx.dynamicanimation:dynamicanimation:1.0.0'
     api 'androidx.cardview:cardview:1.0.0'
 
-    api 'com.google.android.material:material:1.2.0-alpha02'
+    api 'com.google.android.material:material:1.2.0-alpha03'
 
     api 'com.google.firebase:firebase-core:17.2.1'
     api 'com.google.firebase:firebase-auth:19.2.0'
