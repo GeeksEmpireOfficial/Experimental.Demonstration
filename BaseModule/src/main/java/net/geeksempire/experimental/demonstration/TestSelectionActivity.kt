@@ -3,9 +3,7 @@ package net.geeksempire.experimental.demonstration
 import android.Manifest
 import android.app.ActivityOptions
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Base64
 import android.view.View
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -21,9 +19,6 @@ import net.geeksempire.experimental.demonstration.GooglePayProcess.InitializeGoo
 import net.geeksempire.experimental.demonstration.PayPalProcess.InitializePayPal
 import net.geeksempire.experimental.demonstration.UI.MaterialUI
 import net.geeksempire.experimental.demonstration.Utils.Functions.FunctionsClass
-import net.geekstools.floatshort.PRO.Util.Functions.FunctionsClassDebug
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 
 
 class TestSelectionActivity : BaseConfigurations() {
@@ -74,26 +69,6 @@ class TestSelectionActivity : BaseConfigurations() {
 
         materialUITest.setOnClickListener {
             startActivity(Intent(applicationContext, MaterialUI::class.java))
-        }
-        if (BuildConfig.DEBUG) {
-            try {
-                val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
-                for (signature in info.signatures) {
-                    val messageDigest = MessageDigest.getInstance("SHA")
-                    messageDigest.update(signature.toByteArray())
-                    FunctionsClassDebug.PrintDebug(
-                        "KeyHash: ${Base64.encodeToString(
-                            messageDigest.digest(),
-                            Base64.DEFAULT
-                        )} "
-                    )
-                }
-            } catch (e: PackageManager.NameNotFoundException) {
-
-            } catch (e: NoSuchAlgorithmException) {
-
-            }
-
         }
 
         firebaseAuth = FirebaseAuth.getInstance()

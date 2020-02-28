@@ -476,7 +476,7 @@ class PhysicsAnimationActivity : AppCompatActivity() {
         }
 
         animationImage.setOnClickListener {
-            //            spring.endValue = 10.0
+//            spring.endValue = 10.0
             startActivity(Intent(applicationContext, MoveBySensor::class.java))
         }
     }
