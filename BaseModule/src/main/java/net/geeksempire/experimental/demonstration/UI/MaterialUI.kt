@@ -13,5 +13,7 @@ class MaterialUI : Activity() {
 
         horizontalProgressView.progress = 77f
         circleProgressView.progress = 55f
+
+
     }
 }
