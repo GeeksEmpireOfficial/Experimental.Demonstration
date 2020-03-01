@@ -15,7 +15,7 @@
             android:id="@+id/vectorControl"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/avd_handwriting_io16"
+            android:src="@drawable/animated_geeksempire"
 
             apps:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
