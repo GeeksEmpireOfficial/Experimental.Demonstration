@@ -1,11 +1,9 @@
 package net.geeksempire.experimental.demonstration.UI
 
 import android.app.Activity
-import android.graphics.drawable.Animatable2
-import android.graphics.drawable.AnimatedVectorDrawable
-import android.graphics.drawable.Drawable
+import android.graphics.drawable.Animatable
 import android.os.Bundle
-import kotlinx.android.synthetic.main.ui_material.*
+import androidx.appcompat.widget.AppCompatImageView
 import net.geeksempire.experimental.demonstration.R
 
 class MaterialUI : Activity() {
@@ -14,13 +12,9 @@ class MaterialUI : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ui_material)
 
-        val animatedVectorDrawable: AnimatedVectorDrawable = vectorControl.drawable as AnimatedVectorDrawable
-        animatedVectorDrawable.start()
+        ((findViewById(R.id.vectorControl) as AppCompatImageView).drawable as Animatable).start()
+        val animatable = (findViewById(R.id.vectorControl) as AppCompatImageView).drawable as Animatable
 
-        animatedVectorDrawable?.registerAnimationCallback(object : Animatable2.AnimationCallback() {
-            override fun onAnimationEnd(drawable: Drawable?) {
-                animatedVectorDrawable.start()
-            }
-        })
+        animatable.start()
     }
 }

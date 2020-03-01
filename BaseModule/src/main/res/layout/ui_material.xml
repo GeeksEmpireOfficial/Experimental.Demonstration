@@ -1,69 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="13dp"
     android:background="@color/default_color"
     android:orientation="vertical">
 
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:id="@+id/materialCardView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="21dp"-->
-<!--        apps:contentPadding="3dp"-->
-<!--        apps:strokeColor="@color/green_start"-->
-<!--        apps:cardElevation="7dp"-->
-<!--        apps:cardBackgroundColor="@color/light"-->
-<!--        apps:cardForegroundColor="@color/colorAccent"-->
-<!--        apps:cardCornerRadius="13dp"-->
-<!--        apps:cardPreventCornerOverlap="true">-->
-
-<!--    </androidx.cardview.widget.CardView>-->
-
-<!--    <net.geeksempire.ProgressBar.HorizontalProgressView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--        android:id="@+id/horizontalProgressView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="33dp"-->
-<!--        android:layout_gravity="center_horizontal"-->
-<!--        app:track_width="13dp"-->
-<!--        app:isTracked="true"-->
-<!--        app:trackColor="@color/colorBlack"-->
-<!--        app:start_color="@color/green_start"-->
-<!--        app:end_color="@color/default_color_game_light"-->
-<!--        app:textMovedEnable="true"-->
-<!--        app:progressTextVisibility="true"-->
-<!--        app:progressTextColor="@color/light"-->
-<!--        app:corner_radius="13dp" />-->
-
-<!--    <net.geeksempire.ProgressBar.CircleProgressView-->
-<!--        android:id="@+id/circleProgressView"-->
-<!--        android:layout_width="33dp"-->
-<!--        android:layout_height="33dp"-->
-<!--        android:layout_gravity="center_horizontal"-->
-<!--        apps:track_width="13dp"-->
-<!--        apps:isTracked="true"-->
-<!--        apps:trackColor="@color/colorBlack"-->
-<!--        apps:start_color="@color/green_start"-->
-<!--        apps:end_color="@color/default_color_game_light"-->
-<!--        apps:textMovedEnable="true"-->
-<!--        apps:progressTextVisibility="true"-->
-<!--        apps:progressTextColor="@color/light"-->
-<!--        apps:corner_radius="13dp" />-->
-
-<!--    <com.airbnb.lottie.LottieAnimationView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--        android:id="@+id/animationLottieView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-
-<!--        app:lottie_rawRes="@raw/like_button"-->
-
-<!--        app:lottie_loop="true"-->
-<!--        app:lottie_autoPlay="true" />-->
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/vectorControl"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/icon_vector"/>
+        android:layout_height="wrap_content">
 
-</LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView xmlns:apps="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/vectorControl"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/avd_handwriting_io16"
+
+            apps:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
