@@ -16,6 +16,6 @@ class MaterialUI : Activity() {
         val animatable = getDrawable(R.drawable.animated_geeksempire) as Animatable
         animatable.start()
 
-        vectorControl.setImageDrawable(animatable as Drawable)
+        vectorControlOne.setImageDrawable(animatable as Drawable)
     }
 }
