@@ -90,6 +90,9 @@
         <activity
             android:name=".UI.MaterialUI"
             android:theme="@style/GeeksEmpire.Material" />
+        <activity
+            android:name=".Network.HttpsConnectionDemonstration"
+            android:theme="@style/GeeksEmpire.Material" />
 
         <provider
             android:authorities="com.facebook.app.FacebookContentProvider2261294380634519"
