@@ -1,1 +1,5 @@
 /build
+/.settings/org.eclipse.buildship.core.prefs
+/demoConfig/release/BaseModule-demoConfig-release.aab
+/.classpath
+/.project
