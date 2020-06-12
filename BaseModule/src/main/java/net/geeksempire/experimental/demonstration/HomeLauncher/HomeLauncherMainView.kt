@@ -1,6 +1,5 @@
 package net.geeksempire.experimental.demonstration.HomeLauncher
 
-import android.app.ActivityOptions
 import android.content.Context
 import android.content.pm.LauncherApps
 import android.content.pm.LauncherApps.ShortcutQuery
@@ -20,7 +19,7 @@ class HomeLauncherMainView : AppCompatActivity() {
         homeLauncherViewBinding = HomeLauncherViewBinding.inflate(layoutInflater)
         setContentView(homeLauncherViewBinding.root)
 
-        val targetPackageName = "com.android.chrome"
+        val targetPackageName = "com.google.android.youtube"
 
         homeLauncherViewBinding.getShortcutsInformation.text = packageManager.getApplicationLabel(packageManager.getApplicationInfo(targetPackageName, PackageManager.GET_META_DATA))
 
@@ -78,13 +77,17 @@ class HomeLauncherMainView : AppCompatActivity() {
                     //new-tab-shortcut - New tab - ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main}
                     //dynamic-new-incognito-tab-shortcut - Incognito Tab - ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main}
 
-                    launcherApps.startShortcut(
-                        /*shortcutInformationToLauncher.`package`*/targetPackageName,
-                        /*shortcutInformationToLauncher.id*/"dynamic-new-incognito-tab-shortcut",
-                        view.clipBounds,
-                        ActivityOptions.makeCustomAnimation(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out).toBundle(),
-                        UserHandle.getUserHandleForUid(applicationInfo.uid)
-                    )
+
+                   // val componentInfo = ComponentInfo("com.android.chrome", "com.google.android.apps.chrome.Main")
+
+
+//                    launcherApps.startShortcut(
+//                        /*shortcutInformationToLauncher.`package`*/targetPackageName,
+//                        /*shortcutInformationToLauncher.id*/"dynamic-new-incognito-tab-shortcut",
+//                        view.clipBounds,
+//                        ActivityOptions.makeCustomAnimation(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out).toBundle(),
+//                        UserHandle.getUserHandleForUid(applicationInfo.uid)
+//                    )
 //                    launcherApps.startShortcut(
 //                        shortcutInformationToLauncher,
 //                        view.clipBounds,
