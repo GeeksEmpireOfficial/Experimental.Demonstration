@@ -63,4 +63,13 @@
         android:textAllCaps="false"
         android:text="@string/testHttpsConnection" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/homeLauncher"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_below="@id/httpsConnection"
+        android:layout_margin="7dp"
+        android:textAllCaps="false"
+        android:text="@string/testHomeLauncher" />
+
 </RelativeLayout>

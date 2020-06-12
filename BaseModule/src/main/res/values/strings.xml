@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">☣ XYZ Demo ☣</string>
+    <string name="app_name" translatable="false">☣ XYZ Demonstration ☣</string>
     <string name="title_dynamicfeatureondemand" translatable="false">☣ XYZ Demo ☣</string>
     <string name="installDynamicFeature" translatable="false">Install Dynamic Feature</string>
 
@@ -8,6 +8,7 @@
     <string name="testBrainTree" translatable="false">PayPal | BrainTree</string>
     <string name="testMaterialUI" translatable="false">Test | MaterialUI</string>
     <string name="testHttpsConnection" translatable="false">Test | HttpsConnection</string>
+    <string name="testHomeLauncher" translatable="false">Test | Home Launcher</string>
 
 
     <string name="webClientId" translatable="false">38462126146-t1kia1498ml5c4tenl9vu9pvlts81vr2.apps.googleusercontent.com</string>

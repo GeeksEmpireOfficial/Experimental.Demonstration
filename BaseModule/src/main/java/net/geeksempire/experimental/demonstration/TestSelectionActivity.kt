@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.tests_selection_view.*
 import net.geeksempire.experimental.demonstration.DynamicFeatures.InAppUpdate
 import net.geeksempire.experimental.demonstration.Facebook.FacebookProcess
 import net.geeksempire.experimental.demonstration.GooglePayProcess.InitializeGooglePay
+import net.geeksempire.experimental.demonstration.HomeLauncher.HomeLauncherMainView
 import net.geeksempire.experimental.demonstration.Network.HttpsConnectionDemonstration
 import net.geeksempire.experimental.demonstration.PayPalProcess.InitializePayPal
 import net.geeksempire.experimental.demonstration.UI.MaterialUI
@@ -74,6 +75,10 @@ class TestSelectionActivity : BaseConfigurations() {
 
         httpsConnection.setOnClickListener {
             startActivity(Intent(applicationContext, HttpsConnectionDemonstration::class.java))
+        }
+
+        homeLauncher.setOnClickListener {
+            startActivity(Intent(applicationContext, HomeLauncherMainView::class.java))
         }
 
         firebaseAuth = FirebaseAuth.getInstance()
