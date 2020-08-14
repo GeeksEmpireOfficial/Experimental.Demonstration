@@ -19,6 +19,7 @@ import net.geeksempire.experimental.demonstration.GooglePayProcess.InitializeGoo
 import net.geeksempire.experimental.demonstration.HomeLauncher.HomeLauncherMainView
 import net.geeksempire.experimental.demonstration.Network.HttpsConnectionDemonstration
 import net.geeksempire.experimental.demonstration.PayPalProcess.InitializePayPal
+import net.geeksempire.experimental.demonstration.UI.MagazineCoverTemplate
 import net.geeksempire.experimental.demonstration.UI.MaterialUI
 import net.geeksempire.experimental.demonstration.Utils.Functions.FunctionsClass
 
@@ -79,6 +80,10 @@ class TestSelectionActivity : BaseConfigurations() {
 
         homeLauncher.setOnClickListener {
             startActivity(Intent(applicationContext, HomeLauncherMainView::class.java))
+        }
+
+        coverMagazine.setOnClickListener {
+            startActivity(Intent(applicationContext, MagazineCoverTemplate::class.java))
         }
 
         firebaseAuth = FirebaseAuth.getInstance()

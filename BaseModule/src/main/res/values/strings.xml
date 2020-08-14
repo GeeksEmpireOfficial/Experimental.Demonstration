@@ -9,6 +9,7 @@
     <string name="testMaterialUI" translatable="false">Test | MaterialUI</string>
     <string name="testHttpsConnection" translatable="false">Test | HttpsConnection</string>
     <string name="testHomeLauncher" translatable="false">Test | Home Launcher</string>
+    <string name="coverMagazine" translatable="false">Test | Magazine Cover</string>
 
 
     <string name="webClientId" translatable="false">38462126146-t1kia1498ml5c4tenl9vu9pvlts81vr2.apps.googleusercontent.com</string>

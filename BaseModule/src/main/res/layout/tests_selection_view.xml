@@ -72,4 +72,13 @@
         android:textAllCaps="false"
         android:text="@string/testHomeLauncher" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/coverMagazine"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_below="@id/homeLauncher"
+        android:layout_margin="7dp"
+        android:textAllCaps="false"
+        android:text="@string/coverMagazine" />
+
 </RelativeLayout>
