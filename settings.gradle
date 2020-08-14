@@ -1,2 +1,4 @@
+include ':BlurryEffectLibrary'
+include ':ShapesCustomImageViewLibrary'
 include ':BaseModule', ':DynamicFeatureOnDemand', ':InstantAppModule', ':ProgressBar'
 rootProject.name='ExperimentalDemonstration'

@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.Constraints xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mainView" >
+    android:id="@+id/mainView"
+    android:background="@drawable/magazine_cover_background">
 
 
 </androidx.constraintlayout.widget.Constraints>

@@ -77,8 +77,8 @@ dependencies {
     api 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation project(':ProgressBar')
-    //    implementation project(path: ':ShapesCustomImageViewLibrary')
-    //    implementation project(path: ':BlurryEffectLibrary')
+    implementation project(path: ':ShapesCustomImageViewLibrary')
+    implementation project(path: ':BlurryEffectLibrary')
 
     api 'com.google.android.gms:play-services-auth:18.1.0'
     api 'com.google.android.gms:play-services-wallet:18.0.0'
