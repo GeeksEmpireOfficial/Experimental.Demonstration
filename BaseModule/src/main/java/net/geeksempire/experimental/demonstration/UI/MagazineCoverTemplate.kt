@@ -13,6 +13,8 @@ class MagazineCoverTemplate : AppCompatActivity() {
         magazineCoverViewBinding = MagazineCoverViewBinding.inflate(layoutInflater)
         setContentView(magazineCoverViewBinding.root)
 
+        window.statusBarColor = getColor(android.R.color.black)
+        window.navigationBarColor = getColor(android.R.color.black)
 
 
     }

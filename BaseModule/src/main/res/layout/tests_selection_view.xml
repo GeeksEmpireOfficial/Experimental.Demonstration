@@ -1,84 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/testView"
-    android:padding="3dp">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/googlePay"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="13dp"
-        android:padding="8dp"
-        android:textAllCaps="false"
-        android:text="@string/buy_with_googlepay_button_content_description"
-        android:src="@drawable/ic_google_pay_mark_800_gray"
-        android:visibility="invisible" />
+        android:layout_height="match_parent"
+        android:id="@+id/testView"
+        android:padding="3dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/brainTreePayPal"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:layout_below="@id/googlePay"
-        android:layout_margin="7dp"
-        android:textAllCaps="false"
-        android:text="@string/testBrainTree" />
+        <ImageView
+            android:id="@+id/googlePay"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="13dp"
+            android:padding="8dp"
+            android:textAllCaps="false"
+            android:text="@string/buy_with_googlepay_button_content_description"
+            android:src="@drawable/ic_google_pay_mark_800_gray"
+            android:visibility="invisible" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/inAppUpdate"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:layout_below="@id/brainTreePayPal"
-        android:layout_margin="7dp"
-        android:textAllCaps="false"
-        android:text="@string/testInAppUpdate" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/brainTreePayPal"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:layout_below="@id/googlePay"
+            android:layout_margin="7dp"
+            android:textAllCaps="false"
+            android:text="@string/testBrainTree" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/facebookAPI"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:layout_below="@id/inAppUpdate"
-        android:layout_margin="7dp"
-        android:textAllCaps="false"
-        android:text="@string/testFacebook" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/inAppUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:layout_below="@id/brainTreePayPal"
+            android:layout_margin="7dp"
+            android:textAllCaps="false"
+            android:text="@string/testInAppUpdate" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialUITest"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:layout_below="@id/facebookAPI"
-        android:layout_margin="7dp"
-        android:textAllCaps="false"
-        android:text="@string/testMaterialUI" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/facebookAPI"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:layout_below="@id/inAppUpdate"
+            android:layout_margin="7dp"
+            android:textAllCaps="false"
+            android:text="@string/testFacebook" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/httpsConnection"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:layout_below="@id/materialUITest"
-        android:layout_margin="7dp"
-        android:textAllCaps="false"
-        android:text="@string/testHttpsConnection" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/materialUITest"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:layout_below="@id/facebookAPI"
+            android:layout_margin="7dp"
+            android:textAllCaps="false"
+            android:text="@string/testMaterialUI" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/homeLauncher"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:layout_below="@id/httpsConnection"
-        android:layout_margin="7dp"
-        android:textAllCaps="false"
-        android:text="@string/testHomeLauncher" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/httpsConnection"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:layout_below="@id/materialUITest"
+            android:layout_margin="7dp"
+            android:textAllCaps="false"
+            android:text="@string/testHttpsConnection" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/coverMagazine"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:layout_below="@id/homeLauncher"
-        android:layout_margin="7dp"
-        android:textAllCaps="false"
-        android:text="@string/coverMagazine" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/homeLauncher"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:layout_below="@id/httpsConnection"
+            android:layout_margin="7dp"
+            android:textAllCaps="false"
+            android:text="@string/testHomeLauncher" />
 
-</RelativeLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/coverMagazine"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:layout_below="@id/homeLauncher"
+            android:layout_margin="7dp"
+            android:textAllCaps="false"
+            android:text="@string/coverMagazine" />
+
+    </RelativeLayout>
+
+</ScrollView>
