@@ -7,13 +7,19 @@
     android:layout_marginVertical="1dp"
     android:background="@drawable/magazine_cover_background">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/topImageWebsiteLogo"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/topNameWebsite"
         android:layout_width="match_parent"
         android:layout_height="101dp"
         android:paddingVertical="13dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/magazine_cover_top_image"/>
+        android:gravity="center"
+        android:text="بوستان آبان"
+        android:textSize="33sp"
+        android:textStyle="bold"
+        android:textColor="@color/default_color_game"
+        android:fontFamily="@font/persian_sans"
+        android:shadowColor="@color/dark_transparent_high"
+        android:shadowRadius="19"/>
 
     <net.geekstools.imageview.customshapes.ShapesImage
         android:id="@+id/featuredPostImage"
@@ -24,7 +30,7 @@
 
         apps:shape="rounded"
 
-        apps:layout_constraintTop_toBottomOf="@id/topImageWebsiteLogo" />
+        apps:layout_constraintTop_toBottomOf="@id/topNameWebsite" />
 
     <TextView
         android:id="@+id/featuredPostTitle"
@@ -60,7 +66,7 @@
         android:shadowRadius="19"
         android:background="@drawable/magazine_first_post_background"
 
-        apps:layout_constraintTop_toBottomOf="@id/topImageWebsiteLogo"
+        apps:layout_constraintTop_toBottomOf="@id/topNameWebsite"
         apps:layout_constraintStart_toEndOf="@id/featuredPostImage"
         apps:layout_constraintEnd_toEndOf="parent"/>
 
@@ -95,7 +101,7 @@
         android:layout_marginStart="3dp"
         android:layout_marginEnd="0dp"
         android:padding="3dp"
-        android:text="سه عنوان"
+        android:text="چهار عنوان"
         android:textStyle="bold"
         android:textColor="@color/darker"
         android:textSize="17sp"
@@ -117,7 +123,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:padding="3dp"
-        android:text="چهار عنوان"
+        android:text="چنج عنوان"
         android:textStyle="bold"
         android:textColor="@color/darker"
         android:textSize="17sp"
@@ -127,5 +133,15 @@
         android:background="@drawable/magazine_bottom_post_background"
 
         apps:layout_constraintTop_toBottomOf="@id/featuredPostImage" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/topImageWebsiteLogo"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:paddingVertical="13dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/magazine_cover_top_image"
+
+        apps:layout_constraintTop_toBottomOf="@id/bottomPostTitle"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
