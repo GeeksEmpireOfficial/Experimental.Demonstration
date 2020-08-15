@@ -138,8 +138,10 @@
         android:id="@+id/topImageWebsiteLogo"
         android:layout_width="match_parent"
         android:layout_height="91dp"
+        android:layout_marginTop="7dp"
         android:paddingVertical="13dp"
-        android:scaleType="fitCenter"
+        android:paddingHorizontal="57dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/magazine_cover_top_image"
 
         apps:layout_constraintTop_toBottomOf="@id/bottomPostTitle"/>
