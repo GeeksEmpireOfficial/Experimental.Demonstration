@@ -50,7 +50,7 @@ class InitializePayPal : AppCompatActivity() {
         if (requestCode == 123) {
             if (resultCode == Activity.RESULT_OK) {
                 val result = data!!.getParcelableExtra<DropInResult>(DropInResult.EXTRA_DROP_IN_RESULT)
-                val paymentMethodNonce = result.paymentMethodNonce!!.nonce
+                val paymentMethodNonce = result?.paymentMethodNonce!!.nonce
                 FunctionsClassDebug.PrintDebug("*** ${paymentMethodNonce} ***")
                 // use the result to update your UI and send the payment method nonce to your server
 

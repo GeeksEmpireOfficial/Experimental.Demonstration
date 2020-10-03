@@ -49,10 +49,12 @@ class AssistantAction : Activity() {
 
     fun notifyActionStatus(actionStatus: String) {
         val actionToken = intent.getStringExtra(actionTokenExtra)
-        val action = AssistActionBuilder()
-            .setActionToken(actionToken)
-            .setActionStatus(actionStatus)
-            .build()
+        val action = actionToken?.let {
+            AssistActionBuilder()
+                .setActionToken(it)
+                .setActionStatus(actionStatus)
+                .build()
+        }
         FirebaseUserActions.getInstance().end(action)
     }
 }

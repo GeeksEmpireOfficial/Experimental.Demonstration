@@ -41,21 +41,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".HomeLauncher.HomeLauncherMainView"
+            android:clearTaskOnLaunch="true"
             android:launchMode="singleTask"
             android:stateNotNeeded="true"
-            android:clearTaskOnLaunch="true"
-            android:theme="@style/GeeksEmpire.Material.HomeLauncher" >
+            android:theme="@style/GeeksEmpire.Material.HomeLauncher">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".GoogleAssistantActions.BrowseInsideApp"
             android:exported="true"
@@ -116,8 +114,8 @@
             android:theme="@style/GeeksEmpire.Material" />
 
         <provider
-            android:authorities="com.facebook.app.FacebookContentProvider2261294380634519"
             android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider2261294380634519"
             android:exported="true" />
     </application>
 

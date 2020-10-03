@@ -23,7 +23,6 @@ import net.geeksempire.experimental.demonstration.UI.MagazineCoverTemplate
 import net.geeksempire.experimental.demonstration.UI.MaterialUI
 import net.geeksempire.experimental.demonstration.Utils.Functions.FunctionsClass
 
-
 class TestSelectionActivity : BaseConfigurations() {
 
     lateinit var functionsClass: FunctionsClass
@@ -31,21 +30,22 @@ class TestSelectionActivity : BaseConfigurations() {
     lateinit var firebaseAuth: FirebaseAuth
     var firebaseUser: FirebaseUser? = null
 
-    private val GOOGLE_SIGN_IN = 666
+    private val GOOGLE_SIGN_IN: Int = 666
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tests_selection_view)
         FirebaseApp.initializeApp(applicationContext)
 
+        //Runtime Permission
         requestPermissions(
-            arrayOf(
-                Manifest.permission.INTERNET,
+            arrayOf (
                 Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ), 123
         )
+
 
         functionsClass = FunctionsClass(applicationContext)
 
@@ -88,6 +88,7 @@ class TestSelectionActivity : BaseConfigurations() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseUser = firebaseAuth.currentUser
+
     }
 
     override fun onStart() {
