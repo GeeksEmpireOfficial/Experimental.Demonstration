@@ -1,3 +1,4 @@
+include ':CardStack'
 include ':BlurryEffectLibrary'
 include ':ShapesCustomImageViewLibrary'
 include ':BaseModule', ':DynamicFeatureOnDemand', ':InstantAppModule', ':ProgressBar'

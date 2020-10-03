@@ -109,6 +109,9 @@
             android:name=".UI.MagazineCoverTemplate"
             android:theme="@style/GeeksEmpire.Material" />
         <activity
+            android:name=".UI.CardStack.CardStackView"
+            android:theme="@style/GeeksEmpire.Material" />
+        <activity
             android:name=".Network.HttpsConnectionDemonstration"
             android:theme="@style/GeeksEmpire.Material" />
 
