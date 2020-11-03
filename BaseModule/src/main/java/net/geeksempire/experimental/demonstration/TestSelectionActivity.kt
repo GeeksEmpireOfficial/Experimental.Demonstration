@@ -86,6 +86,16 @@ class TestSelectionActivity : BaseConfigurations() {
             startActivity(Intent(applicationContext, MagazineCoverTemplate::class.java))
         }
 
+        coverMagazine.setOnLongClickListener {
+
+            Intent(applicationContext, MagazineCoverTemplate::class.java).apply {
+
+                startActivity(this@apply)
+            }
+
+            false
+        }
+
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseUser = firebaseAuth.currentUser
 

@@ -117,7 +117,7 @@ dependencies {
     api 'com.facebook.android:facebook-core:6.1.0'
     api 'com.facebook.android:facebook-android-sdk:6.1.0'
 
-    api 'com.airbnb.android:lottie:3.4.0'
+    api 'com.airbnb.android:lottie:3.4.1'
 
     // implementation 'com.braintreepayments.api:braintree:3.4.2'
     api 'com.braintreepayments.api:drop-in:4.5.0'
