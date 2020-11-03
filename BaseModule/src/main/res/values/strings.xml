@@ -8,6 +8,7 @@
     <string name="testBrainTree" translatable="false">PayPal | BrainTree</string>
     <string name="testMaterialUI" translatable="false">Test | MaterialUI</string>
     <string name="testHttpsConnection" translatable="false">Test | HttpsConnection</string>
+    <string name="backgroundProcess" translatable="false">Test | Background Process</string>
     <string name="testHomeLauncher" translatable="false">Test | Home Launcher</string>
     <string name="coverMagazine" translatable="false">Test | Magazine Cover</string>
 

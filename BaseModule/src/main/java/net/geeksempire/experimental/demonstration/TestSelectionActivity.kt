@@ -3,8 +3,15 @@ package net.geeksempire.experimental.demonstration
 import android.Manifest
 import android.app.ActivityOptions
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkInfo
+import androidx.work.WorkManager
+import androidx.work.WorkRequest
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -19,6 +26,7 @@ import net.geeksempire.experimental.demonstration.GooglePayProcess.InitializeGoo
 import net.geeksempire.experimental.demonstration.HomeLauncher.HomeLauncherMainView
 import net.geeksempire.experimental.demonstration.Network.HttpsConnectionDemonstration
 import net.geeksempire.experimental.demonstration.PayPalProcess.InitializePayPal
+import net.geeksempire.experimental.demonstration.Process.WorkBackgroundProcess
 import net.geeksempire.experimental.demonstration.UI.MagazineCoverTemplate
 import net.geeksempire.experimental.demonstration.UI.MaterialUI
 import net.geeksempire.experimental.demonstration.Utils.Functions.FunctionsClass
@@ -76,6 +84,32 @@ class TestSelectionActivity : BaseConfigurations() {
 
         httpsConnection.setOnClickListener {
             startActivity(Intent(applicationContext, HttpsConnectionDemonstration::class.java))
+        }
+
+        backgroundProcess.setOnClickListener {
+
+            val workRequest: WorkRequest = OneTimeWorkRequestBuilder<WorkBackgroundProcess>().build()
+
+            WorkManager
+                .getInstance(applicationContext)
+                .enqueue(workRequest)
+
+            WorkManager.getInstance(applicationContext).getWorkInfoByIdLiveData(workRequest.id)
+                .observe(this@TestSelectionActivity, Observer { workInfo ->
+
+
+                    if (workInfo != null && workInfo.state == WorkInfo.State.SUCCEEDED) {
+
+                        val iconBitmap = workInfo.outputData.getByteArray("KEY_IMAGE_DATA")!!
+
+                        println(">>> ${iconBitmap.size}")
+
+                        backgroundProcess.icon = BitmapDrawable(resources, BitmapFactory.decodeByteArray(iconBitmap, 0, iconBitmap.size))
+
+                    }
+
+                })
+
         }
 
         homeLauncher.setOnClickListener {
