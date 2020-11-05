@@ -13,7 +13,7 @@ class ReceiveDynamicLink : AppCompatActivity() {
 
         Firebase.dynamicLinks
             .getDynamicLink(intent)
-            .addOnSuccessListener(this) { pendingDynamicLinkData ->
+            .addOnSuccessListener(this@ReceiveDynamicLink) { pendingDynamicLinkData ->
 
                 var dynamicLinkUri: Uri? = null
 
