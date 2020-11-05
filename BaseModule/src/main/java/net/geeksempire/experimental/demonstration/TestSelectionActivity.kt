@@ -139,6 +139,8 @@ class TestSelectionActivity : BaseConfigurations() {
 
                 val dynamicLink = Firebase.dynamicLinks.dynamicLink {
                     link = Uri.parse("https://www.demonstration.net/")
+                        .buildUpon()
+                        .appendQueryParameter("UID", firebaseUser.uid).build()
                     domainUriPrefix = "https://demonstration.page.link"
 
                     socialMetaTagParameters {
@@ -158,6 +160,7 @@ class TestSelectionActivity : BaseConfigurations() {
                 }
 
                 val dynamicLinkUri = dynamicLink.uri
+
 
                 println("*****1 ${firebaseUser.uid} *****")
                 println("*****1 ${dynamicLinkUri} *****")

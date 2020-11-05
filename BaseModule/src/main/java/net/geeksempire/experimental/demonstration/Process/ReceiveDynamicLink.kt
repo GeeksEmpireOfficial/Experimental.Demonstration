@@ -19,10 +19,10 @@ class ReceiveDynamicLink : AppCompatActivity() {
 
                 if (pendingDynamicLinkData != null) {
                     dynamicLinkUri = pendingDynamicLinkData.link
-                }
 
-                println("*****2 ${dynamicLinkUri} *****")
-                println("*****2 ${pendingDynamicLinkData} *****")
+                    println("*****2 ${dynamicLinkUri!!.getQueryParameter("UID")} *****")
+
+                }
 
             }
             .addOnFailureListener(this) { exception ->
