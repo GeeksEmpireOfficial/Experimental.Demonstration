@@ -5,6 +5,7 @@ import android.app.ActivityOptions
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -19,6 +20,8 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.dynamiclinks.ktx.*
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.tests_selection_view.*
 import net.geeksempire.experimental.demonstration.DynamicFeatures.InAppUpdate
 import net.geeksempire.experimental.demonstration.Facebook.FacebookProcess
@@ -128,6 +131,41 @@ class TestSelectionActivity : BaseConfigurations() {
             }
 
             false
+        }
+
+        createDynamicLink.setOnClickListener {
+
+            firebaseUser?.let { firebaseUser ->
+
+                val dynamicLink = Firebase.dynamicLinks.dynamicLink {
+                    link = Uri.parse("https://www.demonstration.net/")
+                    domainUriPrefix = "https://demonstration.page.link"
+
+                    socialMetaTagParameters {
+
+                        title = firebaseUser.uid
+
+                    }
+
+                    androidParameters(packageName) {
+
+                    }
+
+                    iosParameters(packageName) {
+
+                    }
+
+                }
+
+                val dynamicLinkUri = dynamicLink.uri
+
+                println("*****1 ${firebaseUser.uid} *****")
+                println("*****1 ${dynamicLinkUri} *****")
+
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(dynamicLinkUri.toString())))
+
+            }
+
         }
 
         firebaseAuth = FirebaseAuth.getInstance()

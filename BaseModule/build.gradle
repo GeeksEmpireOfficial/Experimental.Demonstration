@@ -91,6 +91,19 @@ dependencies {
     implementation project(path: ':BlurryEffectLibrary')
 
 
+    implementation platform('com.google.firebase:firebase-bom:26.0.0')
+
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
+
+    api 'com.google.firebase:firebase-auth'
+
+    api 'com.google.firebase:firebase-appindexing'
+    api 'com.google.firebase:firebase-functions'
+
+    api 'com.google.firebase:firebase-ads'
+
+
     api 'com.google.android.gms:play-services-auth:18.1.0'
 
     api 'com.google.android.gms:play-services-wallet:18.1.2'
@@ -98,13 +111,13 @@ dependencies {
     api 'com.google.android.gms:play-services-maps:17.0.0'
     api 'com.google.android.gms:play-services-location:17.1.0'
 
-    api 'com.google.maps.android:android-maps-utils:0.6.2'
+    api 'com.google.maps.android:android-maps-utils:2.0.4'
 
 
     api 'androidx.core:core-ktx:1.3.2'
     api 'androidx.appcompat:appcompat:1.2.0'
 
-    api 'androidx.constraintlayout:constraintlayout:2.0.2'
+    api 'androidx.constraintlayout:constraintlayout:2.0.4'
     api 'androidx.dynamicanimation:dynamicanimation:1.0.0'
     api 'androidx.cardview:cardview:1.0.0'
 
@@ -112,16 +125,6 @@ dependencies {
 
 
     api 'com.google.android.material:material:1.3.0-alpha03'
-
-
-    api 'com.google.firebase:firebase-core:18.0.0'
-
-    api 'com.google.firebase:firebase-auth:20.0.0'
-
-    api 'com.google.firebase:firebase-appindexing:19.1.0'
-    api 'com.google.firebase:firebase-functions:19.1.0'
-
-    api 'com.google.firebase:firebase-ads:19.5.0'
 
 
     api 'com.google.android.play:core-ktx:1.8.1'
@@ -140,7 +143,7 @@ dependencies {
     api 'com.facebook.android:facebook-android-sdk:6.1.0'
 
 
-    api 'com.airbnb.android:lottie:3.4.1'
+    api 'com.airbnb.android:lottie:3.4.4'
 
     //Paypal - Braintree
     api 'com.braintreepayments.api:drop-in:4.5.0' // implementation 'com.braintreepayments.api:braintree:3.4.2'
