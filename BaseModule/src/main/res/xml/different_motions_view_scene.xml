@@ -6,10 +6,12 @@
         motion:constraintSetStart="@layout/motion_start"
         motion:constraintSetEnd="@layout/motion_end"
         motion:duration="1000">
+
         <OnSwipe
             motion:touchAnchorId="@+id/resultView"
             motion:touchAnchorSide="top"
             motion:dragDirection="dragDown" />
+
     </Transition>
 
 </MotionScene>
