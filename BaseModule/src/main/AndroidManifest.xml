@@ -127,6 +127,9 @@
                     android:scheme="https"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".PhysicsAnimation.DifferentMotions"
+            android:theme="@style/GeeksEmpire.Material" />
 
         <provider
             android:name="com.facebook.FacebookContentProvider"

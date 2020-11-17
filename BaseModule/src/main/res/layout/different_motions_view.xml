@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    apps:layoutDescription="@xml/different_motions_view_scene"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/resultView"
+        android:layout_width="match_parent"
+        android:layout_height="113dp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:background="@color/blue"
+
+        apps:layout_constraintTop_toTopOf="parent"
+        apps:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
