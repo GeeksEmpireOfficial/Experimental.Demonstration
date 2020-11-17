@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <ConstraintSet android:id="@+id/start">
-        <Constraint android:id="@+id/resultView" />
-    </ConstraintSet>
-
-    <ConstraintSet android:id="@+id/end">
-        <Constraint android:id="@id/resultView" />
-    </ConstraintSet>
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <Transition
-        app:constraintSetEnd="@id/end"
-        app:constraintSetStart="@+id/start" />
+        motion:constraintSetStart="@layout/motion_start"
+        motion:constraintSetEnd="@layout/motion_end"
+        motion:duration="1000">
+        <OnSwipe
+            motion:touchAnchorId="@+id/resultView"
+            motion:touchAnchorSide="top"
+            motion:dragDirection="dragDown" />
+    </Transition>
 
 </MotionScene>

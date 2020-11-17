@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:apps="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_color_game"
-
-    apps:layoutDescription="@xml/different_motions_view_scene"
-    tools:showPaths="true">
+    android:background="@color/colorPrimaryDark">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/resultView"
-        android:layout_width="113dp"
+        android:layout_width="match_parent"
         android:layout_height="113dp"
         android:gravity="center"
         android:textColor="#ffffff"
         android:background="@color/blue"
 
-        apps:layout_constraintTop_toTopOf="parent"
-        apps:layout_constraintBottom_toBottomOf="parent"/>
+        apps:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

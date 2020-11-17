@@ -29,6 +29,7 @@ import net.geeksempire.experimental.demonstration.GooglePayProcess.InitializeGoo
 import net.geeksempire.experimental.demonstration.HomeLauncher.HomeLauncherMainView
 import net.geeksempire.experimental.demonstration.Network.HttpsConnectionDemonstration
 import net.geeksempire.experimental.demonstration.PayPalProcess.InitializePayPal
+import net.geeksempire.experimental.demonstration.PhysicsAnimation.DifferentMotions
 import net.geeksempire.experimental.demonstration.Process.WorkBackgroundProcess
 import net.geeksempire.experimental.demonstration.UI.MagazineCoverTemplate
 import net.geeksempire.experimental.demonstration.UI.MaterialUI
@@ -105,8 +106,6 @@ class TestSelectionActivity : BaseConfigurations() {
 
                         val iconBitmap = workInfo.outputData.getByteArray("KEY_IMAGE_DATA")!!
 
-                        println(">>> ${iconBitmap.size}")
-
                         backgroundProcess.icon = BitmapDrawable(resources, BitmapFactory.decodeByteArray(iconBitmap, 0, iconBitmap.size))
 
                     }
@@ -161,13 +160,15 @@ class TestSelectionActivity : BaseConfigurations() {
 
                 val dynamicLinkUri = dynamicLink.uri
 
-
-                println("*****1 ${firebaseUser.uid} *****")
-                println("*****1 ${dynamicLinkUri} *****")
-
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(dynamicLinkUri.toString())))
 
             }
+
+        }
+
+        motionScene.setOnClickListener {
+
+            startActivity(Intent(applicationContext, DifferentMotions::class.java))
 
         }
 
