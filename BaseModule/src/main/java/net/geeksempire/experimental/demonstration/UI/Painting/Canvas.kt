@@ -5,11 +5,10 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
-import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 
-class Canvas(context: Context?, attributeSet: AttributeSet?) : View(context, attributeSet) {
+class Canvas(context: Context?) : View(context) {
 
     // Get height or width of screen
     //var screenHeight: Int = DeviceDimensionsHelper.getDisplayHeight(this)
@@ -19,8 +18,6 @@ class Canvas(context: Context?, attributeSet: AttributeSet?) : View(context, att
     // Convert pixels to dp
     //var dp: Float = DeviceDimensionsHelper.convertPixelsToDp(25f, this)
 
-    private val paintColor: Int = Color.WHITE
-
     private val drawPaint: Paint = Paint()
 
     private val path: Path = Path()
@@ -29,13 +26,13 @@ class Canvas(context: Context?, attributeSet: AttributeSet?) : View(context, att
         isFocusable = true
         isFocusableInTouchMode = true
 
-        setupPaint()
+        setupPaintingPanel()
     }
 
-    private fun setupPaint() {
+    fun setupPaintingPanel(paintColor: Int = Color.WHITE, paintStrokeWidth: Float = 5.0f) {
 
         drawPaint.color = paintColor
-        drawPaint.strokeWidth = 5.0f
+        drawPaint.strokeWidth = paintStrokeWidth
 
         drawPaint.isAntiAlias = true
 
@@ -58,8 +55,6 @@ class Canvas(context: Context?, attributeSet: AttributeSet?) : View(context, att
 
             val pointX: Float = motionEvent.x
             val pointY: Float = motionEvent.y
-
-            println(">>>>>>>>> ${pointX} --- ${pointY}")
 
             when (motionEvent.action) {
                 MotionEvent.ACTION_DOWN -> {
