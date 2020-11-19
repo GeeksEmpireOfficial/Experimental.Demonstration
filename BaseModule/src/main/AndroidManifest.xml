@@ -130,6 +130,9 @@
         <activity
             android:name=".PhysicsAnimation.DifferentMotions"
             android:theme="@style/GeeksEmpire.Material" />
+        <activity
+            android:name=".UI.Painting.PaintingCanvas"
+            android:theme="@style/GeeksEmpire.Material" />
 
         <provider
             android:name="com.facebook.FacebookContentProvider"

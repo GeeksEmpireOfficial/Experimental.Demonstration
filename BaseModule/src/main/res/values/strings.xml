@@ -13,6 +13,7 @@
     <string name="coverMagazine" translatable="false">Test | Magazine Cover</string>
     <string name="dynamicLink" translatable="false">Test | Dynamic Link</string>
     <string name="motionScene" translatable="false">Test | Motion Scene</string>
+    <string name="drawingCanvas" translatable="false">Test | Paint</string>
 
 
     <string name="webClientId" translatable="false">38462126146-t1kia1498ml5c4tenl9vu9pvlts81vr2.apps.googleusercontent.com</string>

@@ -33,6 +33,7 @@ import net.geeksempire.experimental.demonstration.PhysicsAnimation.DifferentMoti
 import net.geeksempire.experimental.demonstration.Process.WorkBackgroundProcess
 import net.geeksempire.experimental.demonstration.UI.MagazineCoverTemplate
 import net.geeksempire.experimental.demonstration.UI.MaterialUI
+import net.geeksempire.experimental.demonstration.UI.Painting.PaintingCanvas
 import net.geeksempire.experimental.demonstration.Utils.Functions.FunctionsClass
 
 class TestSelectionActivity : BaseConfigurations() {
@@ -169,6 +170,12 @@ class TestSelectionActivity : BaseConfigurations() {
         motionScene.setOnClickListener {
 
             startActivity(Intent(applicationContext, DifferentMotions::class.java))
+
+        }
+
+        drawingCanvas.setOnClickListener {
+
+            startActivity(Intent(applicationContext, PaintingCanvas::class.java))
 
         }
 
