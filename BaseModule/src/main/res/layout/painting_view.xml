@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:apps="http://schemas.android.com/apk/res-auto"
-    android:background="@color/dark">
+    android:background="@color/light">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="31dp"
+        android:gravity="start|top"
+        android:textSize="23sp"
+        android:textColor="@color/dark"
+        android:background="@android:color/transparent"
+
+        apps:layout_constraintTop_toTopOf="parent"
+        apps:layout_constraintBottom_toBottomOf="parent"
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintEnd_toEndOf="parent"/>
 
     <FrameLayout
         android:id="@+id/drawingCanvasHolder"
@@ -13,6 +29,16 @@
         apps:layout_constraintTop_toTopOf="parent"
         apps:layout_constraintBottom_toBottomOf="parent"
         apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/toggleKeyboardView"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_margin="29dp"
+        android:src="@drawable/hexagon"
+
+        apps:layout_constraintBottom_toBottomOf="parent"
         apps:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

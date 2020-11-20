@@ -10,14 +10,6 @@ import android.view.View
 
 class Canvas(context: Context?) : View(context) {
 
-    // Get height or width of screen
-    //var screenHeight: Int = DeviceDimensionsHelper.getDisplayHeight(this)
-    //var screenWidth: Int = DeviceDimensionsHelper.getDisplayWidth(this)
-    // Convert dp to pixels
-    //var px: Float = DeviceDimensionsHelper.convertDpToPixel(25f, this)
-    // Convert pixels to dp
-    //var dp: Float = DeviceDimensionsHelper.convertPixelsToDp(25f, this)
-
     private val drawPaint: Paint = Paint()
 
     private val path: Path = Path()
@@ -37,7 +29,7 @@ class Canvas(context: Context?) : View(context) {
         drawPaint.isAntiAlias = true
 
         drawPaint.style = Paint.Style.STROKE
-        drawPaint.strokeJoin = Paint.Join.ROUND
+        drawPaint.strokeJoin = Paint.Join.MITER
         drawPaint.strokeCap = Paint.Cap.ROUND
 
     }
