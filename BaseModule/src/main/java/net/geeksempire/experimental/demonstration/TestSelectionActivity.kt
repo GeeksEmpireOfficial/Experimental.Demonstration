@@ -3,6 +3,7 @@ package net.geeksempire.experimental.demonstration
 import android.Manifest
 import android.app.ActivityOptions
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
@@ -51,14 +52,21 @@ class TestSelectionActivity : BaseConfigurations() {
         FirebaseApp.initializeApp(applicationContext)
 
         //Runtime Permission
-        requestPermissions(
-            arrayOf (
-                Manifest.permission.ACCESS_NETWORK_STATE,
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ), 123
-        )
+        if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
+            || checkSelfPermission(Manifest.permission.ACCESS_NETWORK_STATE) == PackageManager.PERMISSION_DENIED
+            || checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED
+            || checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_DENIED) {
 
+            requestPermissions(
+                arrayOf (
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.ACCESS_NETWORK_STATE,
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ), 123
+            )
+
+        }
 
         functionsClass = FunctionsClass(applicationContext)
 
@@ -233,7 +241,9 @@ class TestSelectionActivity : BaseConfigurations() {
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         if (requestCode == GOOGLE_SIGN_IN) {
+
             try {
                 val googleSignInAccountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
                 val googleSignInAccount =
@@ -255,5 +265,6 @@ class TestSelectionActivity : BaseConfigurations() {
             }
 
         }
+
     }
 }

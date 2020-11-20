@@ -8,7 +8,7 @@ import android.graphics.Path
 import android.view.MotionEvent
 import android.view.View
 
-class Canvas(context: Context?) : View(context) {
+class PaintingCanvasView(context: Context?) : View(context) {
 
     private val drawPaint: Paint = Paint()
 

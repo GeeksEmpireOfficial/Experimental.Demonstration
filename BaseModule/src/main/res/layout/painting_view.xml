@@ -41,4 +41,14 @@
         apps:layout_constraintBottom_toBottomOf="parent"
         apps:layout_constraintEnd_toEndOf="parent"/>
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/keepNoteView"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_margin="29dp"
+        android:src="@android:drawable/ic_menu_save"
+
+        apps:layout_constraintBottom_toBottomOf="parent"
+        apps:layout_constraintStart_toStartOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
