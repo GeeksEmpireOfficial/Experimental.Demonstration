@@ -23,13 +23,18 @@ import net.geeksempire.experimental.demonstration.R;
 public class MoveBySensor extends Activity implements SensorEventListener {
 
     CustomDrawableView mCustomDrawableView = null;
+
     ShapeDrawable mDrawable = new ShapeDrawable();
+
     public float xPosition, xAcceleration, xVelocity = 0.0f;
     public float yPosition, yAcceleration, yVelocity = 0.0f;
+
     public float xmax, ymax;
     private Bitmap mBitmap;
     private Bitmap mWood;
+
     private SensorManager sensorManager = null;
+
     public float frameTime = 0.666f;
 
     /**
@@ -37,7 +42,6 @@ public class MoveBySensor extends Activity implements SensorEventListener {
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
 
         //Set FullScreen & portrait
@@ -46,7 +50,8 @@ public class MoveBySensor extends Activity implements SensorEventListener {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // Get a reference to a SensorManager
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
                 SensorManager.SENSOR_DELAY_GAME);
 
@@ -61,15 +66,19 @@ public class MoveBySensor extends Activity implements SensorEventListener {
     }
 
     // This method will update the UI on new sensor events
+    @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        {
-            if (sensorEvent.sensor.getType() == Sensor.TYPE_ORIENTATION) {
-                //Set sensor values as acceleration
-                yAcceleration = sensorEvent.values[1];
-                xAcceleration = sensorEvent.values[2];
-                updateBall();
-            }
+
+        if (sensorEvent.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+
+            //Set sensor values as acceleration
+            yAcceleration = sensorEvent.values[1];
+            xAcceleration = sensorEvent.values[2];
+
+            updateBall();
+
         }
+
     }
 
     private void updateBall() {
