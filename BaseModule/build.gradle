@@ -82,11 +82,12 @@ android {
 
 dependencies {
 
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.20"
 
 
     implementation project(':ProgressBar')
     implementation project(':CardStack')
+    implementation project(':AdvancedColorPicker')
     implementation project(path: ':ShapesCustomImageViewLibrary')
     implementation project(path: ':BlurryEffectLibrary')
 

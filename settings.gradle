@@ -1,3 +1,4 @@
+include ':AdvancedColorPicker'
 include ':CardStack'
 include ':BlurryEffectLibrary'
 include ':ShapesCustomImageViewLibrary'
