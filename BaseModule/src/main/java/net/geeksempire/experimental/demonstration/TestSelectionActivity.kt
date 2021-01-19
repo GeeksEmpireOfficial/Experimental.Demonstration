@@ -10,10 +10,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.WorkInfo
-import androidx.work.WorkManager
-import androidx.work.WorkRequest
+import androidx.work.*
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -36,6 +33,7 @@ import net.geeksempire.experimental.demonstration.UI.MagazineCoverTemplate
 import net.geeksempire.experimental.demonstration.UI.MaterialUI
 import net.geeksempire.experimental.demonstration.UI.Painting.PaintingCanvas
 import net.geeksempire.experimental.demonstration.Utils.Functions.FunctionsClass
+import java.util.concurrent.TimeUnit
 
 class TestSelectionActivity : BaseConfigurations() {
 
@@ -101,11 +99,15 @@ class TestSelectionActivity : BaseConfigurations() {
 
         backgroundProcess.setOnClickListener {
 
-            val workRequest: WorkRequest = OneTimeWorkRequestBuilder<WorkBackgroundProcess>().build()
+            val workRequest: WorkRequest = PeriodicWorkRequestBuilder<WorkBackgroundProcess>(1, TimeUnit.HOURS).build()
+            //OneTimeWorkRequestBuilder<WorkBackgroundProcess>().build()
 
             WorkManager
                 .getInstance(applicationContext)
                 .enqueue(workRequest)
+
+
+
 
             WorkManager.getInstance(applicationContext).getWorkInfoByIdLiveData(workRequest.id)
                 .observe(this@TestSelectionActivity, Observer { workInfo ->

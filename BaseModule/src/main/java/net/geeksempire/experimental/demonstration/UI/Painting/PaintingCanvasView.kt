@@ -53,9 +53,9 @@ class PaintingCanvasView(context: Context?) : View(context) {
 
                     path.moveTo(pointX, pointY)
 
+
                 }
                 MotionEvent.ACTION_MOVE -> {
-
 
                     path.lineTo(pointX, pointY)
 
