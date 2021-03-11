@@ -69,7 +69,7 @@ public class MoveBySensor extends Activity implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
 
-        if (sensorEvent.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+        if (sensorEvent.sensor.getType() == Sensor.TYPE_ORIENTATION) {
 
             //Set sensor values as acceleration
             yAcceleration = sensorEvent.values[1];

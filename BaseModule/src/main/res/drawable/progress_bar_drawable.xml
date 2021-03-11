@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright © 2021 By Geeks Empire.
+  ~
+  ~ Created by Elias Fazel on 2/24/21 8:04 AM
+  ~ Last modified 2/24/21 8:02 AM
+  ~
+  ~ Licensed Under MIT License.
+  ~ https://opensource.org/licenses/MIT
+  -->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:height="99dp"
+        android:id="@android:id/progress">
+
+        <clip>
+
+            <shape>
+                <gradient
+                    android:endColor="@color/default_color_game"
+                    android:startColor="@color/default_color"
+                    android:angle="0" />
+            </shape>
+
+        </clip>
+
+    </item>
+
+    <item
+        android:drawable="@drawable/vector_progress_icon">
+    </item>
+
+</layer-list>
