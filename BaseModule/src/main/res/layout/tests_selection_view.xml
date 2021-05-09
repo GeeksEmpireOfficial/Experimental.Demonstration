@@ -4,11 +4,12 @@
     android:layout_height="match_parent"
     xmlns:apps="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/testView"
-        android:padding="3dp">
+        android:paddingHorizontal="3dp"
+        android:paddingVertical="51dp">
 
         <ImageView
             android:id="@+id/googlePay"
@@ -21,7 +22,7 @@
             android:textAllCaps="false"
             android:text="@string/buy_with_googlepay_button_content_description"
             android:src="@drawable/ic_google_pay_mark_800_gray"
-            android:visibility="invisible" />
+            android:visibility="gone" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/brainTreePayPal"
@@ -30,6 +31,7 @@
             android:layout_below="@id/googlePay"
             android:layout_margin="7dp"
             android:textAllCaps="false"
+            android:visibility="gone"
             android:text="@string/testBrainTree" />
 
         <com.google.android.material.button.MaterialButton
@@ -39,7 +41,8 @@
             android:layout_below="@id/brainTreePayPal"
             android:layout_margin="7dp"
             android:textAllCaps="false"
-            android:text="@string/testInAppUpdate" />
+            android:text="@string/testInAppUpdate"
+            android:visibility="gone" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/facebookAPI"
@@ -48,7 +51,8 @@
             android:layout_below="@id/inAppUpdate"
             android:layout_margin="7dp"
             android:textAllCaps="false"
-            android:text="@string/testFacebook" />
+            android:text="@string/testFacebook"
+            android:visibility="gone" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/materialUITest"
@@ -66,7 +70,8 @@
             android:layout_below="@id/materialUITest"
             android:layout_margin="7dp"
             android:textAllCaps="false"
-            android:text="@string/testHttpsConnection" />
+            android:text="@string/testHttpsConnection"
+            android:visibility="gone" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/backgroundProcess"
@@ -76,6 +81,7 @@
             android:layout_margin="7dp"
             android:textAllCaps="false"
             android:text="@string/backgroundProcess"
+            android:visibility="gone"
 
             apps:iconSize="23dp"
             apps:iconTint="@android:color/transparent"
@@ -115,7 +121,8 @@
             android:layout_below="@id/createDynamicLink"
             android:layout_margin="7dp"
             android:textAllCaps="false"
-            android:text="@string/motionScene" />
+            android:text="@string/motionScene"
+            android:visibility="gone" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/drawingCanvas"
