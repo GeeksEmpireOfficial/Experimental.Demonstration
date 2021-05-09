@@ -14,9 +14,21 @@
         <androidx.appcompat.widget.AppCompatImageView xmlns:apps="http://schemas.android.com/apk/res-auto"
             android:id="@+id/vectorControlOne"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:src="@drawable/animated_geeksempire"
 
             apps:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView xmlns:apps="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/negativeSpaceDesign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="29dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/negative_space_shape"
+
+            apps:layout_constraintTop_toBottomOf="@id/vectorControlOne"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

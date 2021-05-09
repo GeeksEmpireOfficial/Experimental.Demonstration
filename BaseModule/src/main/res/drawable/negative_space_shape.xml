@@ -1,0 +1,76 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/backgroundLayer"
+        android:height="77dp"
+        android:width="399dp"
+        android:gravity="center">
+
+        <shape>
+            <corners
+                android:radius="19dp" />
+
+            <gradient
+                android:startColor="@color/premiumLight"
+                android:endColor="@color/white"
+                android:centerY="0.50"
+                android:centerX="0.50"
+                android:angle="135" />
+        </shape>
+
+    </item>
+
+    <item
+        android:id="@+id/foregroundLayer"
+        android:height="73dp"
+        android:width="395dp"
+        android:gravity="center">
+
+        <shape>
+            <corners
+                android:radius="17dp" />
+
+            <gradient
+                android:startColor="@color/white"
+                android:endColor="@color/premiumLight"
+                android:centerY="0.50"
+                android:centerX="0.50"
+                android:angle="135" />
+        </shape>
+
+    </item>
+
+    <item
+        android:id="@+id/clearLayer"
+        android:height="71dp"
+        android:width="71dp"
+        android:top="-33dp"
+        android:gravity="top|center">
+
+        <shape android:shape="oval">
+
+            <solid
+                android:color="@color/pink"/>
+        </shape>
+
+    </item>
+
+<!--    <item-->
+<!--        android:height="59dp"-->
+<!--        android:width="59dp"-->
+<!--        android:top="-27dp"-->
+<!--        android:gravity="top|center">-->
+
+<!--        <shape android:shape="oval">-->
+
+<!--            <gradient-->
+<!--                android:startColor="@color/white"-->
+<!--                android:endColor="@color/premiumLight"-->
+<!--                android:centerY="0.50"-->
+<!--                android:centerX="0.50"-->
+<!--                android:angle="135" />-->
+<!--        </shape>-->
+
+<!--    </item>-->
+
+</layer-list>
