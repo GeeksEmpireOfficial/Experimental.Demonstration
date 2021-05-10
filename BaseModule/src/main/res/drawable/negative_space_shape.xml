@@ -42,35 +42,40 @@
 
     <item
         android:id="@+id/clearLayer"
-        android:height="71dp"
-        android:width="71dp"
-        android:top="-33dp"
-        android:gravity="top|center">
+        android:height="66dp"
+        android:width="66dp"
+        android:gravity="center">
 
-        <shape android:shape="oval">
+        <shape android:shape="rectangle">
+
+            <corners
+                android:topLeftRadius="99dp"
+                android:topRightRadius="99dp"
+                android:bottomLeftRadius="99dp"
+                android:bottomRightRadius="19dp"/>
 
             <solid
                 android:color="@color/pink"/>
+
         </shape>
 
     </item>
 
-<!--    <item-->
-<!--        android:height="59dp"-->
-<!--        android:width="59dp"-->
-<!--        android:top="-27dp"-->
-<!--        android:gravity="top|center">-->
+    <item
+        android:height="51dp"
+        android:width="51dp"
+        android:gravity="center">
 
-<!--        <shape android:shape="oval">-->
+        <shape android:shape="oval">
 
-<!--            <gradient-->
-<!--                android:startColor="@color/white"-->
-<!--                android:endColor="@color/premiumLight"-->
-<!--                android:centerY="0.50"-->
-<!--                android:centerX="0.50"-->
-<!--                android:angle="135" />-->
-<!--        </shape>-->
+            <gradient
+                android:startColor="@color/white"
+                android:endColor="@color/premiumLight"
+                android:centerY="0.50"
+                android:centerX="0.50"
+                android:angle="135" />
+        </shape>
 
-<!--    </item>-->
+    </item>
 
 </layer-list>
