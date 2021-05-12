@@ -1,5 +1,6 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
+     Negative Space
     <item
         android:id="@+id/backgroundLayer"
         android:height="77dp"
@@ -55,13 +56,14 @@
                 android:bottomRightRadius="19dp"/>
 
             <solid
-                android:color="@color/pink"/>
+                android:color="@color/black"/>
 
         </shape>
 
     </item>
 
     <item
+        android:id="@+id/circleLayer"
         android:height="51dp"
         android:width="51dp"
         android:gravity="center">
@@ -71,6 +73,81 @@
             <gradient
                 android:startColor="@color/white"
                 android:endColor="@color/premiumLight"
+                android:centerY="0.50"
+                android:centerX="0.50"
+                android:angle="135" />
+        </shape>
+
+    </item>
+
+    <item
+        android:id="@+id/rippleMaskCircle"
+        android:height="51dp"
+        android:width="51dp"
+        android:gravity="center">
+
+        <ripple
+            android:color="@color/pink">
+
+            <item
+                android:id="@android:id/mask">
+
+                <shape android:shape="oval">
+
+                    <solid android:color="@color/pink" />
+
+                </shape>
+
+            </item>
+
+        </ripple>
+
+    </item>
+
+    <!-- Shadow -->
+    <item
+        android:id="@+id/ringLayerShadow"
+        android:height="51dp"
+        android:width="51dp"
+        android:start="13dp"
+        android:gravity="center_vertical">
+
+        <shape
+            android:shape="ring"
+            android:angle="0"
+            android:innerRadiusRatio="2.3"
+            android:thicknessRatio="20.0"
+            android:type="sweep"
+            android:useLevel="false">
+
+            <gradient
+                android:startColor="@color/red"
+                android:endColor="@color/blue"
+                android:centerY="0.50"
+                android:centerX="0.50"
+                android:angle="135" />
+        </shape>
+
+    </item>
+
+    <item
+        android:id="@+id/ringLayer"
+        android:height="51dp"
+        android:width="51dp"
+        android:start="13dp"
+        android:gravity="center_vertical">
+
+        <shape
+            android:shape="ring"
+            android:angle="0"
+            android:innerRadiusRatio="2.3"
+            android:thicknessRatio="20.0"
+            android:type="sweep"
+            android:useLevel="false">
+
+            <gradient
+                android:startColor="@color/red"
+                android:endColor="@color/blue"
                 android:centerY="0.50"
                 android:centerX="0.50"
                 android:angle="135" />

@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="13dp"
-    android:background="@color/default_color"
+    android:background="#D6D6D6"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <androidx.appcompat.widget.AppCompatImageView xmlns:apps="http://schemas.android.com/apk/res-auto"
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/vectorControlOne"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="77dp"
+            android:layout_marginVertical="7dp"
             android:src="@drawable/animated_geeksempire"
+            android:visibility="gone"
 
             apps:layout_constraintTop_toTopOf="parent"/>
 
-        <androidx.appcompat.widget.AppCompatImageView xmlns:apps="http://schemas.android.com/apk/res-auto"
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/negativeSpaceDesign"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="29dp"
+            android:layout_marginVertical="7dp"
+            android:padding="19dp"
+            android:elevation="13dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/negative_space_shape"
+            android:src="@drawable/layer_shodow"
+            android:visibility="visible"
 
-            apps:layout_constraintTop_toBottomOf="@id/vectorControlOne"/>
+            apps:layout_constraintTop_toBottomOf="@id/vectorControlOne"
+            apps:layout_constraintStart_toStartOf="parent"
+            apps:layout_constraintEnd_toEndOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
