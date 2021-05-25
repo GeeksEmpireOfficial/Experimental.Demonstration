@@ -140,7 +140,7 @@ class MaterialUI : Activity() {
 
         canvas.drawBitmap(vectorBitmap, 0f, 0f, null)
 
-        clearLayer.draw(canvas)
+//        clearLayer.draw(canvas)
 
         negativeSpaceLayers.setDrawableByLayerId(R.id.clearLayer, vectorBitmap.toDrawable(resources))
         negativeSpaceLayers.setDrawableByLayerId(R.id.clearLayer, /*vectorBitmap.toDrawable(resources)*/clearLayer)
