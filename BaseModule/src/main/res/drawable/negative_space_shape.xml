@@ -1,6 +1,16 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-     Negative Space
+    <item
+        android:id="@+id/canvasLayer"
+        android:height="91dp"
+        android:width="403dp"
+        android:gravity="center">
+
+        <color
+            android:color="@color/transparent" />
+
+    </item>
+
     <item
         android:id="@+id/backgroundLayer"
         android:height="77dp"
@@ -12,7 +22,7 @@
                 android:radius="19dp" />
 
             <gradient
-                android:startColor="@color/premiumLight"
+                android:startColor="@color/red"
                 android:endColor="@color/white"
                 android:centerY="0.50"
                 android:centerX="0.50"
@@ -33,7 +43,7 @@
 
             <gradient
                 android:startColor="@color/white"
-                android:endColor="@color/premiumLight"
+                android:endColor="@color/default_color_light"
                 android:centerY="0.50"
                 android:centerX="0.50"
                 android:angle="135" />
@@ -43,9 +53,10 @@
 
     <item
         android:id="@+id/clearLayer"
-        android:height="66dp"
-        android:width="66dp"
-        android:gravity="center">
+        android:height="73dp"
+        android:width="73dp"
+        android:bottom="7dp"
+        android:gravity="end|bottom">
 
         <shape android:shape="rectangle">
 
@@ -66,13 +77,14 @@
         android:id="@+id/circleLayer"
         android:height="51dp"
         android:width="51dp"
-        android:gravity="center">
+        android:top="17dp"
+        android:gravity="center_horizontal">
 
         <shape android:shape="oval">
 
             <gradient
                 android:startColor="@color/white"
-                android:endColor="@color/premiumLight"
+                android:endColor="@color/default_color_light"
                 android:centerY="0.50"
                 android:centerX="0.50"
                 android:angle="135" />
@@ -109,7 +121,7 @@
         android:id="@+id/ringLayerShadow"
         android:height="51dp"
         android:width="51dp"
-        android:start="13dp"
+        android:start="79dp"
         android:gravity="center_vertical">
 
         <shape
@@ -122,7 +134,7 @@
 
             <gradient
                 android:startColor="@color/red"
-                android:endColor="@color/blue"
+                android:endColor="@color/default_color_light"
                 android:centerY="0.50"
                 android:centerX="0.50"
                 android:angle="135" />
@@ -134,7 +146,7 @@
         android:id="@+id/ringLayer"
         android:height="51dp"
         android:width="51dp"
-        android:start="13dp"
+        android:start="59dp"
         android:gravity="center_vertical">
 
         <shape
@@ -147,7 +159,7 @@
 
             <gradient
                 android:startColor="@color/red"
-                android:endColor="@color/blue"
+                android:endColor="@color/default_color_light"
                 android:centerY="0.50"
                 android:centerX="0.50"
                 android:angle="135" />

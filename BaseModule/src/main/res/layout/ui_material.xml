@@ -21,16 +21,17 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/negativeSpaceDesign"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
             android:layout_marginVertical="7dp"
             android:padding="19dp"
             android:elevation="13dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/layer_shodow"
+            android:src="@drawable/negative_space_shape"
             android:visibility="visible"
 
-            apps:layout_constraintTop_toBottomOf="@id/vectorControlOne"
+            apps:layout_constraintTop_toTopOf="parent"
+            apps:layout_constraintBottom_toBottomOf="parent"
             apps:layout_constraintStart_toStartOf="parent"
             apps:layout_constraintEnd_toEndOf="parent"/>
 

@@ -104,7 +104,7 @@
         <activity android:name=".Facebook.FacebookProcess" />
         <activity
             android:name=".UI.MaterialUI"
-            android:theme="@style/GeeksEmpire.Material" />
+            android:theme="@android:style/Theme.Material.Wallpaper.NoTitleBar" />
         <activity
             android:name=".UI.MagazineCoverTemplate"
             android:theme="@style/GeeksEmpire.Material" />
