@@ -64,7 +64,7 @@
                 android:topLeftRadius="99dp"
                 android:topRightRadius="99dp"
                 android:bottomLeftRadius="99dp"
-                android:bottomRightRadius="19dp"/>
+                android:bottomRightRadius="99dp"/>
 
             <solid
                 android:color="@color/black"/>
