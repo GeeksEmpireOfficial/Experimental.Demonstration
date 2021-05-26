@@ -104,6 +104,7 @@ public class ShapesImage extends AppCompatImageView {
 
         if (mImageShape == CUSTOM) {
             mMaskDrawable = a.getDrawable(R.styleable.ShapesImage_shapeDrawable);
+
             if (mMaskDrawable != null) {
                 mMaskDrawable.setCallback(this);
             }

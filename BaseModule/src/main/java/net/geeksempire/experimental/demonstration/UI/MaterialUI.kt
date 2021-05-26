@@ -11,7 +11,6 @@ import androidx.core.graphics.drawable.toBitmap
 import kotlinx.android.synthetic.main.ui_material.*
 import net.geeksempire.experimental.demonstration.R
 
-
 class MaterialUI : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -120,36 +119,32 @@ class MaterialUI : Activity() {
 
     fun setNegativeSpaceVectorDrawable() {
 
-        val negativeSpaceLayers = getDrawable(R.drawable.negative_space_shape) as LayerDrawable
-        val clearLayer = negativeSpaceLayers.findDrawableByLayerId(R.id.clearLayer)
+        val vectorShape = (getDrawable(R.drawable.android) as VectorDrawable)
+        val shapeBitmap = vectorShape.toBitmap()
 
-        val vectorShape = (getDrawable(R.drawable.android) as VectorDrawable).toBitmap()
-
-        val vectorBitmap = Bitmap.createBitmap(vectorShape.width, vectorShape.height, Bitmap.Config.ARGB_8888)
+        val vectorBitmap = Bitmap.createBitmap(shapeBitmap.width, shapeBitmap.height, Bitmap.Config.ARGB_8888)
 
         val canvas = Canvas(vectorBitmap)
 
-        negativeSpaceLayers.setBounds(0, 0, canvas.width, canvas.height)
+        canvas.drawRoundRect(RectF(0f, 0f, vectorShape.intrinsicWidth.toFloat(), vectorShape.intrinsicHeight.toFloat()),
+            13f, 51f, Paint().apply { color = Color.BLUE })
 
         val paint = Paint().apply {
             style = Paint.Style.FILL
-            color = Color.BLUE
+            color = Color.BLACK
+            isAntiAlias = true
 
-            xfermode = PorterDuffXfermode(PorterDuff.Mode.DARKEN)
+            xfermode = PorterDuffXfermode(PorterDuff.Mode.XOR)
         }
+        canvas.drawBitmap(shapeBitmap, 0f, 0f, paint)
 
-        canvas.drawBitmap(vectorShape, 0f, 0f, paint)
+        vectorShape.draw(canvas)
 
-//        clearLayer.draw(canvas)
-//
-//        negativeSpaceLayers.setDrawableByLayerId(R.id.clearLayer, vectorShape.toDrawable(resources))
+        negativeSpaceDesign.setLayerType(AppCompatButton.LAYER_TYPE_SOFTWARE, paint)
+        negativeSpaceDesign.setLayerType(AppCompatButton.LAYER_TYPE_HARDWARE, null)
 
-//        negativeSpaceDesign.setLayerType(AppCompatButton.LAYER_TYPE_SOFTWARE, paint)
-//        negativeSpaceDesign.setLayerType(AppCompatButton.LAYER_TYPE_HARDWARE, null)
-
+        negativeSpaceDesign.setImageBitmap(vectorBitmap)
 //        negativeSpaceDesign.setImageDrawable(negativeSpaceLayers)
-
-        negativeSpaceDesign.setImageBitmap(vectorShape)
 
     }
 
