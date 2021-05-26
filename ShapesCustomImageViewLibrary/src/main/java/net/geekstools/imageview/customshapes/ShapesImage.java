@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -543,9 +544,15 @@ public class ShapesImage extends AppCompatImageView {
 
     private void setUpPaints() {
         Paint mBlackPaint = new Paint();
-        mBlackPaint.setColor(0xff000000);
+        mBlackPaint.setColor(Color.TRANSPARENT);
+
         mMaskedPaint = new Paint();
-        mMaskedPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        mMaskedPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
+
+        mMaskedPaint.setStyle(Paint.Style.FILL);
+        mMaskedPaint.setColor(Color.CYAN);
+        mMaskedPaint.isAntiAlias();
+
         mCacheBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
     }
 
@@ -590,12 +597,17 @@ public class ShapesImage extends AppCompatImageView {
 
             Canvas cacheCanvas = new Canvas(mCacheBitmap);
             if (mMaskDrawable != null) {
+
                 int sc = cacheCanvas.save();
+
                 mMaskDrawable.draw(cacheCanvas);
-                cacheCanvas.saveLayer(mBoundsF, mMaskedPaint,
-                        Canvas.ALL_SAVE_FLAG);
+
+                cacheCanvas.saveLayer(mBoundsF, mMaskedPaint, Canvas.ALL_SAVE_FLAG);
+
                 super.onDraw(cacheCanvas);
+
                 cacheCanvas.restoreToCount(sc);
+
             } else {
                 super.onDraw(cacheCanvas);
             }

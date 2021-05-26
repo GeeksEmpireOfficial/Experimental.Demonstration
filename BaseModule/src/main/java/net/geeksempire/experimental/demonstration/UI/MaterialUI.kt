@@ -8,7 +8,6 @@ import android.graphics.drawable.shapes.RoundRectShape
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.graphics.drawable.toBitmap
-import androidx.core.graphics.drawable.toDrawable
 import kotlinx.android.synthetic.main.ui_material.*
 import net.geeksempire.experimental.demonstration.R
 
@@ -39,6 +38,7 @@ class MaterialUI : Activity() {
         with(negativeSpaceDesign) {
 
 //            setupNegativeSpaceShape()
+
             setNegativeSpaceVectorDrawable()
 
         }
@@ -66,10 +66,11 @@ class MaterialUI : Activity() {
         backgroundShadowRadius[6] = (99).toFloat()//bottomLeftCorner
         backgroundShadowRadius[7] = (99).toFloat()//bottomLeftCorner
 
-        backgroundShadowRadius[4] = (23).toFloat()//bottomRightCorner
-        backgroundShadowRadius[5] = (23).toFloat()//bottomRightCorner
+        backgroundShadowRadius[4] = (99).toFloat()//bottomRightCorner
+        backgroundShadowRadius[5] = (99).toFloat()//bottomRightCorner
 
         val shapeShadow: ShapeDrawable = ShapeDrawable(RoundRectShape(backgroundShadowRadius, null, null))
+
         shapeShadow.paint.apply {
             style = Paint.Style.FILL
             color = Color.TRANSPARENT
@@ -122,9 +123,9 @@ class MaterialUI : Activity() {
         val negativeSpaceLayers = getDrawable(R.drawable.negative_space_shape) as LayerDrawable
         val clearLayer = negativeSpaceLayers.findDrawableByLayerId(R.id.clearLayer)
 
-        val vectorShape = getDrawable(R.drawable.android) as VectorDrawable
+        val vectorShape = (getDrawable(R.drawable.android) as VectorDrawable).toBitmap()
 
-        val vectorBitmap = vectorShape.toBitmap()
+        val vectorBitmap = Bitmap.createBitmap(vectorShape.width, vectorShape.height, Bitmap.Config.ARGB_8888)
 
         val canvas = Canvas(vectorBitmap)
 
@@ -132,24 +133,23 @@ class MaterialUI : Activity() {
 
         val paint = Paint().apply {
             style = Paint.Style.FILL
-            color = Color.TRANSPARENT
-            isAntiAlias = true
+            color = Color.BLUE
 
-            xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
+            xfermode = PorterDuffXfermode(PorterDuff.Mode.DARKEN)
         }
 
-        canvas.drawBitmap(vectorBitmap, 0f, 0f, null)
+        canvas.drawBitmap(vectorShape, 0f, 0f, paint)
 
 //        clearLayer.draw(canvas)
+//
+//        negativeSpaceLayers.setDrawableByLayerId(R.id.clearLayer, vectorShape.toDrawable(resources))
 
-        negativeSpaceLayers.setDrawableByLayerId(R.id.clearLayer, vectorBitmap.toDrawable(resources))
-        negativeSpaceLayers.setDrawableByLayerId(R.id.clearLayer, /*vectorBitmap.toDrawable(resources)*/clearLayer)
+//        negativeSpaceDesign.setLayerType(AppCompatButton.LAYER_TYPE_SOFTWARE, paint)
+//        negativeSpaceDesign.setLayerType(AppCompatButton.LAYER_TYPE_HARDWARE, null)
 
-        negativeSpaceDesign.setLayerType(AppCompatButton.LAYER_TYPE_SOFTWARE, paint)
-        negativeSpaceDesign.setLayerType(AppCompatButton.LAYER_TYPE_HARDWARE, null)
+//        negativeSpaceDesign.setImageDrawable(negativeSpaceLayers)
 
-        negativeSpaceDesign.setImageDrawable(negativeSpaceLayers)
-//        negativeSpaceDesign.setImageBitmap(vectorBitmap)
+        negativeSpaceDesign.setImageBitmap(vectorShape)
 
     }
 
