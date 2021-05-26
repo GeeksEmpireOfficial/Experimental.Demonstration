@@ -8,6 +8,7 @@ import android.graphics.drawable.shapes.RoundRectShape
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.graphics.drawable.toDrawable
 import kotlinx.android.synthetic.main.ui_material.*
 import net.geeksempire.experimental.demonstration.R
 
@@ -127,7 +128,7 @@ class MaterialUI : Activity() {
         val canvas = Canvas(vectorBitmap)
 
         canvas.drawRoundRect(RectF(0f, 0f, vectorShape.intrinsicWidth.toFloat(), vectorShape.intrinsicHeight.toFloat()),
-            13f, 51f, Paint().apply { color = Color.BLUE })
+            99f, 99f, Paint().apply { color = Color.BLUE })
 
         val paint = Paint().apply {
             style = Paint.Style.FILL
@@ -143,8 +144,8 @@ class MaterialUI : Activity() {
         negativeSpaceDesign.setLayerType(AppCompatButton.LAYER_TYPE_SOFTWARE, paint)
         negativeSpaceDesign.setLayerType(AppCompatButton.LAYER_TYPE_HARDWARE, null)
 
-        negativeSpaceDesign.setImageBitmap(vectorBitmap)
-//        negativeSpaceDesign.setImageDrawable(negativeSpaceLayers)
+//        negativeSpaceDesign.setImageBitmap(vectorBitmap)
+        negativeSpaceDesign.background = (vectorBitmap).toDrawable(resources)
 
     }
 
