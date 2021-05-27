@@ -10,12 +10,12 @@ class FluidPagerAdapter (fragmentManager: FragmentManager) : FragmentStatePagerA
 
     override fun getCount(): Int {
 
-        return 2
+        return listOfFragment.size
     }
 
     override fun getItem(position: Int): Fragment {
 
-        return when(position) {
+        return listOfFragment[position]/*when(position) {
             0 -> {
 
                 FluidFragmentFirst()
@@ -31,7 +31,7 @@ class FluidPagerAdapter (fragmentManager: FragmentManager) : FragmentStatePagerA
                 FluidFragmentFirst()
 
             }
-        }
+        }*/
     }
 
 

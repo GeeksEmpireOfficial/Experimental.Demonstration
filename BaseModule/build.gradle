@@ -88,6 +88,7 @@ dependencies {
     implementation project(path: ':ShapesCustomImageViewLibrary')
     implementation project(path: ':BlurryEffectLibrary')
 
+    implementation project(path: ':FluidSwipe')
     implementation project(path: ':LiquidSwipe')
 
 

@@ -6,8 +6,8 @@
     android:background="#D6D6D6"
     android:orientation="vertical">
 
-    <com.jem.liquidswipe.LiquidSwipeViewPager
-        android:id="@+id/liquidPage"
+    <com.cuberto.liquid_swipe.LiquidPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

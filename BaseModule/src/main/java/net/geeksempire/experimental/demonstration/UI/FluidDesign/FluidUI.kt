@@ -15,16 +15,13 @@ class FluidUI : AppCompatActivity() {
 
         val fluidPagerAdapter: FluidPagerAdapter = FluidPagerAdapter(supportFragmentManager)
 
-        uiFluidBinding.liquidPage.post {
+        uiFluidBinding.viewPager.post {
 
             fluidPagerAdapter.listOfFragment.add(FluidFragmentFirst())
             fluidPagerAdapter.listOfFragment.add(FluidFragmentSecond())
-            fluidPagerAdapter.listOfFragment.add(FluidFragmentFirst())
-            fluidPagerAdapter.listOfFragment.add(FluidFragmentSecond())
-            fluidPagerAdapter.listOfFragment.add(FluidFragmentFirst())
-            fluidPagerAdapter.listOfFragment.add(FluidFragmentSecond())
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentThird())
 
-            uiFluidBinding.liquidPage.adapter = fluidPagerAdapter
+            uiFluidBinding.viewPager.adapter = fluidPagerAdapter
 
         }
 
