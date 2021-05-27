@@ -2,7 +2,6 @@ package net.geeksempire.experimental.demonstration.UI.FluidDesign
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import net.geeksempire.experimental.demonstration.R
 import net.geeksempire.experimental.demonstration.databinding.UiFluidBinding
 
 class FluidUI : AppCompatActivity() {
@@ -14,17 +13,18 @@ class FluidUI : AppCompatActivity() {
         uiFluidBinding = UiFluidBinding.inflate(layoutInflater)
         setContentView(uiFluidBinding.root)
 
-        val fluidPagerAdapter = FluidPagerAdapter(supportFragmentManager)
+        val fluidPagerAdapter: FluidPagerAdapter = FluidPagerAdapter(supportFragmentManager)
 
         uiFluidBinding.liquidPage.post {
 
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentFirst())
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentSecond())
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentFirst())
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentSecond())
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentFirst())
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentSecond())
+
             uiFluidBinding.liquidPage.adapter = fluidPagerAdapter
-
-            uiFluidBinding.liquidPage.scrollTo(0, 0)
-
-            uiFluidBinding.liquidPage.setButtonDrawable(R.drawable.android)
-
-            fluidPagerAdapter.notifyDataSetChanged()
 
         }
 

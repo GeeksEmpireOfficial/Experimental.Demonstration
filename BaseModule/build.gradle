@@ -88,7 +88,7 @@ dependencies {
     implementation project(path: ':ShapesCustomImageViewLibrary')
     implementation project(path: ':BlurryEffectLibrary')
 
-    implementation project(path: ':FluidSwipe')
+    implementation project(path: ':LiquidSwipe')
 
 
     implementation platform('com.google.firebase:firebase-bom:26.0.0')
@@ -120,6 +120,8 @@ dependencies {
     api 'androidx.constraintlayout:constraintlayout:2.0.4'
     api 'androidx.dynamicanimation:dynamicanimation:1.0.0'
     api 'androidx.cardview:cardview:1.0.0'
+
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
     implementation 'androidx.work:work-runtime-ktx:2.6.0-alpha02'
 
