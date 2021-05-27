@@ -6,6 +6,7 @@
     <string name="testInAppUpdate" translatable="false">Test | In-App Update</string>
     <string name="testFacebook" translatable="false">Test | Facebook</string>
     <string name="testBrainTree" translatable="false">PayPal | BrainTree</string>
+    <string name="testFluidUI" translatable="false">Test | FluidUI</string>
     <string name="testMaterialUI" translatable="false">Test | MaterialUI</string>
     <string name="testHttpsConnection" translatable="false">Test | HttpsConnection</string>
     <string name="backgroundProcess" translatable="false">Test | Background Process</string>

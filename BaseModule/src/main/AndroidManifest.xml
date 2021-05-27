@@ -106,6 +106,9 @@
             android:name=".UI.MaterialUI"
             android:theme="@android:style/Theme.Material.Wallpaper.NoTitleBar" />
         <activity
+            android:name=".UI.FluidUI"
+            android:theme="@android:style/Theme.Material.Wallpaper.NoTitleBar" />
+        <activity
             android:name=".UI.MagazineCoverTemplate"
             android:theme="@style/GeeksEmpire.Material" />
         <activity

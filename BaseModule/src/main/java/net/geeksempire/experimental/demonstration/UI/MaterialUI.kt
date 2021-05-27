@@ -1,4 +1,3 @@
-
 package net.geeksempire.experimental.demonstration.UI
 
 import android.app.Activity
