@@ -109,7 +109,7 @@ internal class WaveLayer(
             curveStartY - waveVertRadius * 2
         )
 
-        path.lineTo(maskWidth, 0f)
+        path.lineTo(maskWidth, 50f)
         path.lineTo(maskWidth - sideWidth, 0f)
         path.close()
     }

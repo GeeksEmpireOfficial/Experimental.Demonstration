@@ -23,6 +23,12 @@ class FluidUI : AppCompatActivity() {
             fluidPagerAdapter.listOfFragment.add(FluidFragmentFirst())
             fluidPagerAdapter.listOfFragment.add(FluidFragmentSecond())
             fluidPagerAdapter.listOfFragment.add(FluidFragmentThird())
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentFirst())
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentSecond())
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentThird())
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentFirst())
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentSecond())
+            fluidPagerAdapter.listOfFragment.add(FluidFragmentThird())
 
             uiFluidBinding.viewPager.adapter = fluidPagerAdapter
 

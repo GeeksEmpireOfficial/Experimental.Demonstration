@@ -176,20 +176,20 @@ class RightEdgeController(
     }
 
     private fun drawPath(canvas: Canvas?) {
-        val wl = WaveLayer(
+        val waveLayer = WaveLayer(
             waveCenterY,
             helper.waveHorRadius(progress),
             helper.waveVertRadius(progress),
             helper.sideWidth(progress),
             LEFT
         )
-        wl.updatePath(width.toFloat(), height.toFloat())
+        waveLayer.updatePath(width.toFloat(), height.toFloat())
         translateMatrix.setTranslate(width.toFloat() * currentItem, 0f)
         if (animatingScale) {
-            wl.path.transform(scaleMatrix)
+            waveLayer.path.transform(scaleMatrix)
         }
-        wl.path.transform(translateMatrix)
-        canvas?.drawPath(wl.path, erasorPaint)
+        waveLayer.path.transform(translateMatrix)
+        canvas?.drawPath(waveLayer.path, erasorPaint)
         drawButton(canvas)
     }
 
