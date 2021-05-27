@@ -7,7 +7,6 @@ import android.graphics.drawable.shapes.RoundRectShape
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.graphics.drawable.toBitmap
-import androidx.core.graphics.drawable.toDrawable
 import kotlinx.android.synthetic.main.ui_material.*
 import net.geeksempire.experimental.demonstration.R
 
@@ -143,8 +142,8 @@ class MaterialUI : Activity() {
         negativeSpaceDesign.setLayerType(AppCompatButton.LAYER_TYPE_SOFTWARE, paint)
         negativeSpaceDesign.setLayerType(AppCompatButton.LAYER_TYPE_HARDWARE, null)
 
-//        negativeSpaceDesign.setImageBitmap(vectorBitmap)
-        negativeSpaceDesign.background = (vectorBitmap).toDrawable(resources)
+        negativeSpaceDesign.setImageBitmap(vectorBitmap)
+//        negativeSpaceDesign.background = (vectorBitmap).toDrawable(resources)
 
     }
 

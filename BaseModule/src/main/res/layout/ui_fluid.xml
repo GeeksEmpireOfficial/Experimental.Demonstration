@@ -4,9 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D6D6D6"
-    android:orientation="vertical"
-    android:padding="13dp">
+    android:orientation="vertical">
 
-
+    <com.cuberto.liquid_swipe.LiquidPager
+        android:id="@+id/liquidPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

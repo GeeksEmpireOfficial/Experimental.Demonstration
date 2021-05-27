@@ -29,8 +29,9 @@ import net.geeksempire.experimental.demonstration.Network.HttpsConnectionDemonst
 import net.geeksempire.experimental.demonstration.PayPalProcess.InitializePayPal
 import net.geeksempire.experimental.demonstration.PhysicsAnimation.DifferentMotions
 import net.geeksempire.experimental.demonstration.Process.WorkBackgroundProcess
-import net.geeksempire.experimental.demonstration.UI.FluidUI
+import net.geeksempire.experimental.demonstration.UI.FluidDesign.FluidUI
 import net.geeksempire.experimental.demonstration.UI.MagazineCoverTemplate
+import net.geeksempire.experimental.demonstration.UI.MaterialUI
 import net.geeksempire.experimental.demonstration.UI.Painting.PaintingCanvas
 import net.geeksempire.experimental.demonstration.Utils.Functions.FunctionsClass
 import java.util.concurrent.TimeUnit
@@ -87,6 +88,10 @@ class TestSelectionActivity : BaseConfigurations() {
 
         facebookAPI.setOnClickListener {
             startActivity(Intent(applicationContext, FacebookProcess::class.java))
+        }
+
+        materialUITest.setOnClickListener {
+            startActivity(Intent(applicationContext, MaterialUI::class.java))
         }
 
         fluidUITest.setOnClickListener {
