@@ -2,7 +2,10 @@ package net.geeksempire.experimental.demonstration.UI
 
 import android.app.Activity
 import android.graphics.*
-import android.graphics.drawable.*
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.LayerDrawable
+import android.graphics.drawable.ShapeDrawable
+import android.graphics.drawable.VectorDrawable
 import android.graphics.drawable.shapes.RoundRectShape
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
@@ -16,14 +19,14 @@ class MaterialUI : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ui_material)
 
-        if (vectorControlOne.isShown) {
-
-            val animatable = getDrawable(R.drawable.animated_geeksempire) as Animatable
-            animatable.start()
-
-            vectorControlOne.setImageDrawable(animatable as Drawable)
-
-        }
+//        if (vectorControlOne.isShown) {
+//
+//            val animatable = getDrawable(R.drawable.animated_geeksempire) as Animatable
+//            animatable.start()
+//
+//            vectorControlOne.setImageDrawable(animatable as Drawable)
+//
+//        }
 
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.TRANSPARENT
@@ -31,21 +34,14 @@ class MaterialUI : Activity() {
         rootView.setBackgroundColor(Color.TRANSPARENT)
 
         window.setBackgroundDrawable(GradientDrawable(GradientDrawable.Orientation.TR_BL,
-            intArrayOf(Color.BLUE, Color.YELLOW, Color.GREEN, Color.CYAN, Color.RED, Color.MAGENTA)))
+            intArrayOf(Color.BLUE, Color.GREEN, Color.CYAN, Color.RED, Color.MAGENTA)))
 
-        with(negativeSpaceDesign) {
-
+//        with(negativeSpaceDesign) {
 //            setupNegativeSpaceShape()
+//            setNegativeSpaceVectorDrawable()
+//        }
 
-            setNegativeSpaceVectorDrawable()
-
-        }
-
-        negativeSpaceDesign.setOnClickListener {
-
-
-
-        }
+//        negativeSpaceDesign.setOnClickListener { }
 
     }
 

@@ -8,26 +8,26 @@
   <path
       android:name="hash"
       android:pathData="M39,45L39,80 M57,45L57,80 M66,54L31,54 M66,71L31,71"
-      android:strokeColor="@color/colorWhite"
+      android:strokeColor="@color/white"
       android:strokeLineCap="round"
       android:strokeWidth="@dimen/hashtag_stroke_width"/>
 
   <path
       android:name="i_body"
       android:pathData="M83,82L107,82A2,2 0,0 1,109 84L109,155A2,2 0,0 1,107 157L83,157A2,2 0,0 1,81 155L81,84A2,2 0,0 1,83 82z"
-      android:strokeColor="@color/colorWhite"
+      android:strokeColor="@color/white"
       android:strokeWidth="@dimen/hashtag_stroke_width"/>
 
   <path
       android:name="i_dot"
       android:pathData="M94,59m-14,0a14,14 0,1 1,28 0a14,14 0,1 1,-28 0"
-      android:strokeColor="@color/colorWhite"
+      android:strokeColor="@color/white"
       android:strokeWidth="@dimen/hashtag_stroke_width"/>
 
   <path
       android:name="o"
       android:pathData="M159.5,119.5m-37.5,0a37.5,37.5 0,1 1,75 0a37.5,37.5 0,1 1,-75 0"
-      android:strokeColor="@color/colorWhite"
+      android:strokeColor="@color/white"
       android:strokeWidth="@dimen/hashtag_stroke_width"/>
 
   <!-- Here's the trick, we place four copies of the path for the number one on top of each other.

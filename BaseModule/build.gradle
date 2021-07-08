@@ -91,6 +91,7 @@ dependencies {
     implementation project(path: ':FluidSwipe')
     implementation project(path: ':LiquidSwipe')
 
+    implementation project(':ShapeOfView')
 
     implementation platform('com.google.firebase:firebase-bom:26.0.0')
 
@@ -149,7 +150,7 @@ dependencies {
     api 'com.airbnb.android:lottie:3.7.0'
 
     //Paypal - Braintree
-    api 'com.braintreepayments.api:drop-in:4.5.0' // implementation 'com.braintreepayments.api:braintree:3.4.2'
+    //api 'com.braintreepayments.api:drop-in:4.5.0' // implementation 'com.braintreepayments.api:braintree:3.4.2'
 
 
     /***** Test *****/

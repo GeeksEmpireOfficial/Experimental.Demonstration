@@ -548,7 +548,8 @@ public class ShapesImage extends AppCompatImageView {
         mBlackPaint.setColor(Color.TRANSPARENT);
 
         mMaskedPaint = new Paint();
-        mMaskedPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
+        mMaskedPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+//        mMaskedPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
 
         mMaskedPaint.setStyle(Paint.Style.FILL);
         mMaskedPaint.setColor(Color.CYAN);

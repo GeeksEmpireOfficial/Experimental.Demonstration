@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="13dp"
-    android:background="#D6D6D6"
+    android:background="@color/light"
     android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -25,7 +25,6 @@
             android:layout_height="190dp"
             android:layout_marginVertical="7dp"
             android:padding="19dp"
-            android:elevation="13dp"
             android:scaleType="centerInside"
             android:src="@drawable/android"
             android:visibility="visible"
@@ -38,9 +37,8 @@
         <net.geekstools.imageview.customshapes.ShapesImage
             android:id="@+id/shapeImageView"
             android:layout_width="match_parent"
-            android:layout_height="290dp"
+            android:layout_height="333dp"
             android:layout_marginVertical="7dp"
-            android:elevation="19dp"
             android:scaleType="fitCenter"
             android:src="@color/cyan"
             android:visibility="visible"
@@ -50,5 +48,53 @@
             apps:layout_constraintBottom_toBottomOf="parent"
             apps:layout_constraintStart_toStartOf="parent"
             apps:layout_constraintEnd_toEndOf="parent"/>
+
+        <co.geeksempire.shapeofview.InitialShapes.PolygonView
+            android:id="@+id/polygonView"
+            android:layout_width="350dp"
+            android:layout_height="500dp"
+            android:layout_marginVertical="79dp"
+            android:elevation="3dp"
+
+            apps:shape_polygon_noOfSides="9"
+
+            apps:layout_constraintTop_toTopOf="parent"
+            apps:layout_constraintBottom_toBottomOf="parent"
+            apps:layout_constraintStart_toStartOf="parent"
+            apps:layout_constraintEnd_toEndOf="parent">
+
+                <net.geeksempire.blurry.effect.view.RealtimeBlurView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    apps:realtimeBlurRadius="19dp"
+                    apps:realtimeOverlayColor="@color/default_color_transparent" />
+
+        </co.geeksempire.shapeofview.InitialShapes.PolygonView>
+
+        <net.geeksempire.blurry.effect.view.RealtimeBlurView
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:elevation="3dp"
+
+            apps:realtimeBlurRadius="1dp"
+            apps:realtimeOverlayColor="@color/red_transparent"
+
+            apps:layout_constraintTop_toTopOf="@id/polygonView"
+            apps:layout_constraintStart_toStartOf="@id/polygonView"
+            apps:layout_constraintEnd_toEndOf="@id/polygonView"/>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="31dp"
+            android:elevation="25dp"
+            android:src="@drawable/delete"
+
+            apps:layout_constraintTop_toTopOf="@id/polygonView"
+            apps:layout_constraintBottom_toBottomOf="@id/polygonView"
+            apps:layout_constraintStart_toStartOf="@id/polygonView"
+            apps:layout_constraintEnd_toEndOf="@id/polygonView"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
