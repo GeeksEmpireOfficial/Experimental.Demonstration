@@ -27,7 +27,7 @@
             android:padding="19dp"
             android:scaleType="centerInside"
             android:src="@drawable/android"
-            android:visibility="visible"
+            android:visibility="gone"
 
             apps:layout_constraintTop_toTopOf="parent"
             apps:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
             android:layout_marginVertical="7dp"
             android:scaleType="fitCenter"
             android:src="@color/cyan"
-            android:visibility="visible"
+            android:visibility="gone"
 
             apps:shape="apple"
 
@@ -55,6 +55,7 @@
             android:layout_height="500dp"
             android:layout_marginVertical="79dp"
             android:elevation="3dp"
+            android:visibility="gone"
 
             apps:shape_polygon_noOfSides="9"
 
@@ -84,7 +85,6 @@
             apps:layout_constraintStart_toStartOf="@id/polygonView"
             apps:layout_constraintEnd_toEndOf="@id/polygonView"/>
 
-
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -96,5 +96,7 @@
             apps:layout_constraintBottom_toBottomOf="@id/polygonView"
             apps:layout_constraintStart_toStartOf="@id/polygonView"
             apps:layout_constraintEnd_toEndOf="@id/polygonView"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

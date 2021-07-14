@@ -92,6 +92,7 @@ dependencies {
     implementation project(path: ':LiquidSwipe')
 
     implementation project(':ShapeOfView')
+    implementation project(':CircularPopupMenu')
 
     implementation platform('com.google.firebase:firebase-bom:26.0.0')
 
