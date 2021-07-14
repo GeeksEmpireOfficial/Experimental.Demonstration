@@ -13,4 +13,17 @@
     -->
     <dimen name="inner_frame_layout_padding">5dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+    <array name="simple_menu_icons">
+        <item>@drawable/email_2_alt</item>
+        <item>@drawable/facebook</item>
+        <item>@drawable/twitter</item>
+    </array>
+
+    <array name="simple_menu_colors">
+        <item>@color/red</item>
+        <item>@color/green</item>
+        <item>@color/blue</item>
+    </array>
+
 </resources>

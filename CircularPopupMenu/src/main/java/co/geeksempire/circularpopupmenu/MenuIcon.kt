@@ -12,8 +12,8 @@ sealed class MenuIcon {
 
 class HamburgerMenuIcon : MenuIcon() {
 
-    override val openingAnimatedIcon = R.drawable.avd_menu_to_cross
-    override val closingAnimatedIcon = R.drawable.avd_cross_to_menu
+    override val openingAnimatedIcon = R.drawable.menu_to_cross
+    override val closingAnimatedIcon = R.drawable.menu_cross_to
 
     override val openIcon = R.drawable.ic_menu
     override val closeIcon = R.drawable.ic_close
@@ -22,8 +22,8 @@ class HamburgerMenuIcon : MenuIcon() {
 
 class PlusMenuIcon : MenuIcon() {
 
-    override val openingAnimatedIcon = R.drawable.avd_plus_to_cross
-    override val closingAnimatedIcon = R.drawable.avd_cross_to_plus
+    override val openingAnimatedIcon = R.drawable.menu_plus_to_cross
+    override val closingAnimatedIcon = R.drawable.menu_cross_to_plus
 
     override val openIcon = R.drawable.ic_plus
     override val closeIcon = R.drawable.ic_close

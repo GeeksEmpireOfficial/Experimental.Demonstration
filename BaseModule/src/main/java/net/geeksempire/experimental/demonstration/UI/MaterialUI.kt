@@ -43,6 +43,32 @@ class MaterialUI : Activity() {
 
 //        negativeSpaceDesign.setOnClickListener { }
 
+        circularMenuSetup()
+
+    }
+
+    fun circularMenuSetup() {
+
+        circleMenu.setOnClickListener {
+
+            circleMenu.open(true)
+
+        }
+
+        circleMenu.setOnItemClickListener { buttonIndex -> }
+
+        circleMenu.onMenuOpenAnimationStart { }
+
+        circleMenu.onMenuOpenAnimationEnd { }
+
+        circleMenu.onMenuCloseAnimationStart { }
+
+        circleMenu.onMenuCloseAnimationEnd { }
+
+        circleMenu.onButtonClickAnimationStart { buttonIndex -> }
+
+        circleMenu.onButtonClickAnimationEnd { buttonIndex -> }
+
     }
 
     fun setupNegativeSpaceShape() {

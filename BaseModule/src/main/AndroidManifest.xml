@@ -104,7 +104,7 @@
         <activity android:name=".Facebook.FacebookProcess" />
         <activity
             android:name=".UI.MaterialUI"
-            android:theme="@android:style/Theme.Material.Wallpaper.NoTitleBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".UI.FluidDesign.FluidUI"
             android:theme="@style/GeeksEmpire.Material" />
