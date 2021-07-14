@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <declare-styleable name="CircleMenu">
         <attr name="buttonIcons" format="reference" />
         <attr name="buttonColors" format="reference" />
@@ -18,6 +19,5 @@
             <enum name="plus" value="1" />
         </attr>
     </declare-styleable>
-
 
 </resources>

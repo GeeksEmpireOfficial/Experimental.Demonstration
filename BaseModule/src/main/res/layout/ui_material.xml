@@ -8,26 +8,27 @@
     android:orientation="vertical"
     android:padding="13dp">
 
-        <co.geeksempire.circularpopupmenu.CircleMenu
-            android:id="@+id/circleMenu"
-            android:layout_width="73dp"
-            android:layout_height="73dp"
+    <co.geeksempire.circularpopupmenu.CircleMenu
+        android:id="@+id/circleMenu"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
 
-            apps:buttonColors="@array/simple_menu_colors"
-            apps:buttonIcons="@array/simple_menu_icons"
-            apps:distance="120dp"
-            apps:iconsColor="?colorAccent"
-            apps:centerButtonColor="?colorAccent"
-            apps:centerButtonIconColor="#ffffff"
-            apps:maxAngle="140"
-            apps:menuIcon="hamburger"
-            apps:showSelectAnimation="true"
-            apps:startAngle="270"
+        apps:buttonColors="@array/simple_menu_colors"
+        apps:buttonIcons="@array/simple_menu_icons"
+        apps:startAngle="-180"
+        apps:menuIcon="hamburger"
+        apps:centerButtonColor="@color/white"
+        apps:centerButtonIconColor="@color/black"
+        apps:iconsColor="@color/light"
+        apps:distance="91dp"
+        apps:maxAngle="119"
+        apps:showSelectAnimation="true"
+        apps:openOnStart="false"
 
-            apps:layout_constraintTop_toTopOf="parent"
-            apps:layout_constraintBottom_toBottomOf="parent"
-            apps:layout_constraintStart_toStartOf="parent"
-            apps:layout_constraintEnd_toEndOf="parent"/>
+        apps:layout_constraintBottom_toBottomOf="parent"
+        apps:layout_constraintEnd_toEndOf="parent"
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/vectorControlOne"

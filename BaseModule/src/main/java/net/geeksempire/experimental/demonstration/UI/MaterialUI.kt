@@ -55,7 +55,10 @@ class MaterialUI : Activity() {
 
         }
 
-        circleMenu.setOnItemClickListener { buttonIndex -> }
+        circleMenu.setOnItemClickListener { buttonIndex ->
+
+
+        }
 
         circleMenu.onMenuOpenAnimationStart { }
 
@@ -65,9 +68,13 @@ class MaterialUI : Activity() {
 
         circleMenu.onMenuCloseAnimationEnd { }
 
-        circleMenu.onButtonClickAnimationStart { buttonIndex -> }
+        circleMenu.onButtonClickAnimationStart { buttonIndex ->
 
-        circleMenu.onButtonClickAnimationEnd { buttonIndex -> }
+        }
+
+        circleMenu.onButtonClickAnimationEnd { buttonIndex ->
+
+        }
 
     }
 
