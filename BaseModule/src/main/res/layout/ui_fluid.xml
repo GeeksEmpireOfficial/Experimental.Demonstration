@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D6D6D6"
+    android:background="@color/default_color"
     android:orientation="vertical">
 
-    <com.cuberto.liquid_swipe.LiquidPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+
+        apps:layout_constraintTop_toTopOf="parent"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/curveRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="159dp"
+        android:layout_marginTop="203dp"
+        android:textColor="@color/white"
+        android:background="@color/red"
+
+        apps:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

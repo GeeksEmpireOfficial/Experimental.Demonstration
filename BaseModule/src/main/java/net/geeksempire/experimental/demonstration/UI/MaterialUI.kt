@@ -36,14 +36,13 @@ class MaterialUI : Activity() {
         window.setBackgroundDrawable(GradientDrawable(GradientDrawable.Orientation.TR_BL,
             intArrayOf(Color.BLUE, Color.GREEN, Color.CYAN, Color.RED, Color.MAGENTA)))
 
-//        with(negativeSpaceDesign) {
-//            setupNegativeSpaceShape()
-//            setNegativeSpaceVectorDrawable()
-//        }
 
-//        negativeSpaceDesign.setOnClickListener { }
 
-        circularMenuSetup()
+    }
+
+    fun setupLiquidViewPager() {
+
+
 
     }
 

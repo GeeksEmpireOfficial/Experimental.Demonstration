@@ -12,6 +12,7 @@
         android:id="@+id/circleMenu"
         android:layout_width="53dp"
         android:layout_height="53dp"
+        android:visibility="gone"
 
         apps:buttonColors="@array/simple_menu_colors"
         apps:buttonIcons="@array/simple_menu_icons"
@@ -98,6 +99,7 @@
         android:layout_width="1dp"
         android:layout_height="1dp"
         android:elevation="3dp"
+        android:visibility="gone"
 
         apps:layout_constraintEnd_toEndOf="@id/polygonView"
         apps:layout_constraintStart_toStartOf="@id/polygonView"
@@ -112,6 +114,7 @@
         android:elevation="25dp"
         android:padding="31dp"
         android:src="@drawable/delete"
+        android:visibility="gone"
 
         apps:layout_constraintBottom_toBottomOf="@id/polygonView"
         apps:layout_constraintEnd_toEndOf="@id/polygonView"

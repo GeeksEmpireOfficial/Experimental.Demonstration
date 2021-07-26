@@ -1,38 +1,34 @@
 package net.geeksempire.experimental.demonstration.UI.FluidDesign
 
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
+import android.graphics.Color
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+import net.geeksempire.experimental.demonstration.R
 
-class FluidPagerAdapter (fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager, FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class FluidPagerAdapter (val context: AppCompatActivity): RecyclerView.Adapter<PageViewHolder>() {
 
-    val listOfFragment = ArrayList<Fragment>()
+    val listOfFragment = ArrayList<String>()
 
-    override fun getCount(): Int {
+    val colors = arrayOf(Color.RED, Color.BLUE, Color.MAGENTA, Color.CYAN, Color.BLACK)
+
+    override fun getItemCount(): Int {
 
         return listOfFragment.size
     }
 
-    override fun getItem(position: Int): Fragment {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): PageViewHolder {
 
-        return listOfFragment[position]/*when(position) {
-            0 -> {
-
-                FluidFragmentFirst()
-
-            }
-            1 -> {
-
-                FluidFragmentSecond()
-
-            }
-            else -> {
-
-                FluidFragmentFirst()
-
-            }
-        }*/
+        return PageViewHolder(LayoutInflater.from(context).inflate(R.layout.ui_fluid_page_item, viewGroup, false))
     }
 
+    override fun onBindViewHolder(pageViewHolder: PageViewHolder, position: Int) {
+
+        pageViewHolder.textView.setBackgroundColor(colors.random())
+
+        pageViewHolder.textView.text = listOfFragment[position]
+
+    }
 
 }
