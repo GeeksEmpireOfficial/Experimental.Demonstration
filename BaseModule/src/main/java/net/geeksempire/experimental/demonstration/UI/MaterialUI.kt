@@ -1,6 +1,5 @@
 package net.geeksempire.experimental.demonstration.UI
 
-import android.app.Activity
 import android.graphics.*
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
@@ -8,12 +7,17 @@ import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.VectorDrawable
 import android.graphics.drawable.shapes.RoundRectShape
 import android.os.Bundle
+import androidx.annotation.NonNull
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.graphics.drawable.toBitmap
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import kotlinx.android.synthetic.main.ui_material.*
 import net.geeksempire.experimental.demonstration.R
 
-class MaterialUI : Activity() {
+
+class MaterialUI : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,13 +40,24 @@ class MaterialUI : Activity() {
         window.setBackgroundDrawable(GradientDrawable(GradientDrawable.Orientation.TR_BL,
             intArrayOf(Color.BLUE, Color.GREEN, Color.CYAN, Color.RED, Color.MAGENTA)))
 
-
+        setupYouTubePlayer()
 
     }
 
-    fun setupLiquidViewPager() {
+    fun setupYouTubePlayer() {
 
+        lifecycle.addObserver(youTubePlayerView)
 
+        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+
+            override fun onReady(@NonNull youTubePlayer: YouTubePlayer) {
+
+                val videoId = "cEeaajEFL1k"
+
+                youTubePlayer.loadVideo(videoId, 0f)
+            }
+
+        })
 
     }
 

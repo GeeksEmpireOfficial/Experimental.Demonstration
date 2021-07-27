@@ -121,4 +121,16 @@
         apps:layout_constraintStart_toStartOf="@id/polygonView"
         apps:layout_constraintTop_toTopOf="@id/polygonView" />
 
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youTubePlayerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        apps:videoId="xpaWza6n24Y"
+        apps:enableAutomaticInitialization="true"
+        apps:autoPlay="false"
+        apps:showFullScreenButton="false"
+
+        apps:layout_constraintTop_toTopOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
