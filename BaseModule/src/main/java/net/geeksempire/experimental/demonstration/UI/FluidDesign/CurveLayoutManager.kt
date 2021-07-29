@@ -31,7 +31,18 @@ class CurveLayoutManager(private val context: Context,
         super.onLayoutChildren(recycler, state)
 
         fill(recycler, state)
+
     }
+
+    override fun smoothScrollToPosition(recyclerView: RecyclerView?, state: RecyclerView.State?, position: Int) {
+        super.smoothScrollToPosition(recyclerView, state, position)
+    }
+
+    override fun getChildCount(): Int {
+        return super.getChildCount()
+    }
+
+
 
     override fun scrollToPosition(position: Int) {
         super.scrollToPosition(position)
@@ -68,6 +79,8 @@ class CurveLayoutManager(private val context: Context,
                 bottom.toInt()
             )
 
+
+
         }
 
         recycler.scrapList.toList().forEach {
@@ -82,7 +95,7 @@ class CurveLayoutManager(private val context: Context,
 
         val s = (screenWidth.toDouble() / 2)
 
-        val radius = ((h * h + s * s) / (h * 2)) + DpToPixel(666f)
+        val radius = ((h * h + s * s) / (h * 2)) + dpToPixel(666f)
 
         val xScreenFraction = viewCenterX.toDouble() / screenWidth.toDouble()
         val beta = acos(s / radius)
@@ -97,7 +110,7 @@ class CurveLayoutManager(private val context: Context,
         return dp * context.resources.displayMetrics.density
     }
 
-    fun DpToPixel(dp: Float): Float {
+    private fun dpToPixel(dp: Float): Float {
         val resources = context.resources
         val metrics = resources.displayMetrics
         return dp * (metrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)

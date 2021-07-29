@@ -37,55 +37,67 @@ class FluidUI : AppCompatActivity() {
 
         }
 
-        val curvedAdapter: CurvedAdapter = CurvedAdapter(this@FluidUI)
-
         uiFluidBinding.curveRecyclerView.post {
 
-            curvedAdapter.listOfFragment.clear()
+            val listOfFragment = ArrayList<String>()
 
-            curvedAdapter.listOfFragment.add("000")
-            curvedAdapter.listOfFragment.add("111")
-            curvedAdapter.listOfFragment.add("222")
-            curvedAdapter.listOfFragment.add("333")
-            curvedAdapter.listOfFragment.add("444")
-            curvedAdapter.listOfFragment.add("555")
-            curvedAdapter.listOfFragment.add("666")
-            curvedAdapter.listOfFragment.add("777")
-            curvedAdapter.listOfFragment.add("888")
-            curvedAdapter.listOfFragment.add("999")
-            curvedAdapter.listOfFragment.add("AAA")
-            curvedAdapter.listOfFragment.add("BBB")
-            curvedAdapter.listOfFragment.add("CCC")
-            curvedAdapter.listOfFragment.add("DDD")
-            curvedAdapter.listOfFragment.add("EEE")
-            curvedAdapter.listOfFragment.add("FFF")
-            curvedAdapter.listOfFragment.add("GGG")
-            curvedAdapter.listOfFragment.add("HHH")
-            curvedAdapter.listOfFragment.add("III")
-            curvedAdapter.listOfFragment.add("JJJ")
-            curvedAdapter.listOfFragment.add("KKK")
-            curvedAdapter.listOfFragment.add("LLL")
-            curvedAdapter.listOfFragment.add("MMM")
-            curvedAdapter.listOfFragment.add("NNN")
-            curvedAdapter.listOfFragment.add("OOO")
-            curvedAdapter.listOfFragment.add("PPP")
-            curvedAdapter.listOfFragment.add("QQQ")
-            curvedAdapter.listOfFragment.add("RRR")
-            curvedAdapter.listOfFragment.add("SSS")
-            curvedAdapter.listOfFragment.add("TTT")
-            curvedAdapter.listOfFragment.add("UUU")
-            curvedAdapter.listOfFragment.add("VVV")
-            curvedAdapter.listOfFragment.add("WWW")
-            curvedAdapter.listOfFragment.add("XXX")
-            curvedAdapter.listOfFragment.add("YYY")
-            curvedAdapter.listOfFragment.add("ZZZ")
+            listOfFragment.clear()
+
+            listOfFragment.add("000")
+            listOfFragment.add("111")
+            listOfFragment.add("222")
+            listOfFragment.add("333")
+            listOfFragment.add("444")
+            listOfFragment.add("555")
+            listOfFragment.add("666")
+            listOfFragment.add("777")
+            listOfFragment.add("888")
+            listOfFragment.add("999")
+            listOfFragment.add("AAA")
+            listOfFragment.add("BBB")
+            listOfFragment.add("CCC")
+            listOfFragment.add("DDD")
+            listOfFragment.add("EEE")
+            listOfFragment.add("FFF")
+            listOfFragment.add("GGG")
+            listOfFragment.add("HHH")
+            listOfFragment.add("III")
+            listOfFragment.add("JJJ")
+            listOfFragment.add("KKK")
+            listOfFragment.add("LLL")
+            listOfFragment.add("MMM")
+            listOfFragment.add("NNN")
+            listOfFragment.add("OOO")
+            listOfFragment.add("PPP")
+            listOfFragment.add("QQQ")
+            listOfFragment.add("RRR")
+            listOfFragment.add("SSS")
+            listOfFragment.add("TTT")
+            listOfFragment.add("UUU")
+            listOfFragment.add("VVV")
+            listOfFragment.add("WWW")
+            listOfFragment.add("XXX")
+            listOfFragment.add("YYY")
+            listOfFragment.add("ZZZ")
 
             val curveLayoutManager = CurveLayoutManager(context = applicationContext)
+
+            val curvedAdapter: CurvedAdapter = CurvedAdapter(this@FluidUI)
+            curvedAdapter.listOfFragment = listOfFragment
+
             uiFluidBinding.curveRecyclerView.layoutManager = curveLayoutManager
             uiFluidBinding.curveRecyclerView.adapter = curvedAdapter
 
             val snapHelper: SnapHelper = PagerSnapHelper()
             snapHelper.attachToRecyclerView(uiFluidBinding.curveRecyclerView)
+
+            uiFluidBinding.curveRecyclerView.setOnScrollChangeListener { view, scrollX, scrollY, oldScrollX, oldScrollY ->
+
+                println(">>> X: $scrollX | Y: $scrollY")
+
+
+
+            }
 
         }
 

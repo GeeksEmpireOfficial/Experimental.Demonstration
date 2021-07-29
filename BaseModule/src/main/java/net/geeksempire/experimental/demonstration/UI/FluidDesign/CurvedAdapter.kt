@@ -11,7 +11,7 @@ import net.geeksempire.experimental.demonstration.R
 
 class CurvedAdapter (val context: AppCompatActivity): RecyclerView.Adapter<PageViewHolder>() {
 
-    val listOfFragment = ArrayList<String>()
+    var listOfFragment = ArrayList<String>()
 
     val colors = arrayOf(Color.RED, Color.BLUE, Color.MAGENTA, Color.CYAN, Color.BLACK, Color.WHITE, Color.YELLOW, Color.DKGRAY, Color.GRAY, Color.GREEN)
 
