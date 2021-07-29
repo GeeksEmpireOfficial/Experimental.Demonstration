@@ -8,10 +8,7 @@ android {
 
     defaultConfig {
         minSdkVersion 24
-        targetSdkVersion 30
 
-        versionCode rootProject.versionCode
-        versionName rootProject.versionName
     }
 
     compileOptions {
