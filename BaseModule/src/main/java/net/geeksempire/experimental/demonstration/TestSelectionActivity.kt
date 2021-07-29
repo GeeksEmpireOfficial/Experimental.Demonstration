@@ -69,6 +69,8 @@ class TestSelectionActivity : BaseConfigurations() {
 
         functionsClass = FunctionsClass(applicationContext)
 
+        testView.background = getDrawable(R.drawable.multicolor_gradient)
+
         googlePay.setOnClickListener {
             startActivity(Intent(applicationContext, InitializeGooglePay::class.java))
         }

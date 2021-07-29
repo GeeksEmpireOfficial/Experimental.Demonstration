@@ -36,7 +36,7 @@
         <activity
             android:name=".TestSelectionActivity"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents">
+            android:theme="@style/Theme.MaterialComponents.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

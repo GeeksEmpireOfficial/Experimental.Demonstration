@@ -1,6 +1,7 @@
 package net.geeksempire.experimental.demonstration.UI.FluidDesign
 
 import android.content.Context
+import android.util.DisplayMetrics
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.PI
@@ -8,7 +9,8 @@ import kotlin.math.acos
 import kotlin.math.sin
 
 
-class CurveLayoutManager(private val context: Context, private var horizontalOffset: Int = 0) : RecyclerView.LayoutManager() {
+class CurveLayoutManager(private val context: Context,
+                         private var horizontalOffset: Int = 0) : RecyclerView.LayoutManager() {
 
     override fun generateDefaultLayoutParams(): RecyclerView.LayoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
@@ -30,14 +32,15 @@ class CurveLayoutManager(private val context: Context, private var horizontalOff
     }
 
     private fun fill(recycler: RecyclerView.Recycler?, state: RecyclerView.State?) {
+
         detachAndScrapAttachedViews(recycler ?: return)
 
         for (itemIndex in 0 until itemCount) {
             val view = recycler.getViewForPosition(itemIndex)
             addView(view)
 
-            val viewWidth = pxFromDp(context, 90f)
-            val viewHeight = pxFromDp(context, 90f)
+            val viewWidth = pxFromDp(context, 333f)
+            val viewHeight = pxFromDp(context, 512f)
 
             val left = (itemIndex * viewWidth) - horizontalOffset
             val right = left + viewWidth
@@ -65,8 +68,8 @@ class CurveLayoutManager(private val context: Context, private var horizontalOff
     private fun computeYComponent(viewCenterX: Float,
                                   h: Float): Pair<Int, Double> {
         val screenWidth = context.resources.displayMetrics.widthPixels
-        val s = screenWidth.toDouble() / 2
-        val radius = (h * h + s * s) / (h * 2)
+        val s = (screenWidth.toDouble() / 2)
+        val radius = ((h * h + s * s) / (h * 2)) + DpToPixel(666f)
 
         val xScreenFraction = viewCenterX.toDouble() / screenWidth.toDouble()
         val beta = acos(s / radius)
@@ -79,5 +82,11 @@ class CurveLayoutManager(private val context: Context, private var horizontalOff
 
     private fun pxFromDp(context: Context, dp: Float): Float {
         return dp * context.resources.displayMetrics.density
+    }
+
+    fun DpToPixel(dp: Float): Float {
+        val resources = context.resources
+        val metrics = resources.displayMetrics
+        return dp * (metrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
     }
 }

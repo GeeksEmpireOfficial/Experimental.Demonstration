@@ -14,14 +14,12 @@
 
         apps:layout_constraintTop_toTopOf="parent"/>
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/curveRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="159dp"
-        android:layout_marginTop="203dp"
-        android:textColor="@color/white"
-        android:background="@color/red"
+        android:layout_height="512dp"
+        android:layout_marginTop="253dp"
+        android:background="@color/default_color_light"
 
         apps:layout_constraintTop_toTopOf="parent"/>
 

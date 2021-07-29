@@ -5,11 +5,12 @@
     xmlns:apps="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
+        android:id="@+id/testView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/testView"
         android:paddingHorizontal="3dp"
-        android:paddingVertical="51dp">
+        android:paddingVertical="51dp"
+        android:background="@drawable/multicolor_gradient">
 
         <ImageView
             android:id="@+id/googlePay"

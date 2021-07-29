@@ -18,8 +18,6 @@ class FluidUI : AppCompatActivity() {
 
         val fluidPagerAdapter: FluidPagerAdapter = FluidPagerAdapter(this@FluidUI)
 
-
-
         uiFluidBinding.viewPager.post {
 
             fluidPagerAdapter.listOfFragment.clear()
@@ -39,22 +37,35 @@ class FluidUI : AppCompatActivity() {
 
         }
 
+        val curvedAdapter: CurvedAdapter = CurvedAdapter(this@FluidUI)
+
         uiFluidBinding.curveRecyclerView.post {
 
-            fluidPagerAdapter.listOfFragment.clear()
+            curvedAdapter.listOfFragment.clear()
 
-            fluidPagerAdapter.listOfFragment.add("111")
-            fluidPagerAdapter.listOfFragment.add("222")
-            fluidPagerAdapter.listOfFragment.add("333")
-            fluidPagerAdapter.listOfFragment.add("444")
-            fluidPagerAdapter.listOfFragment.add("555")
-            fluidPagerAdapter.listOfFragment.add("666")
-            fluidPagerAdapter.listOfFragment.add("777")
-            fluidPagerAdapter.listOfFragment.add("888")
-            fluidPagerAdapter.listOfFragment.add("999")
+            curvedAdapter.listOfFragment.add("000")
+            curvedAdapter.listOfFragment.add("111")
+            curvedAdapter.listOfFragment.add("222")
+            curvedAdapter.listOfFragment.add("333")
+            curvedAdapter.listOfFragment.add("444")
+            curvedAdapter.listOfFragment.add("555")
+            curvedAdapter.listOfFragment.add("666")
+            curvedAdapter.listOfFragment.add("777")
+            curvedAdapter.listOfFragment.add("888")
+            curvedAdapter.listOfFragment.add("999")
+            curvedAdapter.listOfFragment.add("AAA")
+            curvedAdapter.listOfFragment.add("BBB")
+            curvedAdapter.listOfFragment.add("CCC")
+            curvedAdapter.listOfFragment.add("DDD")
+            curvedAdapter.listOfFragment.add("EEE")
+            curvedAdapter.listOfFragment.add("FFF")
+            curvedAdapter.listOfFragment.add("GGG")
+            curvedAdapter.listOfFragment.add("HHH")
 
-            uiFluidBinding.curveRecyclerView.layoutManager = CurveLayoutManager(applicationContext, horizontalOffset = 3)
-            uiFluidBinding.curveRecyclerView.adapter = fluidPagerAdapter
+            uiFluidBinding.curveRecyclerView.layoutManager = CurveLayoutManager(
+                context = applicationContext,
+                horizontalOffset = 7)
+            uiFluidBinding.curveRecyclerView.adapter = curvedAdapter
 
             val snapHelper: SnapHelper = PagerSnapHelper()
             snapHelper.attachToRecyclerView(uiFluidBinding.curveRecyclerView)
