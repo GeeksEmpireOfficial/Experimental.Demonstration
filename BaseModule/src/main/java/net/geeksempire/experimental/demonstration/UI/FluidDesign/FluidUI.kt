@@ -91,14 +91,6 @@ class FluidUI : AppCompatActivity() {
             val snapHelper: SnapHelper = PagerSnapHelper()
             snapHelper.attachToRecyclerView(uiFluidBinding.curveRecyclerView)
 
-            uiFluidBinding.curveRecyclerView.setOnScrollChangeListener { view, scrollX, scrollY, oldScrollX, oldScrollY ->
-
-                println(">>> X: $scrollX | Y: $scrollY")
-
-
-
-            }
-
         }
 
     }

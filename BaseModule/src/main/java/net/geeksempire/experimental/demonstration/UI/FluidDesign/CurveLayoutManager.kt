@@ -2,6 +2,7 @@ package net.geeksempire.experimental.demonstration.UI.FluidDesign
 
 import android.content.Context
 import android.util.DisplayMetrics
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.PI
@@ -10,13 +11,24 @@ import kotlin.math.sin
 
 
 class CurveLayoutManager(private val context: Context,
-                         private var horizontalOffset: Int = 100) : RecyclerView.LayoutManager() {
+                         private var horizontalOffset: Int = 0) : RecyclerView.LayoutManager() {
+
+    init {
+
+
+
+
+    }
 
     var canScroll = true
 
     override fun generateDefaultLayoutParams(): RecyclerView.LayoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-    override fun canScrollHorizontally(): Boolean = canScroll
+    override fun canScrollHorizontally(): Boolean {
+        super.canScrollHorizontally()
+
+        return canScroll
+    }
 
     override fun scrollHorizontallyBy(dx: Int, recycler: RecyclerView.Recycler?, state: RecyclerView.State?): Int {
 
@@ -42,7 +54,9 @@ class CurveLayoutManager(private val context: Context,
         return super.getChildCount()
     }
 
-
+    override fun getPosition(view: View): Int {
+        return super.getPosition(view)
+    }
 
     override fun scrollToPosition(position: Int) {
         super.scrollToPosition(position)
