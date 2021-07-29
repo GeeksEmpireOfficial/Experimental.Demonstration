@@ -19,7 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="512dp"
         android:layout_marginTop="253dp"
-        android:background="@color/default_color_light"
 
         apps:layout_constraintTop_toTopOf="parent"/>
 
