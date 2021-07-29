@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import net.geeksempire.experimental.demonstration.R
@@ -32,6 +33,12 @@ class CurvedAdapter (val context: AppCompatActivity): RecyclerView.Adapter<PageV
         pageViewHolder.textView.background = gradientDrawable
 
         pageViewHolder.textView.text = listOfFragment[position]
+
+        pageViewHolder.rootViewItem.setOnClickListener {
+
+            Toast.makeText(context, listOfFragment[position], Toast.LENGTH_SHORT).show()
+
+        }
 
     }
 

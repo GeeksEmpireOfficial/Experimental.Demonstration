@@ -31,12 +31,16 @@ class CurveLayoutManager(private val context: Context,
         fill(recycler, state)
     }
 
+
+
     private fun fill(recycler: RecyclerView.Recycler?, state: RecyclerView.State?) {
 
         detachAndScrapAttachedViews(recycler ?: return)
 
         for (itemIndex in 0 until itemCount) {
+
             val view = recycler.getViewForPosition(itemIndex)
+
             addView(view)
 
             val viewWidth = pxFromDp(context, 333f)
@@ -58,6 +62,7 @@ class CurveLayoutManager(private val context: Context,
                 right.toInt(),
                 bottom.toInt()
             )
+
         }
 
         recycler.scrapList.toList().forEach {
@@ -67,8 +72,11 @@ class CurveLayoutManager(private val context: Context,
 
     private fun computeYComponent(viewCenterX: Float,
                                   h: Float): Pair<Int, Double> {
+
         val screenWidth = context.resources.displayMetrics.widthPixels
+
         val s = (screenWidth.toDouble() / 2)
+
         val radius = ((h * h + s * s) / (h * 2)) + DpToPixel(666f)
 
         val xScreenFraction = viewCenterX.toDouble() / screenWidth.toDouble()

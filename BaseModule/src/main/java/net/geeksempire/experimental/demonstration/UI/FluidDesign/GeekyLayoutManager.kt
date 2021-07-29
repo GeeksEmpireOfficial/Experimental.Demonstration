@@ -12,4 +12,20 @@ class GeekyLayoutManager : RecyclerView.LayoutManager() {
         return layoutParameters
     }
 
+    override fun canScrollHorizontally(): Boolean = true
+
+    override fun scrollHorizontallyBy(dx: Int, recycler: RecyclerView.Recycler?, state: RecyclerView.State?): Int {
+
+
+
+        return dx
+    }
+
+    override fun onLayoutChildren(recycler: RecyclerView.Recycler?, recyclerViewState: RecyclerView.State?) {
+        super.onLayoutChildren(recycler, recyclerViewState)
+
+
+
+    }
+
 }

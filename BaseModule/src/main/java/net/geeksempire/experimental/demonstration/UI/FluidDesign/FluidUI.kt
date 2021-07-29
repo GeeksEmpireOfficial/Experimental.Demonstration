@@ -61,10 +61,27 @@ class FluidUI : AppCompatActivity() {
             curvedAdapter.listOfFragment.add("FFF")
             curvedAdapter.listOfFragment.add("GGG")
             curvedAdapter.listOfFragment.add("HHH")
+            curvedAdapter.listOfFragment.add("III")
+            curvedAdapter.listOfFragment.add("JJJ")
+            curvedAdapter.listOfFragment.add("KKK")
+            curvedAdapter.listOfFragment.add("LLL")
+            curvedAdapter.listOfFragment.add("MMM")
+            curvedAdapter.listOfFragment.add("NNN")
+            curvedAdapter.listOfFragment.add("OOO")
+            curvedAdapter.listOfFragment.add("PPP")
+            curvedAdapter.listOfFragment.add("QQQ")
+            curvedAdapter.listOfFragment.add("RRR")
+            curvedAdapter.listOfFragment.add("SSS")
+            curvedAdapter.listOfFragment.add("TTT")
+            curvedAdapter.listOfFragment.add("UUU")
+            curvedAdapter.listOfFragment.add("VVV")
+            curvedAdapter.listOfFragment.add("WWW")
+            curvedAdapter.listOfFragment.add("XXX")
+            curvedAdapter.listOfFragment.add("YYY")
+            curvedAdapter.listOfFragment.add("ZZZ")
 
-            uiFluidBinding.curveRecyclerView.layoutManager = CurveLayoutManager(
-                context = applicationContext,
-                horizontalOffset = 7)
+            val curveLayoutManager = CurveLayoutManager(context = applicationContext)
+            uiFluidBinding.curveRecyclerView.layoutManager = curveLayoutManager
             uiFluidBinding.curveRecyclerView.adapter = curvedAdapter
 
             val snapHelper: SnapHelper = PagerSnapHelper()
