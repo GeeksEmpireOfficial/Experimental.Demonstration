@@ -10,11 +10,13 @@ import kotlin.math.sin
 
 
 class CurveLayoutManager(private val context: Context,
-                         private var horizontalOffset: Int = 0) : RecyclerView.LayoutManager() {
+                         private var horizontalOffset: Int = 100) : RecyclerView.LayoutManager() {
+
+    var canScroll = true
 
     override fun generateDefaultLayoutParams(): RecyclerView.LayoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-    override fun canScrollHorizontally(): Boolean = true
+    override fun canScrollHorizontally(): Boolean = canScroll
 
     override fun scrollHorizontallyBy(dx: Int, recycler: RecyclerView.Recycler?, state: RecyclerView.State?): Int {
 
@@ -31,7 +33,10 @@ class CurveLayoutManager(private val context: Context,
         fill(recycler, state)
     }
 
+    override fun scrollToPosition(position: Int) {
+        super.scrollToPosition(position)
 
+    }
 
     private fun fill(recycler: RecyclerView.Recycler?, state: RecyclerView.State?) {
 
