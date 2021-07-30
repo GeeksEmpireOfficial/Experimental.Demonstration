@@ -2,10 +2,16 @@ package net.geeksempire.experimental.demonstration.UI.FluidDesign
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import androidx.viewpager2.widget.ViewPager2
+import net.geeksempire.experimental.demonstration.UI.CurveLayoutManager.FanChildDrawingOrderCallback
+import net.geeksempire.experimental.demonstration.UI.CurveLayoutManager.FanLayoutManager
+import net.geeksempire.experimental.demonstration.UI.CurveLayoutManager.FanLayoutManagerSettings
 import net.geeksempire.experimental.demonstration.databinding.UiFluidBinding
+
 
 class FluidUI : AppCompatActivity() {
 
@@ -80,16 +86,45 @@ class FluidUI : AppCompatActivity() {
             listOfFragment.add("YYY")
             listOfFragment.add("ZZZ")
 
-            val curveLayoutManager = CurveLayoutManager(context = applicationContext)
+            val fanLayoutManagerSettings = FanLayoutManagerSettings
+                .newBuilder(applicationContext)
+                .withFanRadius(true)
+                .withViewWidthDp(333f)
+                .withViewHeightDp(512f)
+                .build()
+
+            val curveLayoutManager = FanLayoutManager(applicationContext, fanLayoutManagerSettings)
 
             val curvedAdapter: CurvedAdapter = CurvedAdapter(this@FluidUI)
             curvedAdapter.listOfFragment = listOfFragment
 
             uiFluidBinding.curveRecyclerView.layoutManager = curveLayoutManager
-            uiFluidBinding.curveRecyclerView.adapter = curvedAdapter
+            uiFluidBinding.curveRecyclerView.itemAnimator = DefaultItemAnimator()
 
             val snapHelper: SnapHelper = PagerSnapHelper()
             snapHelper.attachToRecyclerView(uiFluidBinding.curveRecyclerView)
+
+            uiFluidBinding.curveRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    super.onScrollStateChanged(recyclerView, newState)
+
+                    when (newState) {
+                        RecyclerView.SCROLL_STATE_IDLE -> {
+
+                            val currentItemPosition = curveLayoutManager.findCurrentCenterViewPos()
+
+
+                        }
+                    }
+
+                }
+
+            })
+
+            uiFluidBinding.curveRecyclerView.adapter = curvedAdapter
+
+            uiFluidBinding.curveRecyclerView.setChildDrawingOrderCallback(FanChildDrawingOrderCallback(curveLayoutManager));
 
         }
 
