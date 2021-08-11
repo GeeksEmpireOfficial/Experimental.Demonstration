@@ -41,6 +41,8 @@ class FluidUI : AppCompatActivity() {
             uiFluidBinding.viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
             uiFluidBinding.viewPager.adapter = fluidPagerAdapter
 
+            val rotatePageTransition = RotatePageTransition()
+            uiFluidBinding.viewPager.setPageTransformer(rotatePageTransition)
         }
 
         uiFluidBinding.curveRecyclerView.post {
