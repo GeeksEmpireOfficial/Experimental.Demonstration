@@ -12,7 +12,6 @@ import net.geeksempire.experimental.demonstration.UI.CurveLayoutManager.FanLayou
 import net.geeksempire.experimental.demonstration.UI.CurveLayoutManager.FanLayoutManagerSettings
 import net.geeksempire.experimental.demonstration.databinding.UiFluidBinding
 
-
 class FluidUI : AppCompatActivity() {
 
     lateinit var uiFluidBinding: UiFluidBinding
@@ -37,13 +36,59 @@ class FluidUI : AppCompatActivity() {
             fluidPagerAdapter.listOfFragment.add("777")
             fluidPagerAdapter.listOfFragment.add("888")
             fluidPagerAdapter.listOfFragment.add("999")
+            fluidPagerAdapter.listOfFragment.add("000")
+            fluidPagerAdapter.listOfFragment.add("111")
+            fluidPagerAdapter.listOfFragment.add("222")
+            fluidPagerAdapter.listOfFragment.add("333")
+            fluidPagerAdapter.listOfFragment.add("444")
+            fluidPagerAdapter.listOfFragment.add("555")
+            fluidPagerAdapter.listOfFragment.add("666")
+            fluidPagerAdapter.listOfFragment.add("777")
+            fluidPagerAdapter.listOfFragment.add("888")
+            fluidPagerAdapter.listOfFragment.add("999")
+            fluidPagerAdapter.listOfFragment.add("AAA")
+            fluidPagerAdapter.listOfFragment.add("BBB")
+            fluidPagerAdapter.listOfFragment.add("CCC")
+            fluidPagerAdapter.listOfFragment.add("DDD")
+            fluidPagerAdapter.listOfFragment.add("EEE")
+            fluidPagerAdapter.listOfFragment.add("FFF")
+            fluidPagerAdapter.listOfFragment.add("GGG")
+            fluidPagerAdapter.listOfFragment.add("HHH")
+            fluidPagerAdapter.listOfFragment.add("III")
+            fluidPagerAdapter.listOfFragment.add("JJJ")
+            fluidPagerAdapter.listOfFragment.add("KKK")
+            fluidPagerAdapter.listOfFragment.add("LLL")
+            fluidPagerAdapter.listOfFragment.add("MMM")
+            fluidPagerAdapter.listOfFragment.add("NNN")
+            fluidPagerAdapter.listOfFragment.add("OOO")
+            fluidPagerAdapter.listOfFragment.add("PPP")
+            fluidPagerAdapter.listOfFragment.add("QQQ")
+            fluidPagerAdapter.listOfFragment.add("RRR")
+            fluidPagerAdapter.listOfFragment.add("SSS")
+            fluidPagerAdapter.listOfFragment.add("TTT")
+            fluidPagerAdapter.listOfFragment.add("UUU")
+            fluidPagerAdapter.listOfFragment.add("VVV")
+            fluidPagerAdapter.listOfFragment.add("WWW")
+            fluidPagerAdapter.listOfFragment.add("XXX")
+            fluidPagerAdapter.listOfFragment.add("YYY")
+            fluidPagerAdapter.listOfFragment.add("ZZZ")
 
             uiFluidBinding.viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
             uiFluidBinding.viewPager.adapter = fluidPagerAdapter
 
-            val rotatePageTransition = RotatePageTransition()
-            rotatePageTransition.pageRotation = -7f
-            uiFluidBinding.viewPager.setPageTransformer(rotatePageTransition)
+            uiFluidBinding.viewPager.setPageTransformer { page, position ->
+
+                val width = page.width
+                val height = page.height
+
+                val rotation = -13f * position * -1.25f
+
+                page.pivotX = width * 0.5f
+                page.pivotY = height.toFloat()
+                page.rotation = rotation
+
+            }
+
         }
 
         uiFluidBinding.curveRecyclerView.post {

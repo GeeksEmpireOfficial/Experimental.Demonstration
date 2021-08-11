@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="193dp"
+        android:layout_height="393dp"
         android:gravity="center"
         android:text="Initial"
         android:textSize="51sp"
