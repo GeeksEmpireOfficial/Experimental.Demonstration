@@ -42,6 +42,7 @@ class FluidUI : AppCompatActivity() {
             uiFluidBinding.viewPager.adapter = fluidPagerAdapter
 
             val rotatePageTransition = RotatePageTransition()
+            rotatePageTransition.pageRotation = -7f
             uiFluidBinding.viewPager.setPageTransformer(rotatePageTransition)
         }
 
